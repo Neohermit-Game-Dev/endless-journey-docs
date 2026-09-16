@@ -8,16 +8,18 @@ events into QuestManager progress calls:
   - EnemyKills (Party): an EnemyNPC-tagged Humanoid dies.
   - DistanceTravelled (Party): the train is in its &quot;go&quot; state, per tick.
   - JunkCollected (Personal): a player finalizes a junk grab.
+  - BiomeJumps (Party): a jump arrives at its destination (not when it starts).
 Mirrors XPSystemLoader. Does NOT call Initialize (QuestSystemLoader owns that).
 Safe in the lobby place: those events simply never fire there."><meta data-rh="true" property="og:description" content="Gameplay progress sources for the quest system. Translates server-authoritative
 events into QuestManager progress calls:
   - EnemyKills (Party): an EnemyNPC-tagged Humanoid dies.
   - DistanceTravelled (Party): the train is in its &quot;go&quot; state, per tick.
   - JunkCollected (Personal): a player finalizes a junk grab.
+  - BiomeJumps (Party): a jump arrives at its destination (not when it starts).
 Mirrors XPSystemLoader. Does NOT call Initialize (QuestSystemLoader owns that).
 Safe in the lobby place: those events simply never fire there."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestSourcesLoader"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestSourcesLoader" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestSourcesLoader" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.498de907.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.e1545b2c.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.daeb4c62.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.36971a88.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -31,8 +33,9 @@ Safe in the lobby place: those events simply never fire there."><link data-rh="t
 <ul>
   <li>EnemyKills (Party): an EnemyNPC-tagged Humanoid dies.</li>
   <li>DistanceTravelled (Party): the train is in its "go" state, per tick.</li>
+  <li>JunkCollected (Personal): a player finalizes a junk grab.</li>
   <li>
-    JunkCollected (Personal): a player finalizes a junk grab.
+    BiomeJumps (Party): a jump arrives at its destination (not when it starts).
     Mirrors XPSystemLoader. Does NOT call Initialize (QuestSystemLoader owns that).
     Safe in the lobby place: those events simply never fire there.
   </li>
@@ -42,12 +45,12 @@ Safe in the lobby place: those events simply never fire there."><link data-rh="t
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;QuestSourcesLoader&quot;,
-    &quot;desc&quot;: &quot;Gameplay progress sources for the quest system. Translates server-authoritative\nevents into QuestManager progress calls:\n  - EnemyKills (Party): an EnemyNPC-tagged Humanoid dies.\n  - DistanceTravelled (Party): the train is in its \&quot;go\&quot; state, per tick.\n  - JunkCollected (Personal): a player finalizes a junk grab.\nMirrors XPSystemLoader. Does NOT call Initialize (QuestSystemLoader owns that).\nSafe in the lobby place: those events simply never fire there.&quot;,
+    &quot;desc&quot;: &quot;Gameplay progress sources for the quest system. Translates server-authoritative\nevents into QuestManager progress calls:\n  - EnemyKills (Party): an EnemyNPC-tagged Humanoid dies.\n  - DistanceTravelled (Party): the train is in its \&quot;go\&quot; state, per tick.\n  - JunkCollected (Personal): a player finalizes a junk grab.\n  - BiomeJumps (Party): a jump arrives at its destination (not when it starts).\nMirrors XPSystemLoader. Does NOT call Initialize (QuestSystemLoader owns that).\nSafe in the lobby place: those events simply never fire there.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 14,
+        &quot;line&quot;: 15,
         &quot;path&quot;: &quot;src/ServerScriptService/QuestSourcesLoader.server.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[9597],{533:e=>{e.exports=JSON.parse('[{"value":"Functions","id":"functions","level":2},{"value":".ApplyDamage","id":"ApplyDamage","level":3},{"value":".GetShield","id":"GetShield","level":3},{"value":".Initialize","id":"Initialize","level":3},{"value":".SetJumpFreeze","id":"SetJumpFreeze","level":3}]')}}]);
