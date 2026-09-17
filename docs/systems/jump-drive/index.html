@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Jump Drive | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Jump Drive | Endless Journey"><meta data-rh="true" name="description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><meta data-rh="true" property="og:description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems"},{"@type":"ListItem","position":2,"name":"Jump Drive","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.daeb4c62.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.36971a88.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.d4911af0.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.0c1b8278.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -23,7 +23,8 @@ excluded from the published Moonwave site, so this is a repo path, not a doc lin
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="at-a-glance">At a glance<a href="#at-a-glance" class="hash-link" aria-label="Direct link to At a glance" title="Direct link to At a glance" translate="no">​</a></h2>
 <table><thead><tr><th>Layer</th><th>File</th><th>Role</th></tr></thead><tbody><tr><td>Server</td><td><code>src/ServerStorage/SharedModules/JumpDriveManager.luau</code></td><td>Authority: charge gauge, deposit handling, vote, phase state machine, biome seam, arrival rewards</td></tr><tr><td>Server</td><td><code>src/ServerScriptService/JumpDriveSystemLoader.server.luau</code></td><td>Bootstrap — calls <code>JumpDriveManager.Initialize()</code></td></tr><tr><td>Client</td><td><code>src/StarterPlayer/StarterPlayerScripts/JumpDriveGuiController.client.luau</code></td><td>Bench panel (charge, destination, Jump button, named vote roster) + pushed vote banner</td></tr><tr><td>Client</td><td><code>src/StarterPlayer/StarterPlayerScripts/JumpTransitionController.client.luau</code></td><td>Wormhole/lightspeed VFX, post-processing wash, SFX — owns one <code>Janitor</code> per jump</td></tr><tr><td>Config</td><td><code>src/ReplicatedStorage/SharedModules/Configs/JumpDriveConfig.luau</code></td><td>Bench tags/prompt names, charge values, phase durations, biome registry, arrival rewards, VFX tuning</td></tr><tr><td>Shared</td><td><code>src/ReplicatedStorage/SharedModules/JumpDriveResultCodes.luau</code></td><td>Deposit/vote/jump rejection codes</td></tr></tbody></table>
 <p><strong>Packets:</strong> <code>JumpStateSync</code>, <code>ReqDepositJumpCharge</code>, <code>ReqStartJumpVote</code>, <code>ReqCastJumpVote</code> — see <a class="" href="/endless-journey-docs/docs/reference/networking-map">Networking Map</a>
-<strong>Signals:</strong> <code>OnJumpPhaseChanged</code> — see <a class="" href="/endless-journey-docs/docs/reference/signals-map">Signals Map</a></p>
+<strong>Signals:</strong> <code>OnJumpPhaseChanged</code> — see <a class="" href="/endless-journey-docs/docs/reference/signals-map">Signals Map</a>
+<strong>Join-time delivery:</strong> via <code>JoinSync</code> on <code>ClientReady</code>, not <code>Players.PlayerAdded</code> — see <a class="" href="/endless-journey-docs/docs/reference/join-sync">Join-Sync Snapshot Handshake</a></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-it-works">How it works<a href="#how-it-works" class="hash-link" aria-label="Direct link to How it works" title="Direct link to How it works" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-charge-gauge">The charge gauge<a href="#the-charge-gauge" class="hash-link" aria-label="Direct link to The charge gauge" title="Direct link to The charge gauge" translate="no">​</a></h3>
 <p>A single scalar <code>0..JumpDriveConfig.MAX_CHARGE</code>, server-authoritative and global
@@ -49,7 +50,14 @@ prediction pattern <code>TrainStateSync</code> uses for the fuel bar), so there&
 per-frame server traffic. <code>InWormhole</code> broadcasts <code>phaseEndsAt = 0</code>, meaning
 <em>indefinite — hold the current visual state until the next broadcast</em>; clients
 must treat <code>0</code> as &quot;no known end,&quot; never as &quot;already expired.&quot; Joining players
-get the current snapshot on <code>Players.PlayerAdded</code>.</p>
+get the current snapshot via a <a class="" href="/endless-journey-docs/docs/reference/join-sync"><code>JoinSync</code></a> sender
+(<code>&quot;JumpDrive&quot;</code>), run once the client announces readiness with <code>ClientReady</code> —
+not from <code>Players.PlayerAdded</code>, which is unreliable (see
+<a class="" href="/endless-journey-docs/docs/reference/join-sync">Join-Sync Snapshot Handshake</a>). <code>JumpDriveGuiController</code>
+needs no client-side cache for this: <code>phaseEndsAt</code> is always a server-supplied
+absolute timestamp, and <code>countdownText()</code> already renders <code>&quot;--&quot;</code> when it is
+unset, so a dropped or delayed snapshot just leaves the countdown honestly
+blank rather than wrong.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-vote">The vote<a href="#the-vote" class="hash-link" aria-label="Direct link to The vote" title="Direct link to The vote" translate="no">​</a></h3>
 <p>Opening a vote (<code>ReqStartJumpVote</code>) requires standing at the bench and phase
 <code>Ready</code>; the opener is recorded as an automatic yes. Casting a ballot
