@@ -8,7 +8,9 @@ lever instances via `CollectionService` tags and wires their
 `ProximityPrompt`s: engine prompts send `ReqRefuelTrain` (with early-out
 notifications for missing energy items or a full tank), and lever prompts
 send `ReqToggleBrake` while keeping their `ActionText` in sync with the
-current brake state. Incoming `TrainStateSync` packets are bridged into
+current brake state. Lever models are also posed to match: the pivot swings
+between its authored pose and a `TrainConfig.BRAKE_LEVER_SWING_DEG` rotation
+via `MotionMaster`, purely client-side. Incoming `TrainStateSync` packets are bridged into
 `Signals.OnTrainStateChanged` so downstream controllers (e.g.
 `MusicDirector`) never touch the network layer directly. Each incoming
 snapshot is also written to `TrainStateCache` before that signal fires, so
@@ -18,14 +20,16 @@ lever instances via `CollectionService` tags and wires their
 `ProximityPrompt`s: engine prompts send `ReqRefuelTrain` (with early-out
 notifications for missing energy items or a full tank), and lever prompts
 send `ReqToggleBrake` while keeping their `ActionText` in sync with the
-current brake state. Incoming `TrainStateSync` packets are bridged into
+current brake state. Lever models are also posed to match: the pivot swings
+between its authored pose and a `TrainConfig.BRAKE_LEVER_SWING_DEG` rotation
+via `MotionMaster`, purely client-side. Incoming `TrainStateSync` packets are bridged into
 `Signals.OnTrainStateChanged` so downstream controllers (e.g.
 `MusicDirector`) never touch the network layer directly. Each incoming
 snapshot is also written to `TrainStateCache` before that signal fires, so
 a controller that subscribes late (e.g. `TrainFuelGuiController`) can still
 recover it."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainClient"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainClient" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainClient" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.d4911af0.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.31aa6ffa.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.c6c00e85.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.ea558af3.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -38,7 +42,9 @@ recover it."><link data-rh="true" rel="canonical" href="https://neohermit-game-d
   <code>ProximityPrompt</code>s: engine prompts send <code>ReqRefuelTrain</code> (with early-out
   notifications for missing energy items or a full tank), and lever prompts
   send <code>ReqToggleBrake</code> while keeping their <code>ActionText</code> in sync with the
-  current brake state. Incoming <code>TrainStateSync</code> packets are bridged into
+  current brake state. Lever models are also posed to match: the pivot swings
+  between its authored pose and a <code>TrainConfig.BRAKE_LEVER_SWING_DEG</code> rotation
+  via <code>MotionMaster</code>, purely client-side. Incoming <code>TrainStateSync</code> packets are bridged into
   <code>Signals.OnTrainStateChanged</code> so downstream controllers (e.g.
   <code>MusicDirector</code>) never touch the network layer directly. Each incoming
   snapshot is also written to <code>TrainStateCache</code> before that signal fires, so
@@ -50,12 +56,12 @@ recover it."><link data-rh="true" rel="canonical" href="https://neohermit-game-d
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;TrainClient&quot;,
-    &quot;desc&quot;: &quot;Client-side controller for train interaction. Discovers engine and brake\nlever instances via `CollectionService` tags and wires their\n`ProximityPrompt`s: engine prompts send `ReqRefuelTrain` (with early-out\nnotifications for missing energy items or a full tank), and lever prompts\nsend `ReqToggleBrake` while keeping their `ActionText` in sync with the\ncurrent brake state. Incoming `TrainStateSync` packets are bridged into\n`Signals.OnTrainStateChanged` so downstream controllers (e.g.\n`MusicDirector`) never touch the network layer directly. Each incoming\nsnapshot is also written to `TrainStateCache` before that signal fires, so\na controller that subscribes late (e.g. `TrainFuelGuiController`) can still\nrecover it.&quot;,
+    &quot;desc&quot;: &quot;Client-side controller for train interaction. Discovers engine and brake\nlever instances via `CollectionService` tags and wires their\n`ProximityPrompt`s: engine prompts send `ReqRefuelTrain` (with early-out\nnotifications for missing energy items or a full tank), and lever prompts\nsend `ReqToggleBrake` while keeping their `ActionText` in sync with the\ncurrent brake state. Lever models are also posed to match: the pivot swings\nbetween its authored pose and a `TrainConfig.BRAKE_LEVER_SWING_DEG` rotation\nvia `MotionMaster`, purely client-side. Incoming `TrainStateSync` packets are bridged into\n`Signals.OnTrainStateChanged` so downstream controllers (e.g.\n`MusicDirector`) never touch the network layer directly. Each incoming\nsnapshot is also written to `TrainStateCache` before that signal fires, so\na controller that subscribes late (e.g. `TrainFuelGuiController`) can still\nrecover it.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 19,
+        &quot;line&quot;: 21,
         &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/TrainClient.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
