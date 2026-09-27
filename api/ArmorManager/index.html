@@ -17,7 +17,7 @@ Everything else — maximum pool, reduction, type, tier — is derived from
 sink; it both computes the reduction and drains the pool, because the two
 cannot be split without the pool going stale. Ballistic kinds are destroyed
 at zero pool; Energy kinds survive at zero and protect nothing until
-`Recharge` refills them from Energy tools."><meta data-rh="true" property="og:description" content="Authority for a player&#x27;s crafted armor: which kinds they own, how much pool
+`Recharge` refills them from the shared pool Energy."><meta data-rh="true" property="og:description" content="Authority for a player&#x27;s crafted armor: which kinds they own, how much pool
 each has left, which one is worn, and how much damage the worn one absorbs.
 Owns the `ArmorConfig.STORE_NAME` ProfileStore (one session per player, key =
 UserId) and is the sole writer of that state.
@@ -31,9 +31,9 @@ Everything else — maximum pool, reduction, type, tier — is derived from
 sink; it both computes the reduction and drains the pool, because the two
 cannot be split without the pool going stale. Ballistic kinds are destroyed
 at zero pool; Energy kinds survive at zero and protect nothing until
-`Recharge` refills them from Energy tools."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.65c70844.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5213950f.js" defer="defer"></script>
+`Recharge` refills them from the shared pool Energy."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ArmorManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.00ff5607.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.52549ecf.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -57,7 +57,7 @@ at zero pool; Energy kinds survive at zero and protect nothing until
   sink; it both computes the reduction and drains the pool, because the two
   cannot be split without the pool going stale. Ballistic kinds are destroyed
   at zero pool; Energy kinds survive at zero and protect nothing until
-  <code>Recharge</code> refills them from Energy tools.
+  <code>Recharge</code> refills them from the shared pool Energy.
 </p>
 </div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="OwnsAtFullPool"><code style="text-decoration:none">OwnsAtFullPool</code><a href="#OwnsAtFullPool" class="hash-link" aria-label="Direct link to OwnsAtFullPool" title="Direct link to OwnsAtFullPool" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ArmorManager.luau#L91"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ArmorManager<!-- -->.</code><code class="green_DgR4">OwnsAtFullPool</code><code>(</code><div class="inset_uKQm"><div><code>player<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>kindId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
@@ -90,17 +90,13 @@ at zero pool; Energy kinds survive at zero and protect nothing until
   member. Equipping an Energy kind at zero reserve is allowed — it is worn and
   worthless until recharged, which is the intended failure mode.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Recharge"><code style="text-decoration:none">Recharge</code><a href="#Recharge" class="hash-link" aria-label="Direct link to Recharge" title="Direct link to Recharge" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ArmorManager.luau#L210"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ArmorManager<!-- -->.</code><code class="green_DgR4">Recharge</code><code>(</code><div class="inset_uKQm"><div><code>player<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>kindId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Recharge"><code style="text-decoration:none">Recharge</code><a href="#Recharge" class="hash-link" aria-label="Direct link to Recharge" title="Direct link to Recharge" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ArmorManager.luau#L207"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ArmorManager<!-- -->.</code><code class="green_DgR4">Recharge</code><code>(</code><div class="inset_uKQm"><div><code>player<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>kindId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
-  Refill an owned Energy kind's reserve from the player's Energy tools.
-  Returns <code>(ok, energyAdded, code)</code>.
+  Refill an owned Energy kind's reserve from the shared MaterialPool Energy.
+  Returns <code>(ok, energyAdded, code)</code>. Spends only the points needed to fill
+  (<code>MaterialPool.SpendUpTo</code>), like <code>TrainFuelManager.handleRefuel</code>.
 </p>
-<p>
-  Tools are spent smallest-value-first so a stockpile is not blown on a small
-  top-up, and consumption stops the moment the reserve is full. Mirrors
-  <code>TrainFuelManager.handleRefuel</code>, which feeds the same item.
-</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ArmorManager.luau#L318"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ArmorManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ArmorManager.luau#L289"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ArmorManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Wire profile lifecycle, force-save registration and the join-time snapshot.
   Call once.
@@ -226,7 +222,7 @@ at zero pool; Energy kinds survive at zero and protect nothing until
         },
         {
             &quot;name&quot;: &quot;Recharge&quot;,
-            &quot;desc&quot;: &quot;Refill an owned Energy kind&#x27;s reserve from the player&#x27;s Energy tools.\nReturns `(ok, energyAdded, code)`.\n\nTools are spent smallest-value-first so a stockpile is not blown on a small\ntop-up, and consumption stops the moment the reserve is full. Mirrors\n`TrainFuelManager.handleRefuel`, which feeds the same item.&quot;,
+            &quot;desc&quot;: &quot;Refill an owned Energy kind&#x27;s reserve from the shared MaterialPool Energy.\nReturns `(ok, energyAdded, code)`. Spends only the points needed to fill\n(`MaterialPool.SpendUpTo`), like `TrainFuelManager.handleRefuel`.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;player&quot;,
@@ -255,7 +251,7 @@ at zero pool; Energy kinds survive at zero and protect nothing until
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 210,
+                &quot;line&quot;: 207,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ArmorManager.luau&quot;
             }
         },
@@ -266,7 +262,7 @@ at zero pool; Energy kinds survive at zero and protect nothing until
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 318,
+                &quot;line&quot;: 289,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ArmorManager.luau&quot;
             }
         }
@@ -274,7 +270,7 @@ at zero pool; Energy kinds survive at zero and protect nothing until
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;ArmorManager&quot;,
-    &quot;desc&quot;: &quot;Authority for a player&#x27;s crafted armor: which kinds they own, how much pool\neach has left, which one is worn, and how much damage the worn one absorbs.\nOwns the `ArmorConfig.STORE_NAME` ProfileStore (one session per player, key =\nUserId) and is the sole writer of that state.\n\nPersisted per player: `Owned` (a map of kind id → pool remaining, at most one\nentry per kind in `ArmorConfig.Kinds`) and `Equipped` (a kind id or nil).\nEverything else — maximum pool, reduction, type, tier — is derived from\n`ArmorConfig`, so retuning a kind applies retroactively.\n\n`Absorb` is the mitigation seam `HealthManager` calls at its single damage\nsink; it both computes the reduction and drains the pool, because the two\ncannot be split without the pool going stale. Ballistic kinds are destroyed\nat zero pool; Energy kinds survive at zero and protect nothing until\n`Recharge` refills them from Energy tools.&quot;,
+    &quot;desc&quot;: &quot;Authority for a player&#x27;s crafted armor: which kinds they own, how much pool\neach has left, which one is worn, and how much damage the worn one absorbs.\nOwns the `ArmorConfig.STORE_NAME` ProfileStore (one session per player, key =\nUserId) and is the sole writer of that state.\n\nPersisted per player: `Owned` (a map of kind id → pool remaining, at most one\nentry per kind in `ArmorConfig.Kinds`) and `Equipped` (a kind id or nil).\nEverything else — maximum pool, reduction, type, tier — is derived from\n`ArmorConfig`, so retuning a kind applies retroactively.\n\n`Absorb` is the mitigation seam `HealthManager` calls at its single damage\nsink; it both computes the reduction and drains the pool, because the two\ncannot be split without the pool going stale. Ballistic kinds are destroyed\nat zero pool; Energy kinds survive at zero and protect nothing until\n`Recharge` refills them from the shared pool Energy.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],

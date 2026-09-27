@@ -9,7 +9,7 @@ workbenches via `CollectionService` tags, then wires each bench&#x27;s
 fires `ReqShredderStart` to timestamp the session on the server, and the
 completed `Triggered` fires `ReqShredderComplete` only if the nonce is still
 valid. The prompt&#x27;s `HoldDuration` is kept in sync with the player&#x27;s current
-non-Energy junk count so the progress ring reflects the expected shred time.
+Wood/Metal junk count so the progress ring reflects the expected shred time.
 An info notification is shown (rate-limited) when the player attempts to shred
 with no eligible junk."><meta data-rh="true" property="og:description" content="Client controller for workbench shredding interactions. Discovers placed
 workbenches via `CollectionService` tags, then wires each bench&#x27;s
@@ -17,11 +17,11 @@ workbenches via `CollectionService` tags, then wires each bench&#x27;s
 fires `ReqShredderStart` to timestamp the session on the server, and the
 completed `Triggered` fires `ReqShredderComplete` only if the nonce is still
 valid. The prompt&#x27;s `HoldDuration` is kept in sync with the player&#x27;s current
-non-Energy junk count so the progress ring reflects the expected shred time.
+Wood/Metal junk count so the progress ring reflects the expected shred time.
 An info notification is shown (rate-limited) when the player attempts to shred
 with no eligible junk."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderClient"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderClient" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderClient" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.65c70844.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5213950f.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.00ff5607.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.52549ecf.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -35,7 +35,7 @@ with no eligible junk."><link data-rh="true" rel="canonical" href="https://neohe
   fires <code>ReqShredderStart</code> to timestamp the session on the server, and the
   completed <code>Triggered</code> fires <code>ReqShredderComplete</code> only if the nonce is still
   valid. The prompt's <code>HoldDuration</code> is kept in sync with the player's current
-  non-Energy junk count so the progress ring reflects the expected shred time.
+  Wood/Metal junk count so the progress ring reflects the expected shred time.
   An info notification is shown (rate-limited) when the player attempts to shred
   with no eligible junk.
 </p>
@@ -44,7 +44,7 @@ with no eligible junk."><link data-rh="true" rel="canonical" href="https://neohe
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;ShredderClient&quot;,
-    &quot;desc&quot;: &quot;Client controller for workbench shredding interactions. Discovers placed\nworkbenches via `CollectionService` tags, then wires each bench&#x27;s\n`ProximityPrompt` to a nonce-guarded two-step handshake: `PromptButtonHoldBegan`\nfires `ReqShredderStart` to timestamp the session on the server, and the\ncompleted `Triggered` fires `ReqShredderComplete` only if the nonce is still\nvalid. The prompt&#x27;s `HoldDuration` is kept in sync with the player&#x27;s current\nnon-Energy junk count so the progress ring reflects the expected shred time.\nAn info notification is shown (rate-limited) when the player attempts to shred\nwith no eligible junk.&quot;,
+    &quot;desc&quot;: &quot;Client controller for workbench shredding interactions. Discovers placed\nworkbenches via `CollectionService` tags, then wires each bench&#x27;s\n`ProximityPrompt` to a nonce-guarded two-step handshake: `PromptButtonHoldBegan`\nfires `ReqShredderStart` to timestamp the session on the server, and the\ncompleted `Triggered` fires `ReqShredderComplete` only if the nonce is still\nvalid. The prompt&#x27;s `HoldDuration` is kept in sync with the player&#x27;s current\nWood/Metal junk count so the progress ring reflects the expected shred time.\nAn info notification is shown (rate-limited) when the player attempts to shred\nwith no eligible junk.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],

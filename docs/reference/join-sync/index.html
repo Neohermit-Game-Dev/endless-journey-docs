@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Join-Sync Snapshot Handshake | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/join-sync"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Join-Sync Snapshot Handshake | Endless Journey"><meta data-rh="true" name="description" content="JoinSync (ServerStorage/SharedModules/JoinSync.luau) is the project&#x27;s sole"><meta data-rh="true" property="og:description" content="JoinSync (ServerStorage/SharedModules/JoinSync.luau) is the project&#x27;s sole"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/join-sync"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/join-sync" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/join-sync" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.65c70844.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5213950f.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.00ff5607.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.52549ecf.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -109,6 +109,15 @@ connecting <code>Players.PlayerAdded</code>:</p>
 are all upvalues read fresh every time the closure runs (rule 2) — a player
 who joins mid-round gets the fuel level as of <em>their</em> join, not whatever it
 was when the server booted.</p>
+<p><code>MaterialPool</code> follows the same pattern: it registers <code>&quot;MaterialPool&quot;</code> at
+module load and sends <code>MaterialPoolUpdate</code> with the live Wood/Metal totals and
+zero gain, so the joining client&#x27;s HUD snaps to the real totals with no
+fly-to-HUD effect. It deliberately <strong>broadcasts</strong> (<code>:Fire</code>) instead of
+<code>:FireClient</code>: the Packet library flushes the broadcast buffer before
+per-player buffers each frame, so a <code>FireClient</code> snapshot could arrive <em>after</em>
+a same-frame <code>Add</code> broadcast and leave the joiner on stale totals. For the
+other clients a zero-gain update is a harmless re-render. See
+<a class="" href="/endless-journey-docs/docs/systems/material-pool">Material Pool</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-two-deliberate-exclusions">The two deliberate exclusions<a href="#the-two-deliberate-exclusions" class="hash-link" aria-label="Direct link to The two deliberate exclusions" title="Direct link to The two deliberate exclusions" translate="no">​</a></h2>
 <p>Not every server-authoritative system needs a <code>JoinSync</code> sender. Two managers
 were deliberately left out of this conversion:</p>

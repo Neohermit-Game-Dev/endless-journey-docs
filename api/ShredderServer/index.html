@@ -10,32 +10,28 @@ On `ReqShredderStart` the server validates workbench proximity, per-player
 cooldown, and junk availability, then returns a hold duration computed by
 `ShredderMath`. On `ReqShredderComplete` it re-validates proximity and
 timing (anti-exploit: elapsed ≥ duration − tolerance), consumes all
-non-Energy junk Tools from the player&#x27;s Backpack and equipped slot, computes
-the Wood/Metal yield via `JunkConfig.MaterialRules`, and spawns the outputs.
+Wood/Metal junk Tools from the player&#x27;s Backpack and equipped slot, computes
+the Wood/Metal yield via `JunkConfig.MaterialRules`, and credits it to the
+server-wide `MaterialPool`.
 
-Material output follows a two-path strategy: up to `MAX_ANIMATED_EJECT_ITEMS`
-pieces fly a `MotionMaster.SplineMove` arc from the workbench spawn point to
-a scatter-disk landing zone, where they register with `ProximityPickupServer`
-for nearby collection; overflow pieces are granted directly to the Backpack in
-yield-sized batches. An auto-collect loop reclaims any unclaimed arc pieces
-after `AUTO_COLLECT_DELAY` seconds so materials never pile up indefinitely."><meta data-rh="true" property="og:description" content="Authoritative server script that owns the Workbench Shredder flow for
+The pool broadcast carries the workbench&#x27;s `TrajectoryPoints` arc endpoints;
+every client plays the arc + fly-to-HUD effect locally (see
+`MaterialHudController`). No material Tools or floor pickups exist."><meta data-rh="true" property="og:description" content="Authoritative server script that owns the Workbench Shredder flow for
 Endless Journey.
 
 On `ReqShredderStart` the server validates workbench proximity, per-player
 cooldown, and junk availability, then returns a hold duration computed by
 `ShredderMath`. On `ReqShredderComplete` it re-validates proximity and
 timing (anti-exploit: elapsed ≥ duration − tolerance), consumes all
-non-Energy junk Tools from the player&#x27;s Backpack and equipped slot, computes
-the Wood/Metal yield via `JunkConfig.MaterialRules`, and spawns the outputs.
+Wood/Metal junk Tools from the player&#x27;s Backpack and equipped slot, computes
+the Wood/Metal yield via `JunkConfig.MaterialRules`, and credits it to the
+server-wide `MaterialPool`.
 
-Material output follows a two-path strategy: up to `MAX_ANIMATED_EJECT_ITEMS`
-pieces fly a `MotionMaster.SplineMove` arc from the workbench spawn point to
-a scatter-disk landing zone, where they register with `ProximityPickupServer`
-for nearby collection; overflow pieces are granted directly to the Backpack in
-yield-sized batches. An auto-collect loop reclaims any unclaimed arc pieces
-after `AUTO_COLLECT_DELAY` seconds so materials never pile up indefinitely."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.65c70844.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5213950f.js" defer="defer"></script>
+The pool broadcast carries the workbench&#x27;s `TrajectoryPoints` arc endpoints;
+every client plays the arc + fly-to-HUD effect locally (see
+`MaterialHudController`). No material Tools or floor pickups exist."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShredderServer" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.00ff5607.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.52549ecf.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -51,28 +47,26 @@ after `AUTO_COLLECT_DELAY` seconds so materials never pile up indefinitely."><li
   cooldown, and junk availability, then returns a hold duration computed by
   <code>ShredderMath</code>. On <code>ReqShredderComplete</code> it re-validates proximity and
   timing (anti-exploit: elapsed ≥ duration − tolerance), consumes all
-  non-Energy junk Tools from the player's Backpack and equipped slot, computes
-  the Wood/Metal yield via <code>JunkConfig.MaterialRules</code>, and spawns the outputs.
+  Wood/Metal junk Tools from the player's Backpack and equipped slot, computes
+  the Wood/Metal yield via <code>JunkConfig.MaterialRules</code>, and credits it to the
+  server-wide <code>MaterialPool</code>.
 </p>
 <p>
-  Material output follows a two-path strategy: up to <code>MAX_ANIMATED_EJECT_ITEMS</code>
-  pieces fly a <code>MotionMaster.SplineMove</code> arc from the workbench spawn point to
-  a scatter-disk landing zone, where they register with <code>ProximityPickupServer</code>
-  for nearby collection; overflow pieces are granted directly to the Backpack in
-  yield-sized batches. An auto-collect loop reclaims any unclaimed arc pieces
-  after <code>AUTO_COLLECT_DELAY</code> seconds so materials never pile up indefinitely.
+  The pool broadcast carries the workbench's <code>TrajectoryPoints</code> arc endpoints;
+  every client plays the arc + fly-to-HUD effect locally (see
+  <code>MaterialHudController</code>). No material Tools or floor pickups exist.
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;ShredderServer&quot;,
-    &quot;desc&quot;: &quot;Authoritative server script that owns the Workbench Shredder flow for\nEndless Journey.\n\nOn `ReqShredderStart` the server validates workbench proximity, per-player\ncooldown, and junk availability, then returns a hold duration computed by\n`ShredderMath`. On `ReqShredderComplete` it re-validates proximity and\ntiming (anti-exploit: elapsed ≥ duration − tolerance), consumes all\nnon-Energy junk Tools from the player&#x27;s Backpack and equipped slot, computes\nthe Wood/Metal yield via `JunkConfig.MaterialRules`, and spawns the outputs.\n\nMaterial output follows a two-path strategy: up to `MAX_ANIMATED_EJECT_ITEMS`\npieces fly a `MotionMaster.SplineMove` arc from the workbench spawn point to\na scatter-disk landing zone, where they register with `ProximityPickupServer`\nfor nearby collection; overflow pieces are granted directly to the Backpack in\nyield-sized batches. An auto-collect loop reclaims any unclaimed arc pieces\nafter `AUTO_COLLECT_DELAY` seconds so materials never pile up indefinitely.&quot;,
+    &quot;desc&quot;: &quot;Authoritative server script that owns the Workbench Shredder flow for\nEndless Journey.\n\nOn `ReqShredderStart` the server validates workbench proximity, per-player\ncooldown, and junk availability, then returns a hold duration computed by\n`ShredderMath`. On `ReqShredderComplete` it re-validates proximity and\ntiming (anti-exploit: elapsed ≥ duration − tolerance), consumes all\nWood/Metal junk Tools from the player&#x27;s Backpack and equipped slot, computes\nthe Wood/Metal yield via `JunkConfig.MaterialRules`, and credits it to the\nserver-wide `MaterialPool`.\n\nThe pool broadcast carries the workbench&#x27;s `TrajectoryPoints` arc endpoints;\nevery client plays the arc + fly-to-HUD effect locally (see\n`MaterialHudController`). No material Tools or floor pickups exist.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 39,
+        &quot;line&quot;: 35,
         &quot;path&quot;: &quot;src/ServerScriptService/ShredderServer.server.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
