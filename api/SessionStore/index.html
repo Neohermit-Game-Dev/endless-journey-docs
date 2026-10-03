@@ -6,12 +6,12 @@
 <title data-rh="true">SessionStore | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="SessionStore | Endless Journey"><meta data-rh="true" name="description" content="Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the
 party-lock + rejoin system: the roster (keyed by privateServerId) and the
 per-user session pointer (keyed by userId). Holds NO game logic — callers
-(SessionCoordinator) decide when to read/write. See docs/systems/session-rejoin.md."><meta data-rh="true" property="og:description" content="Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the
+(SessionCoordinator; the Lobby&#x27;s PartyCreation) decide when to read/write. See docs/systems/session-rejoin.md."><meta data-rh="true" property="og:description" content="Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the
 party-lock + rejoin system: the roster (keyed by privateServerId) and the
 per-user session pointer (keyed by userId). Holds NO game logic — callers
-(SessionCoordinator) decide when to read/write. See docs/systems/session-rejoin.md."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.ec725139.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.a1a28dd9.js" defer="defer"></script>
+(SessionCoordinator; the Lobby&#x27;s PartyCreation) decide when to read/write. See docs/systems/session-rejoin.md."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SessionStore" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.97a72faf.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1927660d.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -22,7 +22,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
   Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the
   party-lock + rejoin system: the roster (keyed by privateServerId) and the
   per-user session pointer (keyed by userId). Holds NO game logic — callers
-  (SessionCoordinator) decide when to read/write. See docs/systems/session-rejoin.md.
+  (SessionCoordinator; the Lobby's PartyCreation) decide when to read/write. See docs/systems/session-rejoin.md.
 </p>
 </div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetRoster"><code style="text-decoration:none">GetRoster</code><a href="#GetRoster" class="hash-link" aria-label="Direct link to GetRoster" title="Direct link to GetRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L52"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">GetRoster</code><code>(</code><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>) → </code><code class="blue_P4bS">Roster?</code></div><div>
 <p>
@@ -30,16 +30,27 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
   lobby's write and this server booting. Returns nil if absent after retries or
   on error.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RefreshRosterTTL"><code style="text-decoration:none">RefreshRosterTTL</code><a href="#RefreshRosterTTL" class="hash-link" aria-label="Direct link to RefreshRosterTTL" title="Direct link to RefreshRosterTTL" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L71"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RefreshRosterTTL</code><code>(</code><div class="inset_uKQm"><div><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>roster<!-- -->: </code><code class="blue_P4bS">Roster</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="WriteRoster"><code style="text-decoration:none">WriteRoster</code><a href="#WriteRoster" class="hash-link" aria-label="Direct link to WriteRoster" title="Direct link to WriteRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L72"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">WriteRoster</code><code>(</code><div class="inset_uKQm"><div><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>roster<!-- -->: </code><code class="blue_P4bS">Roster</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>
+  Lobby side: create the roster for a freshly reserved server. Must succeed
+  before the teleport, or JoinGuard bounces the whole party. Returns success.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SeedPointer"><code style="text-decoration:none">SeedPointer</code><a href="#SeedPointer" class="hash-link" aria-label="Direct link to SeedPointer" title="Direct link to SeedPointer" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L85"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">SeedPointer</code><code>(</code><div class="inset_uKQm"><div><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>pointer<!-- -->: </code><code class="blue_P4bS">Pointer</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>
+  Lobby side: seed a user's session pointer at teleport time. This is the only
+  writer of <code>accessCode</code>; gameplay only refreshes it (<code>RefreshPointer</code>).
+  Returns success.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RefreshRosterTTL"><code style="text-decoration:none">RefreshRosterTTL</code><a href="#RefreshRosterTTL" class="hash-link" aria-label="Direct link to RefreshRosterTTL" title="Direct link to RefreshRosterTTL" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L96"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RefreshRosterTTL</code><code>(</code><div class="inset_uKQm"><div><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>roster<!-- -->: </code><code class="blue_P4bS">Roster</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Rewrite the roster value to reset its TTL (heartbeat). Returns success.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RemoveFromRoster"><code style="text-decoration:none">RemoveFromRoster</code><a href="#RemoveFromRoster" class="hash-link" aria-label="Direct link to RemoveFromRoster" title="Direct link to RemoveFromRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L83"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RemoveFromRoster</code><code>(</code><div class="inset_uKQm"><div><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>userId<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RemoveFromRoster"><code style="text-decoration:none">RemoveFromRoster</code><a href="#RemoveFromRoster" class="hash-link" aria-label="Direct link to RemoveFromRoster" title="Direct link to RemoveFromRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L108"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RemoveFromRoster</code><code>(</code><div class="inset_uKQm"><div><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>userId<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
   Atomically remove one userId from the roster's authorizedUserIds. No-op if the
   roster is gone. Returns success.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClearRoster"><code style="text-decoration:none">ClearRoster</code><a href="#ClearRoster" class="hash-link" aria-label="Direct link to ClearRoster" title="Direct link to ClearRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L106"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">ClearRoster</code><code>(</code><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClearRoster"><code style="text-decoration:none">ClearRoster</code><a href="#ClearRoster" class="hash-link" aria-label="Direct link to ClearRoster" title="Direct link to ClearRoster" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L131"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">ClearRoster</code><code>(</code><code>privateServerId<!-- -->: </code><code class="blue_P4bS">string</code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Delete the roster entry entirely (run end).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RefreshPointer"><code style="text-decoration:none">RefreshPointer</code><a href="#RefreshPointer" class="hash-link" aria-label="Direct link to RefreshPointer" title="Direct link to RefreshPointer" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L121"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RefreshPointer</code><code>(</code><div class="inset_uKQm"><div><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>jobId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RefreshPointer"><code style="text-decoration:none">RefreshPointer</code><a href="#RefreshPointer" class="hash-link" aria-label="Direct link to RefreshPointer" title="Direct link to RefreshPointer" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L146"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">RefreshPointer</code><code>(</code><div class="inset_uKQm"><div><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>jobId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
   Refresh a user's session pointer IN PLACE: preserve the lobby-seeded
   <code>accessCode</code> + <code>placeId</code>, update <code>jobId</code>/<code>status</code>/<code>heartbeatAt</code>, and reset the
@@ -47,7 +58,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
   <code>accessCode</code> would break rejoin routing). Returns whether the call ran without
   error.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClearPointer"><code style="text-decoration:none">ClearPointer</code><a href="#ClearPointer" class="hash-link" aria-label="Direct link to ClearPointer" title="Direct link to ClearPointer" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L142"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">ClearPointer</code><code>(</code><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClearPointer"><code style="text-decoration:none">ClearPointer</code><a href="#ClearPointer" class="hash-link" aria-label="Direct link to ClearPointer" title="Direct link to ClearPointer" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SessionStore.luau#L167"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SessionStore<!-- -->.</code><code class="green_DgR4">ClearPointer</code><code>(</code><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Delete a user's session pointer (clean leave / grace expiry / run end).</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -74,6 +85,60 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             }
         },
         {
+            &quot;name&quot;: &quot;WriteRoster&quot;,
+            &quot;desc&quot;: &quot;Lobby side: create the roster for a freshly reserved server. Must succeed\nbefore the teleport, or JoinGuard bounces the whole party. Returns success.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;privateServerId&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;roster&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Roster&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 72,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;SeedPointer&quot;,
+            &quot;desc&quot;: &quot;Lobby side: seed a user&#x27;s session pointer at teleport time. This is the only\nwriter of `accessCode`; gameplay only refreshes it (`RefreshPointer`).\nReturns success.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;userId&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;pointer&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Pointer&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 85,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;RefreshRosterTTL&quot;,
             &quot;desc&quot;: &quot;Rewrite the roster value to reset its TTL (heartbeat). Returns success.&quot;,
             &quot;params&quot;: [
@@ -96,7 +161,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 71,
+                &quot;line&quot;: 96,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
             }
         },
@@ -123,7 +188,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 83,
+                &quot;line&quot;: 108,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
             }
         },
@@ -145,7 +210,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 106,
+                &quot;line&quot;: 131,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
             }
         },
@@ -172,7 +237,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 121,
+                &quot;line&quot;: 146,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
             }
         },
@@ -194,7 +259,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 142,
+                &quot;line&quot;: 167,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
             }
         }
@@ -202,7 +267,7 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;SessionStore&quot;,
-    &quot;desc&quot;: &quot;Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the\nparty-lock + rejoin system: the roster (keyed by privateServerId) and the\nper-user session pointer (keyed by userId). Holds NO game logic — callers\n(SessionCoordinator) decide when to read/write. See docs/systems/session-rejoin.md.&quot;,
+    &quot;desc&quot;: &quot;Thin, pcall-wrapped wrapper over the two MemoryStore hash maps that back the\nparty-lock + rejoin system: the roster (keyed by privateServerId) and the\nper-user session pointer (keyed by userId). Holds NO game logic — callers\n(SessionCoordinator; the Lobby&#x27;s PartyCreation) decide when to read/write. See docs/systems/session-rejoin.md.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
@@ -210,6 +275,6 @@ per-user session pointer (keyed by userId). Holds NO game logic — callers
         &quot;line&quot;: 11,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SessionStore.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#ClearPointer" class="table-of-contents__link toc-highlight">.ClearPointer</a></li><li><a href="#ClearRoster" class="table-of-contents__link toc-highlight">.ClearRoster</a></li><li><a href="#GetRoster" class="table-of-contents__link toc-highlight">.GetRoster</a></li><li><a href="#RefreshPointer" class="table-of-contents__link toc-highlight">.RefreshPointer</a></li><li><a href="#RefreshRosterTTL" class="table-of-contents__link toc-highlight">.RefreshRosterTTL</a></li><li><a href="#RemoveFromRoster" class="table-of-contents__link toc-highlight">.RemoveFromRoster</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#ClearPointer" class="table-of-contents__link toc-highlight">.ClearPointer</a></li><li><a href="#ClearRoster" class="table-of-contents__link toc-highlight">.ClearRoster</a></li><li><a href="#GetRoster" class="table-of-contents__link toc-highlight">.GetRoster</a></li><li><a href="#RefreshPointer" class="table-of-contents__link toc-highlight">.RefreshPointer</a></li><li><a href="#RefreshRosterTTL" class="table-of-contents__link toc-highlight">.RefreshRosterTTL</a></li><li><a href="#RemoveFromRoster" class="table-of-contents__link toc-highlight">.RemoveFromRoster</a></li><li><a href="#SeedPointer" class="table-of-contents__link toc-highlight">.SeedPointer</a></li><li><a href="#WriteRoster" class="table-of-contents__link toc-highlight">.WriteRoster</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>
