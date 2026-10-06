@@ -20,8 +20,8 @@ shooter saw it. Rigid: the animated limb pose is the current one.
 
 Players are never rewound (Factions allows no PvP). World geometry and
 dead (paused) NPCs are tested unrewound, as before."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LagCompensation"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LagCompensation" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LagCompensation" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.37aeb573.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.71be2fd6.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.8f58808d.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.8e25417b.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -40,7 +40,7 @@ dead (paused) NPCs are tested unrewound, as before."><link data-rh="true" rel="c
   Players are never rewound (Factions allows no PvP). World geometry and
   dead (paused) NPCs are tested unrewound, as before.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClampRewind"><code style="text-decoration:none">ClampRewind</code><a href="#ClampRewind" class="hash-link" aria-label="Direct link to ClampRewind" title="Direct link to ClampRewind" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LagCompensation.luau#L49"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LagCompensation<!-- -->.</code><code class="green_DgR4">ClampRewind</code><code>(</code><div class="inset_uKQm"><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>renderTime<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>ping<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ClampRewind"><code style="text-decoration:none">ClampRewind</code><a href="#ClampRewind" class="hash-link" aria-label="Direct link to ClampRewind" title="Direct link to ClampRewind" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LagCompensation.luau#L42"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LagCompensation<!-- -->.</code><code class="green_DgR4">ClampRewind</code><code>(</code><div class="inset_uKQm"><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>renderTime<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>ping<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Pure. Clamp a client-claimed render time into a safe rewind time.
   Non-finite / non-positive input means "no rewind" (returns <code>now</code>).
@@ -75,7 +75,7 @@ dead (paused) NPCs are tested unrewound, as before."><link data-rh="true" rel="c
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 49,
+                &quot;line&quot;: 42,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LagCompensation.luau&quot;
             }
         }

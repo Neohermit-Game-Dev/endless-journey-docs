@@ -15,8 +15,7 @@ MainContainer (UIListLayout, Horizontal)
 
 For a Gun that reads &quot;mag | pool&quot;; for a Throwable the carried count goes in
 `AmmoCount` and `ReserveAmmoCount` shows an em-dash, so the widget keeps its
-shape across weapon swaps. Hidden for Melee and when nothing relevant is
-equipped. The GUI has no weapon-name label — the name is not displayed.
+shape across weapon swaps. Hidden when nothing relevant is equipped. The GUI has no weapon-name label — the name is not displayed.
 
 These instance names are load-bearing: renaming any of them in Studio breaks
 the controller at load. Reads through AmmoApi and reacts to weapon/ammo
@@ -33,15 +32,14 @@ MainContainer (UIListLayout, Horizontal)
 
 For a Gun that reads &quot;mag | pool&quot;; for a Throwable the carried count goes in
 `AmmoCount` and `ReserveAmmoCount` shows an em-dash, so the widget keeps its
-shape across weapon swaps. Hidden for Melee and when nothing relevant is
-equipped. The GUI has no weapon-name label — the name is not displayed.
+shape across weapon swaps. Hidden when nothing relevant is equipped. The GUI has no weapon-name label — the name is not displayed.
 
 These instance names are load-bearing: renaming any of them in Studio breaks
 the controller at load. Reads through AmmoApi and reacts to weapon/ammo
 Signals — it never talks to the server. AmmoController runs AmmoApi.Init();
 this only renders."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/AmmoHudController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/AmmoHudController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/AmmoHudController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.37aeb573.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.71be2fd6.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.8f58808d.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.8e25417b.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -60,8 +58,7 @@ this only renders."><link data-rh="true" rel="canonical" href="https://neohermit
 <p>
   For a Gun that reads "mag | pool"; for a Throwable the carried count goes in
   <code>AmmoCount</code> and <code>ReserveAmmoCount</code> shows an em-dash, so the widget keeps its
-  shape across weapon swaps. Hidden for Melee and when nothing relevant is
-  equipped. The GUI has no weapon-name label — the name is not displayed.
+  shape across weapon swaps. Hidden when nothing relevant is equipped. The GUI has no weapon-name label — the name is not displayed.
 </p>
 <p>
   These instance names are load-bearing: renaming any of them in Studio breaks
@@ -74,12 +71,12 @@ this only renders."><link data-rh="true" rel="canonical" href="https://neohermit
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;AmmoHudController&quot;,
-    &quot;desc&quot;: &quot;Drives the authored AmmoGui HUD (bottom-right). The ammo count is split\nacross two labels either side of a divider, laid out horizontally:\n\n```\nMainContainer (UIListLayout, Horizontal)\n├── AmmoCount         (TextLabel)  &lt;-- loaded magazine / carried count\n├── Divider           (Frame)\n└── ReserveAmmoCount  (TextLabel)  &lt;-- reserve pool\n```\n\nFor a Gun that reads \&quot;mag | pool\&quot;; for a Throwable the carried count goes in\n`AmmoCount` and `ReserveAmmoCount` shows an em-dash, so the widget keeps its\nshape across weapon swaps. Hidden for Melee and when nothing relevant is\nequipped. The GUI has no weapon-name label — the name is not displayed.\n\nThese instance names are load-bearing: renaming any of them in Studio breaks\nthe controller at load. Reads through AmmoApi and reacts to weapon/ammo\nSignals — it never talks to the server. AmmoController runs AmmoApi.Init();\nthis only renders.&quot;,
+    &quot;desc&quot;: &quot;Drives the authored AmmoGui HUD (bottom-right). The ammo count is split\nacross two labels either side of a divider, laid out horizontally:\n\n```\nMainContainer (UIListLayout, Horizontal)\n├── AmmoCount         (TextLabel)  &lt;-- loaded magazine / carried count\n├── Divider           (Frame)\n└── ReserveAmmoCount  (TextLabel)  &lt;-- reserve pool\n```\n\nFor a Gun that reads \&quot;mag | pool\&quot;; for a Throwable the carried count goes in\n`AmmoCount` and `ReserveAmmoCount` shows an em-dash, so the widget keeps its\nshape across weapon swaps. Hidden when nothing relevant is equipped. The GUI has no weapon-name label — the name is not displayed.\n\nThese instance names are load-bearing: renaming any of them in Studio breaks\nthe controller at load. Reads through AmmoApi and reacts to weapon/ammo\nSignals — it never talks to the server. AmmoController runs AmmoApi.Init();\nthis only renders.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 26,
+        &quot;line&quot;: 25,
         &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/AmmoHudController.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
