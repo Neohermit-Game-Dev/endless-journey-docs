@@ -8,14 +8,16 @@ read-only view of the perks buffing the player right now. A Personal perk is
 active at the player&#x27;s own level &gt; 0; a Party perk at the server-wide max, and
 `PerkOwner` names the player holding it. Opens from a TopbarPlus icon (toggle
 key O); TopbarPlus deselects other icons, so this and the Perk menu never stack.
-`ResetPersonalPerksButton` respecs the open tab&#x27;s pool on a hold (`HoldButton`)."><meta data-rh="true" property="og:description" content="Binds the Studio-authored `StarterGui.ActivePerksGui` to `PerkClient`: a
+Perk changes are Lobby-only, so the pool reset lives in the Lobby&#x27;s
+`PerkMenuGuiController`."><meta data-rh="true" property="og:description" content="Binds the Studio-authored `StarterGui.ActivePerksGui` to `PerkClient`: a
 read-only view of the perks buffing the player right now. A Personal perk is
 active at the player&#x27;s own level &gt; 0; a Party perk at the server-wide max, and
 `PerkOwner` names the player holding it. Opens from a TopbarPlus icon (toggle
 key O); TopbarPlus deselects other icons, so this and the Perk menu never stack.
-`ResetPersonalPerksButton` respecs the open tab&#x27;s pool on a hold (`HoldButton`)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.7271f446.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.e71539f0.js" defer="defer"></script>
+Perk changes are Lobby-only, so the pool reset lives in the Lobby&#x27;s
+`PerkMenuGuiController`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ActivePerksGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.a339fd9c.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.47785267.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -28,19 +30,20 @@ key O); TopbarPlus deselects other icons, so this and the Perk menu never stack.
   active at the player's own level > 0; a Party perk at the server-wide max, and
   <code>PerkOwner</code> names the player holding it. Opens from a TopbarPlus icon (toggle
   key O); TopbarPlus deselects other icons, so this and the Perk menu never stack.
-  <code>ResetPersonalPerksButton</code> respecs the open tab's pool on a hold (<code>HoldButton</code>).
+  Perk changes are Lobby-only, so the pool reset lives in the Lobby's
+  <code>PerkMenuGuiController</code>.
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;ActivePerksGuiController&quot;,
-    &quot;desc&quot;: &quot;Binds the Studio-authored `StarterGui.ActivePerksGui` to `PerkClient`: a\nread-only view of the perks buffing the player right now. A Personal perk is\nactive at the player&#x27;s own level &gt; 0; a Party perk at the server-wide max, and\n`PerkOwner` names the player holding it. Opens from a TopbarPlus icon (toggle\nkey O); TopbarPlus deselects other icons, so this and the Perk menu never stack.\n`ResetPersonalPerksButton` respecs the open tab&#x27;s pool on a hold (`HoldButton`).&quot;,
+    &quot;desc&quot;: &quot;Binds the Studio-authored `StarterGui.ActivePerksGui` to `PerkClient`: a\nread-only view of the perks buffing the player right now. A Personal perk is\nactive at the player&#x27;s own level &gt; 0; a Party perk at the server-wide max, and\n`PerkOwner` names the player holding it. Opens from a TopbarPlus icon (toggle\nkey O); TopbarPlus deselects other icons, so this and the Perk menu never stack.\nPerk changes are Lobby-only, so the pool reset lives in the Lobby&#x27;s\n`PerkMenuGuiController`.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 13,
+        &quot;line&quot;: 14,
         &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/ActivePerksGuiController.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
