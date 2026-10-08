@@ -9,8 +9,8 @@ seconds); the mutating helpers change only the table they are given.
 
 - Slots: Personal 3 (+1 at Lv 10, 20, 30); Party 1 (+1 at Lv 30). Equip appends;
   unequip removes one entry and later slots move up (lists stay dense).
-- Family: one perk per `Family` in one pool. A perk with no Family is its own
-  family, so one perk cannot fill two slots.
+- Same perk once: a pool holds each perk id at most once. Perks of one
+  `Family` stack (Family is a label only).
 - Expiring clock: the first equip moves `Banked` into `Expires = now + Banked`.
   Time added while the clock runs extends `Expires`; time added while it is
   stopped goes to `Banked`. Unequip never pauses the clock.
@@ -23,8 +23,8 @@ seconds); the mutating helpers change only the table they are given.
 
 - Slots: Personal 3 (+1 at Lv 10, 20, 30); Party 1 (+1 at Lv 30). Equip appends;
   unequip removes one entry and later slots move up (lists stay dense).
-- Family: one perk per `Family` in one pool. A perk with no Family is its own
-  family, so one perk cannot fill two slots.
+- Same perk once: a pool holds each perk id at most once. Perks of one
+  `Family` stack (Family is a label only).
 - Expiring clock: the first equip moves `Banked` into `Expires = now + Banked`.
   Time added while the clock runs extends `Expires`; time added while it is
   stopped goes to `Banked`. Unequip never pauses the clock.
@@ -32,8 +32,8 @@ seconds); the mutating helpers change only the table they are given.
   in the wrong pool or no longer owned.
 - `beginRun` fixes the run&#x27;s loadout (`ActiveRun`) and uses one copy of each
   equipped consumable, once per run id."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkLoadoutState"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkLoadoutState" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkLoadoutState" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.f70bb9ec.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.df06149f.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.7271f446.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.e71539f0.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -51,8 +51,8 @@ seconds); the mutating helpers change only the table they are given.
     unequip removes one entry and later slots move up (lists stay dense).
   </li>
   <li>
-    Family: one perk per <code>Family</code> in one pool. A perk with no Family is its own
-    family, so one perk cannot fill two slots.
+    Same perk once: a pool holds each perk id at most once. Perks of one
+    <code>Family</code> stack (Family is a label only).
   </li>
   <li>
     Expiring clock: the first equip moves <code>Banked</code> into <code>Expires = now + Banked</code>.
@@ -74,26 +74,26 @@ seconds); the mutating helpers change only the table they are given.
 <p>Whether the expiring clock of <code>id</code> is running.</p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="owns"><code style="text-decoration:none">owns</code><a href="#owns" class="hash-link" aria-label="Direct link to owns" title="Direct link to owns" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L68"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">owns</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Whether the player owns <code>id</code>: a copy left (consumable) or time left (expiring).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="canBuy"><code style="text-decoration:none">canBuy</code><a href="#canBuy" class="hash-link" aria-label="Direct link to canBuy" title="Direct link to canBuy" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L89"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">canBuy</code><code>(</code><div class="inset_uKQm"><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>variantIndex<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>playerLevel<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>coins<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="canBuy"><code style="text-decoration:none">canBuy</code><a href="#canBuy" class="hash-link" aria-label="Direct link to canBuy" title="Direct link to canBuy" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L84"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">canBuy</code><code>(</code><div class="inset_uKQm"><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>variantIndex<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>playerLevel<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>coins<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
   Whether <code>id</code> can be bought. Returns (ok, code, price, amount): <code>amount</code> is the
   stock a purchase adds (1 copy, or the variant's seconds). <code>variantIndex</code> is
   ignored for a consumable. Order: unknown → hidden → level → variant → coins.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="canEquip"><code style="text-decoration:none">canEquip</code><a href="#canEquip" class="hash-link" aria-label="Direct link to canEquip" title="Direct link to canEquip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L125"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">canEquip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>playerLevel<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="canEquip"><code style="text-decoration:none">canEquip</code><a href="#canEquip" class="hash-link" aria-label="Direct link to canEquip" title="Direct link to canEquip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L120"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">canEquip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>playerLevel<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
   Whether <code>id</code> can be equipped into <code>pool</code>. Returns (ok, code). Order: unknown →
-  hidden → wrong pool → level → not owned → family taken → no slot.
+  hidden → wrong pool → level → not owned → already equipped → no slot.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="add"><code style="text-decoration:none">add</code><a href="#add" class="hash-link" aria-label="Direct link to add" title="Direct link to add" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L164"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">add</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="add"><code style="text-decoration:none">add</code><a href="#add" class="hash-link" aria-label="Direct link to add" title="Direct link to add" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L156"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">add</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Add stock: <code>amount</code> copies of a consumable, or <code>amount</code> seconds of an expiring perk.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="equip"><code style="text-decoration:none">equip</code><a href="#equip" class="hash-link" aria-label="Direct link to equip" title="Direct link to equip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L178"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">equip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="equip"><code style="text-decoration:none">equip</code><a href="#equip" class="hash-link" aria-label="Direct link to equip" title="Direct link to equip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L170"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">equip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Apply an equip that <code>canEquip</code> allowed: append, and start a stopped expiring clock.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unequip"><code style="text-decoration:none">unequip</code><a href="#unequip" class="hash-link" aria-label="Direct link to unequip" title="Direct link to unequip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L189"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">unequip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>slotIndex<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unequip"><code style="text-decoration:none">unequip</code><a href="#unequip" class="hash-link" aria-label="Direct link to unequip" title="Direct link to unequip" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L181"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">unequip</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>slotIndex<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>Remove the entry at <code>slotIndex</code> of <code>pool</code>; later slots move up. False if the slot is empty.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prune"><code style="text-decoration:none">prune</code><a href="#prune" class="hash-link" aria-label="Direct link to prune" title="Direct link to prune" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L201"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">prune</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prune"><code style="text-decoration:none">prune</code><a href="#prune" class="hash-link" aria-label="Direct link to prune" title="Direct link to prune" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L193"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">prune</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Drop ended clocks, and loadout entries that are unknown, hidden, in the wrong pool or not owned.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="beginRun"><code style="text-decoration:none">beginRun</code><a href="#beginRun" class="hash-link" aria-label="Direct link to beginRun" title="Direct link to beginRun" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L225"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">beginRun</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>runId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="beginRun"><code style="text-decoration:none">beginRun</code><a href="#beginRun" class="hash-link" aria-label="Direct link to beginRun" title="Direct link to beginRun" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau#L217"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkLoadoutState<!-- -->.</code><code class="green_DgR4">beginRun</code><code>(</code><div class="inset_uKQm"><div><code>inv<!-- -->: </code><code class="blue_P4bS">Inventory</code><code>,</code></div><div><code>runId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
   Start run <code>runId</code>: copy the pruned loadout into <code>ActiveRun</code>, use one copy of
   each equipped consumable (it stays active this run even at 0 copies), then
@@ -238,13 +238,13 @@ seconds); the mutating helpers change only the table they are given.
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 89,
+                &quot;line&quot;: 84,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;canEquip&quot;,
-            &quot;desc&quot;: &quot;Whether `id` can be equipped into `pool`. Returns (ok, code). Order: unknown →\nhidden → wrong pool → level → not owned → family taken → no slot.&quot;,
+            &quot;desc&quot;: &quot;Whether `id` can be equipped into `pool`. Returns (ok, code). Order: unknown →\nhidden → wrong pool → level → not owned → already equipped → no slot.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;inv&quot;,
@@ -284,7 +284,7 @@ seconds); the mutating helpers change only the table they are given.
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 125,
+                &quot;line&quot;: 120,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
@@ -316,7 +316,7 @@ seconds); the mutating helpers change only the table they are given.
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 164,
+                &quot;line&quot;: 156,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
@@ -348,7 +348,7 @@ seconds); the mutating helpers change only the table they are given.
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 178,
+                &quot;line&quot;: 170,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
@@ -380,7 +380,7 @@ seconds); the mutating helpers change only the table they are given.
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 189,
+                &quot;line&quot;: 181,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
@@ -402,7 +402,7 @@ seconds); the mutating helpers change only the table they are given.
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 201,
+                &quot;line&quot;: 193,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         },
@@ -434,7 +434,7 @@ seconds); the mutating helpers change only the table they are given.
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 225,
+                &quot;line&quot;: 217,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
             }
         }
@@ -442,7 +442,7 @@ seconds); the mutating helpers change only the table they are given.
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;PerkLoadoutState&quot;,
-    &quot;desc&quot;: &quot;Pure shop perk rules, shared by the server (authority) and the client (button\nstates). Functions take the saved inventory table and `now` (os.time()\nseconds); the mutating helpers change only the table they are given.\n\n- Slots: Personal 3 (+1 at Lv 10, 20, 30); Party 1 (+1 at Lv 30). Equip appends;\n  unequip removes one entry and later slots move up (lists stay dense).\n- Family: one perk per `Family` in one pool. A perk with no Family is its own\n  family, so one perk cannot fill two slots.\n- Expiring clock: the first equip moves `Banked` into `Expires = now + Banked`.\n  Time added while the clock runs extends `Expires`; time added while it is\n  stopped goes to `Banked`. Unequip never pauses the clock.\n- `prune` drops ended clocks and every loadout entry that is unknown, hidden,\n  in the wrong pool or no longer owned.\n- `beginRun` fixes the run&#x27;s loadout (`ActiveRun`) and uses one copy of each\n  equipped consumable, once per run id.&quot;,
+    &quot;desc&quot;: &quot;Pure shop perk rules, shared by the server (authority) and the client (button\nstates). Functions take the saved inventory table and `now` (os.time()\nseconds); the mutating helpers change only the table they are given.\n\n- Slots: Personal 3 (+1 at Lv 10, 20, 30); Party 1 (+1 at Lv 30). Equip appends;\n  unequip removes one entry and later slots move up (lists stay dense).\n- Same perk once: a pool holds each perk id at most once. Perks of one\n  `Family` stack (Family is a label only).\n- Expiring clock: the first equip moves `Banked` into `Expires = now + Banked`.\n  Time added while the clock runs extends `Expires`; time added while it is\n  stopped goes to `Banked`. Unequip never pauses the clock.\n- `prune` drops ended clocks and every loadout entry that is unknown, hidden,\n  in the wrong pool or no longer owned.\n- `beginRun` fixes the run&#x27;s loadout (`ActiveRun`) and uses one copy of each\n  equipped consumable, once per run id.&quot;,
     &quot;source&quot;: {
         &quot;line&quot;: 21,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/PerkLoadoutState.luau&quot;
