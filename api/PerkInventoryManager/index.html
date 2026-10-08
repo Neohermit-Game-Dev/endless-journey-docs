@@ -24,8 +24,8 @@ consumables once per run id. Buy / equip / unequip are bound only by
 `WireCommandHandlers()`, which only the Lobby calls, so the loadout cannot
 change during a run. `Grant` is the no-price, no-level-gate entry point for
 drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkInventoryManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkInventoryManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PerkInventoryManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.b976a47e.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.87892cd5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.17a221b8.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.69800f78.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -76,19 +76,21 @@ drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canon
   id fixes <code>ActiveRun</code> and uses one copy of each equipped consumable; a rejoin
   keeps <code>ActiveRun</code> and uses nothing. Fires <code>Signals.OnShopPerksChanged</code>.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetActiveRun"><code style="text-decoration:none">GetActiveRun</code><a href="#GetActiveRun" class="hash-link" aria-label="Direct link to GetActiveRun" title="Direct link to GetActiveRun" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L177"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">GetActiveRun</code><code>(</code><code>player<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="green_DgR4">{</code><code class="blue_P4bS">string</code><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetActiveRun"><code style="text-decoration:none">GetActiveRun</code><a href="#GetActiveRun" class="hash-link" aria-label="Direct link to GetActiveRun" title="Direct link to GetActiveRun" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L179"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">GetActiveRun</code><code>(</code><code>player<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="green_DgR4">{</code><code class="blue_P4bS">string</code><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
 <p>
-  The shop loadout fixed for this run: <code>{ Personal = { id }, Party = { id } }</code>
-  (live reference; read-only by convention). Empty when no profile is loaded.
+  The shop loadout fixed for THIS run: <code>{ Personal = { id }, Party = { id } }</code>
+  (live reference; read-only by convention). Empty when no profile is loaded,
+  outside a run (the Lobby), or when this run did not start for the player (a
+  bounced player): the saved <code>ActiveRun</code> may belong to an older run.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L226"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><div class="inset_uKQm"><div><code>runId<!-- -->: </code><code class="blue_P4bS">string?</code><code>,</code></div><div><code>isAuthorized<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L231"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><div class="inset_uKQm"><div><code>runId<!-- -->: </code><code class="blue_P4bS">string?</code><code>,</code></div><div><code>isAuthorized<!-- -->: </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Player" target="_blank" rel="noopener noreferrer">Player<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">)</code><code class="blue_P4bS">?</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Wire profile lifecycle, replication and the teleport hand-off. Call once per
   server, in every place. Pass <code>runId</code> in the Game Instance only: each loaded
   profile then starts that run, if <code>isAuthorized(player)</code> (may yield) allows it.
   Does NOT bind the command packets.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="WireCommandHandlers"><code style="text-decoration:none">WireCommandHandlers</code><a href="#WireCommandHandlers" class="hash-link" aria-label="Direct link to WireCommandHandlers" title="Direct link to WireCommandHandlers" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L273"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">WireCommandHandlers</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="WireCommandHandlers"><code style="text-decoration:none">WireCommandHandlers</code><a href="#WireCommandHandlers" class="hash-link" aria-label="Direct link to WireCommandHandlers" title="Direct link to WireCommandHandlers" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PerkInventoryManager.luau#L278"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PerkInventoryManager<!-- -->.</code><code class="green_DgR4">WireCommandHandlers</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Bind the buy / equip / unequip request packets. Lobby only. Call once, after
   Initialize().
@@ -268,7 +270,7 @@ drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canon
         },
         {
             &quot;name&quot;: &quot;GetActiveRun&quot;,
-            &quot;desc&quot;: &quot;The shop loadout fixed for this run: `{ Personal = { id }, Party = { id } }`\n(live reference; read-only by convention). Empty when no profile is loaded.&quot;,
+            &quot;desc&quot;: &quot;The shop loadout fixed for THIS run: `{ Personal = { id }, Party = { id } }`\n(live reference; read-only by convention). Empty when no profile is loaded,\noutside a run (the Lobby), or when this run did not start for the player (a\nbounced player): the saved `ActiveRun` may belong to an older run.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;player&quot;,
@@ -284,7 +286,7 @@ drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canon
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 177,
+                &quot;line&quot;: 179,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PerkInventoryManager.luau&quot;
             }
         },
@@ -306,7 +308,7 @@ drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canon
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 226,
+                &quot;line&quot;: 231,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PerkInventoryManager.luau&quot;
             }
         },
@@ -317,7 +319,7 @@ drops and the Battle Pass (Perk Rework part 6)."><link data-rh="true" rel="canon
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 273,
+                &quot;line&quot;: 278,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PerkInventoryManager.luau&quot;
             }
         }
