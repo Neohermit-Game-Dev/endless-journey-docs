@@ -18,7 +18,7 @@ The module operates in three named states:
 - **Running** — train is moving; fuel drains at `RUNNING_DRAIN_PER_SEC`.
 - **Braked** — brake lever is engaged; fuel drains at the slower
   `STOPPED_DRAIN_PER_SEC` and junk floats at reduced speed.
-- **Coasting** — fuel reached 0 with the Last Gasp perk: the train keeps
+- **Coasting** — fuel reached 0 with the Emergency Generator perk: the train keeps
   moving (no drain) until `coastEndsAt`, then stalls. Any fuel gain ends it.
 - **Stalled** — fuel reached 0; drain stops until fuel is added. There is
   no game-over timer: `ThreatTimerManager` speeds up its countdown instead.
@@ -41,7 +41,7 @@ The module operates in three named states:
 - **Running** — train is moving; fuel drains at `RUNNING_DRAIN_PER_SEC`.
 - **Braked** — brake lever is engaged; fuel drains at the slower
   `STOPPED_DRAIN_PER_SEC` and junk floats at reduced speed.
-- **Coasting** — fuel reached 0 with the Last Gasp perk: the train keeps
+- **Coasting** — fuel reached 0 with the Emergency Generator perk: the train keeps
   moving (no drain) until `coastEndsAt`, then stalls. Any fuel gain ends it.
 - **Stalled** — fuel reached 0; drain stops until fuel is added. There is
   no game-over timer: `ThreatTimerManager` speeds up its countdown instead.
@@ -50,8 +50,8 @@ Max fuel is `TrainConfig.MAX_FUEL` plus the Spare Tank `MaxFuelBonus`.
 
 State transitions also fire `Signals.SetTrainState` so `JunkService` keeps
 junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.2976b0d3.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.93ce3876.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.bf6f94e4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.617cc85e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -79,7 +79,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
     <code>STOPPED_DRAIN_PER_SEC</code> and junk floats at reduced speed.
   </li>
   <li>
-    <strong>Coasting</strong> — fuel reached 0 with the Last Gasp perk: the train keeps
+    <strong>Coasting</strong> — fuel reached 0 with the Emergency Generator perk: the train keeps
     moving (no drain) until <code>coastEndsAt</code>, then stalls. Any fuel gain ends it.
   </li>
   <li>
@@ -150,7 +150,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
   down. <code>amount</code> is fuel units already converted by <code>TrainConfig.FUEL_DAMAGE_FACTOR</code>.
   Returns <code>true</code> when fuel absorbed the hit (or the call was a no-op), and
   <code>false</code> when fuel was already 0 — the caller then counts a hull hit. A hit
-  that takes fuel to 0 stalls the train at once (no Last Gasp coast); it does
+  that takes fuel to 0 stalls the train at once (no Emergency Generator coast); it does
   not end the round.
 </p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AddFuel"><code style="text-decoration:none">AddFuel</code><a href="#AddFuel" class="hash-link" aria-label="Direct link to AddFuel" title="Direct link to AddFuel" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L571"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">AddFuel</code><code>(</code><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
@@ -191,7 +191,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
         },
         {
             &quot;name&quot;: &quot;ApplyFuelDamage&quot;,
-            &quot;desc&quot;: &quot;Combat fuel-damage sink, called by `TrainShieldManager` once the shield is\ndown. `amount` is fuel units already converted by `TrainConfig.FUEL_DAMAGE_FACTOR`.\nReturns `true` when fuel absorbed the hit (or the call was a no-op), and\n`false` when fuel was already 0 — the caller then counts a hull hit. A hit\nthat takes fuel to 0 stalls the train at once (no Last Gasp coast); it does\nnot end the round.&quot;,
+            &quot;desc&quot;: &quot;Combat fuel-damage sink, called by `TrainShieldManager` once the shield is\ndown. `amount` is fuel units already converted by `TrainConfig.FUEL_DAMAGE_FACTOR`.\nReturns `true` when fuel absorbed the hit (or the call was a no-op), and\n`false` when fuel was already 0 — the caller then counts a hull hit. A hit\nthat takes fuel to 0 stalls the train at once (no Emergency Generator coast); it does\nnot end the round.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;amount&quot;,
@@ -237,7 +237,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;TrainFuelManager&quot;,
-    &quot;desc&quot;: &quot;Global, server-authoritative module that manages the train&#x27;s fuel level\n(a scalar in the range 0–`TrainConfig.MAX_FUEL`).\n\nFuel is computed algebraically from the last recorded event rather than by a\nper-frame loop: each state transition (init, refuel, brake toggle, stall,\ngame-over) snapshots the current fuel, updates the active drain rate, and\nre-schedules the next deterministic transition via `task.delay` guarded by a\ngeneration nonce.  Clients receive a `TrainStateSync` packet containing the\nexact server timestamp and drain rate so they can predict the bar locally\nwithout polling.\n\nThe module operates in three named states:\n- **Running** — train is moving; fuel drains at `RUNNING_DRAIN_PER_SEC`.\n- **Braked** — brake lever is engaged; fuel drains at the slower\n  `STOPPED_DRAIN_PER_SEC` and junk floats at reduced speed.\n- **Coasting** — fuel reached 0 with the Last Gasp perk: the train keeps\n  moving (no drain) until `coastEndsAt`, then stalls. Any fuel gain ends it.\n- **Stalled** — fuel reached 0; drain stops until fuel is added. There is\n  no game-over timer: `ThreatTimerManager` speeds up its countdown instead.\n\nMax fuel is `TrainConfig.MAX_FUEL` plus the Spare Tank `MaxFuelBonus`.\n\nState transitions also fire `Signals.SetTrainState` so `JunkService` keeps\njunk speed and spawn rate in sync.&quot;,
+    &quot;desc&quot;: &quot;Global, server-authoritative module that manages the train&#x27;s fuel level\n(a scalar in the range 0–`TrainConfig.MAX_FUEL`).\n\nFuel is computed algebraically from the last recorded event rather than by a\nper-frame loop: each state transition (init, refuel, brake toggle, stall,\ngame-over) snapshots the current fuel, updates the active drain rate, and\nre-schedules the next deterministic transition via `task.delay` guarded by a\ngeneration nonce.  Clients receive a `TrainStateSync` packet containing the\nexact server timestamp and drain rate so they can predict the bar locally\nwithout polling.\n\nThe module operates in three named states:\n- **Running** — train is moving; fuel drains at `RUNNING_DRAIN_PER_SEC`.\n- **Braked** — brake lever is engaged; fuel drains at the slower\n  `STOPPED_DRAIN_PER_SEC` and junk floats at reduced speed.\n- **Coasting** — fuel reached 0 with the Emergency Generator perk: the train keeps\n  moving (no drain) until `coastEndsAt`, then stalls. Any fuel gain ends it.\n- **Stalled** — fuel reached 0; drain stops until fuel is added. There is\n  no game-over timer: `ThreatTimerManager` speeds up its countdown instead.\n\nMax fuel is `TrainConfig.MAX_FUEL` plus the Spare Tank `MaxFuelBonus`.\n\nState transitions also fire `Signals.SetTrainState` so `JunkService` keeps\njunk speed and spawn rate in sync.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],

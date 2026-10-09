@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Jump Drive | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Jump Drive | Endless Journey"><meta data-rh="true" name="description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><meta data-rh="true" property="og:description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems"},{"@type":"ListItem","position":2,"name":"Jump Drive","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.2976b0d3.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.93ce3876.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.bf6f94e4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.617cc85e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -180,7 +180,8 @@ step toggles in the 0.1 s tick.</li>
 <li class=""><strong>Destination card</strong>: with <code>ReplicatedStorage.ResearchUnlocked.Special_BiomeSelector</code>
 present, three biome buttons (current biome left out) send
 <code>ReqPickJumpDestination</code>, locked once the vote opens; without it,
-&quot;DESTINATION: ERROR&quot; and &quot;Biome Selector module broken&quot;.</li>
+&quot;DESTINATION: ERROR&quot; and &quot;Biome Selector module broken&quot;. The card switches
+the moment the research finishes, even with the panel open.</li>
 <li class=""><strong>Vote</strong>: a <code>VoteRow</code> in the panel and the <code>PartyVoteGui</code> banner. The banner
 shows only while <code>Voting</code>, and not to the <code>initiator</code> or to anyone with the
 panel open, so nobody sees two sets. Y/N keys belong to the banner:
