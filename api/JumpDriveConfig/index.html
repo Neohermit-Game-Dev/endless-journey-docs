@@ -14,7 +14,7 @@ Studio setup required:
   3. No `DepositPromptPart`: charging happens in the panel (hold the JumpButton).
   4. Tag one BasePart `WormholeAnchor` marking where the black hole appears.
   5. Create `ReplicatedStorage/JumpDriveVfx` holding Models `Wormhole` and `Lightspeed`.
-  6. `ReplicatedStorage/GuiAssets/JumpDriveGui` and `.../PartyVoteGui` (built by plan 2026-10-09-jump-drive-gui Task 3)."><meta data-rh="true" property="og:description" content="Single tuning surface for the Jump Drive: bench interaction, charge values,
+  6. `StarterGui/JumpDriveGui` and `StarterGui/PartyVoteGui` (ScreenGuis, Enabled = false, ResetOnSpawn = false)."><meta data-rh="true" property="og:description" content="Single tuning surface for the Jump Drive: bench interaction, charge values,
 phase durations, the biome registry, and arrival rewards. Edit gameplay here,
 never in manager or controller code.
 
@@ -25,9 +25,9 @@ Studio setup required:
   3. No `DepositPromptPart`: charging happens in the panel (hold the JumpButton).
   4. Tag one BasePart `WormholeAnchor` marking where the black hole appears.
   5. Create `ReplicatedStorage/JumpDriveVfx` holding Models `Wormhole` and `Lightspeed`.
-  6. `ReplicatedStorage/GuiAssets/JumpDriveGui` and `.../PartyVoteGui` (built by plan 2026-10-09-jump-drive-gui Task 3)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8f488d4b.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.bf0f7937.js" defer="defer"></script>
+  6. `StarterGui/JumpDriveGui` and `StarterGui/PartyVoteGui` (ScreenGuis, Enabled = false, ResetOnSpawn = false)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveConfig" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.3af402b4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.8a7fc2b0.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -49,14 +49,14 @@ Studio setup required:
   <li>No <code>DepositPromptPart</code>: charging happens in the panel (hold the JumpButton).</li>
   <li>Tag one BasePart <code>WormholeAnchor</code> marking where the black hole appears.</li>
   <li>Create <code>ReplicatedStorage/JumpDriveVfx</code> holding Models <code>Wormhole</code> and <code>Lightspeed</code>.</li>
-  <li><code>ReplicatedStorage/GuiAssets/JumpDriveGui</code> and <code>.../PartyVoteGui</code> (built by plan 2026-10-09-jump-drive-gui Task 3).</li>
+  <li><code>StarterGui/JumpDriveGui</code> and <code>StarterGui/PartyVoteGui</code> (ScreenGuis, Enabled = false, ResetOnSpawn = false).</li>
 </ol>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;JumpDriveConfig&quot;,
-    &quot;desc&quot;: &quot;Single tuning surface for the Jump Drive: bench interaction, charge values,\nphase durations, the biome registry, and arrival rewards. Edit gameplay here,\nnever in manager or controller code.\n\nStudio setup required:\n  1. The bench is the `PowerCore` Model (also the TrainEngine), tagged\n     `JumpDriveBench` with its PrimaryPart set.\n  2. Give it a BasePart `JumpPromptPart` holding a ProximityPrompt (key F, opens the GUI).\n  3. No `DepositPromptPart`: charging happens in the panel (hold the JumpButton).\n  4. Tag one BasePart `WormholeAnchor` marking where the black hole appears.\n  5. Create `ReplicatedStorage/JumpDriveVfx` holding Models `Wormhole` and `Lightspeed`.\n  6. `ReplicatedStorage/GuiAssets/JumpDriveGui` and `.../PartyVoteGui` (built by plan 2026-10-09-jump-drive-gui Task 3).&quot;,
+    &quot;desc&quot;: &quot;Single tuning surface for the Jump Drive: bench interaction, charge values,\nphase durations, the biome registry, and arrival rewards. Edit gameplay here,\nnever in manager or controller code.\n\nStudio setup required:\n  1. The bench is the `PowerCore` Model (also the TrainEngine), tagged\n     `JumpDriveBench` with its PrimaryPart set.\n  2. Give it a BasePart `JumpPromptPart` holding a ProximityPrompt (key F, opens the GUI).\n  3. No `DepositPromptPart`: charging happens in the panel (hold the JumpButton).\n  4. Tag one BasePart `WormholeAnchor` marking where the black hole appears.\n  5. Create `ReplicatedStorage/JumpDriveVfx` holding Models `Wormhole` and `Lightspeed`.\n  6. `StarterGui/JumpDriveGui` and `StarterGui/PartyVoteGui` (ScreenGuis, Enabled = false, ResetOnSpawn = false).&quot;,
     &quot;source&quot;: {
         &quot;line&quot;: 19,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/Configs/JumpDriveConfig.luau&quot;

@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Jump Drive | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Jump Drive | Endless Journey"><meta data-rh="true" name="description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><meta data-rh="true" property="og:description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems"},{"@type":"ListItem","position":2,"name":"Jump Drive","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8f488d4b.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.bf0f7937.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.3af402b4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.8a7fc2b0.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -163,10 +163,12 @@ in this system takes camera or movement control; the player keeps playing
 while the world changes around them.</p>
 <p><code>JumpDriveGuiController</code> drives the panel and feeds the banner from the single
 <code>JumpStateSync</code> payload, so they can never disagree. Pure text/state rules live
-in <code>JumpDriveGuiRules</code> (Studio self-check in the plan). It sets
-<code>ResetOnSpawn = false</code> on the cloned <code>ScreenGui</code> in code (<code>PartyVoteGui</code> does
-the same for the banner) — a clone with <code>ResetOnSpawn = true</code> would be
-destroyed on the first respawn.</p>
+in <code>JumpDriveGuiRules</code> (Studio self-check in the plan). Both ScreenGuis are
+authored in <code>StarterGui</code> (<code>JumpDriveGui</code>, <code>PartyVoteGui</code>; <code>Enabled = false</code>,
+<code>ResetOnSpawn = false</code>) and bound from <code>PlayerGui</code>. The code also sets
+<code>ResetOnSpawn = false</code>: with <code>true</code>, a respawn replaces the copy and the bound
+references go stale. <code>ReplicatedStorage.GuiAssets</code> holds only templates that
+code clones onto parts (SurfaceGuis such as <code>TrainShieldGui</code>).</p>
 <ul>
 <li class=""><strong>JumpButton</strong>: while <code>Idle</code>, hold it (MouseButton1/Touch) to charge — one
 <code>ReqDepositJumpCharge</code> per <code>HOLD_TICK</code>, a single success toast on release.
