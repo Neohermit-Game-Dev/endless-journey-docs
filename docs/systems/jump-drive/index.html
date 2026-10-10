@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Jump Drive | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Jump Drive | Endless Journey"><meta data-rh="true" name="description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><meta data-rh="true" property="og:description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems"},{"@type":"ListItem","position":2,"name":"Jump Drive","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.bf6f94e4.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.617cc85e.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.8f488d4b.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.bf0f7937.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -139,13 +139,13 @@ change to this module — the overhaul only needs to replace <code>prepareBiome<
 body.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rewards-on-arrival">Rewards on arrival<a href="#rewards-on-arrival" class="hash-link" aria-label="Direct link to Rewards on arrival" title="Direct link to Rewards on arrival" translate="no">​</a></h3>
 <p>Two separate call sites fire on arrival, not one:</p>
-<p><strong>Jump Bounty</strong> (permanent party perk): <code>finishJump</code> pays <code>ArrivalReward.Coins × (1 + JumpBountyBonus)</code> coins and fires <code>Signals.SpawnSpecialJunk(4, JumpBountyJunk)</code> once, so <code>JunkService</code> spawns that many Tier 4 junk.</p>
 <p><code>JumpDriveManager.finishJump</code>, on the <code>Exit -&gt; Idle</code> transition, grants
 <code>CoinManager.AddCoins</code>, <code>XPManager.AddXP</code>, and <code>BattlePassManager.AddExp</code> to
 every player in <code>Players:GetPlayers()</code> (each pcall-wrapped so one player&#x27;s
 DataStore hiccup can&#x27;t rob the rest of the party). Values live in
 <code>JumpDriveConfig.ArrivalReward</code>. <code>JumpDriveManager</code> never requires
 <code>QuestManager</code>.</p>
+<p><strong>Rift Harvest</strong> (permanent party perk, id <code>JumpBounty</code>): <code>finishJump</code> pays <code>ArrivalReward.Coins × (1 + JumpBountyBonus)</code> coins and <code>ArrivalReward.Xp × (1 + JumpBountyXP)</code> XP, both floored. Battle Pass EXP is not changed.</p>
 <p>Quest progress is a different module entirely: <code>QuestSourcesLoader</code> listens to
 <code>Signals.OnJumpPhaseChanged</code> itself and reports
 <code>QuestManager.ReportPartyProgress(QuestConfig.Metrics.BiomeJumps, 1)</code> once, on
