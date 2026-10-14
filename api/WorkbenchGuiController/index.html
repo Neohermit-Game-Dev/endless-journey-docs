@@ -20,8 +20,8 @@ shared with the Shredder on the same station Model). Two pages under a
 
 Both pages repaint live on MaterialPool, armor and Tech-unlock changes. Each
 page repeats Stash/Move, wired via `PlaceableActions`. The `CloseButton`
-calls `close()`. `ResponsiveScale` shrinks text-size limits and scrollbar
-thickness on screens smaller than the 1080p the GUI was authored at."><meta data-rh="true" property="og:description" content="Drives the Studio-authored `WorkbenchGui`. Opens via a placed Workbench
+calls `close()`. Text-size limits and scrollbar thickness follow the
+screen via the `ResponsiveScale` tag on `WorkbenchGui`."><meta data-rh="true" property="og:description" content="Drives the Studio-authored `WorkbenchGui`. Opens via a placed Workbench
 station&#x27;s `CraftPromptPart` ProximityPrompt (CollectionService tag `Workbench`,
 shared with the Shredder on the same station Model). Two pages under a
 `UIPageLayout`, switched by the `Personal` (workbench) and `Recharge`
@@ -38,10 +38,10 @@ shared with the Shredder on the same station Model). Two pages under a
 
 Both pages repaint live on MaterialPool, armor and Tech-unlock changes. Each
 page repeats Stash/Move, wired via `PlaceableActions`. The `CloseButton`
-calls `close()`. `ResponsiveScale` shrinks text-size limits and scrollbar
-thickness on screens smaller than the 1080p the GUI was authored at."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.9bc4e652.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5da9c88f.js" defer="defer"></script>
+calls `close()`. Text-size limits and scrollbar thickness follow the
+screen via the `ResponsiveScale` tag on `WorkbenchGui`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WorkbenchGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.0054f336.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.7aabeb87.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -72,15 +72,15 @@ thickness on screens smaller than the 1080p the GUI was authored at."><link data
 <p>
   Both pages repaint live on MaterialPool, armor and Tech-unlock changes. Each
   page repeats Stash/Move, wired via <code>PlaceableActions</code>. The <code>CloseButton</code>
-  calls <code>close()</code>. <code>ResponsiveScale</code> shrinks text-size limits and scrollbar
-  thickness on screens smaller than the 1080p the GUI was authored at.
+  calls <code>close()</code>. Text-size limits and scrollbar thickness follow the
+  screen via the <code>ResponsiveScale</code> tag on <code>WorkbenchGui</code>.
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;WorkbenchGuiController&quot;,
-    &quot;desc&quot;: &quot;Drives the Studio-authored `WorkbenchGui`. Opens via a placed Workbench\nstation&#x27;s `CraftPromptPart` ProximityPrompt (CollectionService tag `Workbench`,\nshared with the Shredder on the same station Model). Two pages under a\n`UIPageLayout`, switched by the `Personal` (workbench) and `Recharge`\n(armory) tab buttons:\n\n- **Workbench** — builds the recipe grid from `WorkbenchConfig`, fills the\n  detail pane on selection, sends `ReqCraft` on Accept. Greys recipes the\n  player can&#x27;t afford or that are gated by a locked Tech node. The grid is\n  filtered by category; the `DropdownButton` (driven by the reusable\n  `SharedModules/Gui/Dropdown` widget) fires `Signals.RequestWorkbenchCategory`.\n- **Armory** — lists owned armor from `ArmorClient`, shows the selected\n  kind&#x27;s stats, equips it, and recharges an Energy kind while the charge\n  button is held for `ArmorConfig.RECHARGE_HOLD_TIME` (shorter with Armor Weave).\n\nBoth pages repaint live on MaterialPool, armor and Tech-unlock changes. Each\npage repeats Stash/Move, wired via `PlaceableActions`. The `CloseButton`\ncalls `close()`. `ResponsiveScale` shrinks text-size limits and scrollbar\nthickness on screens smaller than the 1080p the GUI was authored at.&quot;,
+    &quot;desc&quot;: &quot;Drives the Studio-authored `WorkbenchGui`. Opens via a placed Workbench\nstation&#x27;s `CraftPromptPart` ProximityPrompt (CollectionService tag `Workbench`,\nshared with the Shredder on the same station Model). Two pages under a\n`UIPageLayout`, switched by the `Personal` (workbench) and `Recharge`\n(armory) tab buttons:\n\n- **Workbench** — builds the recipe grid from `WorkbenchConfig`, fills the\n  detail pane on selection, sends `ReqCraft` on Accept. Greys recipes the\n  player can&#x27;t afford or that are gated by a locked Tech node. The grid is\n  filtered by category; the `DropdownButton` (driven by the reusable\n  `SharedModules/Gui/Dropdown` widget) fires `Signals.RequestWorkbenchCategory`.\n- **Armory** — lists owned armor from `ArmorClient`, shows the selected\n  kind&#x27;s stats, equips it, and recharges an Energy kind while the charge\n  button is held for `ArmorConfig.RECHARGE_HOLD_TIME` (shorter with Armor Weave).\n\nBoth pages repaint live on MaterialPool, armor and Tech-unlock changes. Each\npage repeats Stash/Move, wired via `PlaceableActions`. The `CloseButton`\ncalls `close()`. Text-size limits and scrollbar thickness follow the\nscreen via the `ResponsiveScale` tag on `WorkbenchGui`.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
