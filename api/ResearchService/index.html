@@ -5,21 +5,27 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">ResearchService | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/ResearchService"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="ResearchService | Endless Journey"><meta data-rh="true" name="description" content="Authoritative owner of the shared, session-only Research Bench state. Handles
 ReqResearchEnqueue / ReqResearchCancel / ReqResearchRefuel (one call per
-hold-to-refuel release, clamped to the room left) / ReqResearchSnapshot,
+hold-to-refuel release, clamped to the pool; bench fuel has no cap) /
+ReqResearchSnapshot, and ReqResearchHold: while any player holds REFUEL the
+burn and the job timer freeze for everyone (`state.frozen`); a holder whose
+release never arrives expires after HOLD_TIMEOUT or on leave. It
 runs a Heartbeat tick that advances the active job and burns fuel, auto-starts
 the next queued job on completion (firing Signals.OnResearchLevelUp), refunds
 cancelled jobs into the global MaterialPool, and broadcasts ResearchStateUpdate. Boot is
 split from definition (like PerkManager): require() this ModuleScript, then call
 Initialize() once — see ResearchSystemLoader.server.luau."><meta data-rh="true" property="og:description" content="Authoritative owner of the shared, session-only Research Bench state. Handles
 ReqResearchEnqueue / ReqResearchCancel / ReqResearchRefuel (one call per
-hold-to-refuel release, clamped to the room left) / ReqResearchSnapshot,
+hold-to-refuel release, clamped to the pool; bench fuel has no cap) /
+ReqResearchSnapshot, and ReqResearchHold: while any player holds REFUEL the
+burn and the job timer freeze for everyone (`state.frozen`); a holder whose
+release never arrives expires after HOLD_TIMEOUT or on leave. It
 runs a Heartbeat tick that advances the active job and burns fuel, auto-starts
 the next queued job on completion (firing Signals.OnResearchLevelUp), refunds
 cancelled jobs into the global MaterialPool, and broadcasts ResearchStateUpdate. Boot is
 split from definition (like PerkManager): require() this ModuleScript, then call
 Initialize() once — see ResearchSystemLoader.server.luau."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ResearchService"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ResearchService" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ResearchService" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.36c644ce.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.4197229d.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.3481430e.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.73b5b8ad.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -29,7 +35,10 @@ Initialize() once — see ResearchSystemLoader.server.luau."><link data-rh="true
 <p>
   Authoritative owner of the shared, session-only Research Bench state. Handles
   ReqResearchEnqueue / ReqResearchCancel / ReqResearchRefuel (one call per
-  hold-to-refuel release, clamped to the room left) / ReqResearchSnapshot,
+  hold-to-refuel release, clamped to the pool; bench fuel has no cap) /
+  ReqResearchSnapshot, and ReqResearchHold: while any player holds REFUEL the
+  burn and the job timer freeze for everyone (<code>state.frozen</code>); a holder whose
+  release never arrives expires after HOLD_TIMEOUT or on leave. It
   runs a Heartbeat tick that advances the active job and burns fuel, auto-starts
   the next queued job on completion (firing Signals.OnResearchLevelUp), refunds
   cancelled jobs into the global MaterialPool, and broadcasts ResearchStateUpdate. Boot is
@@ -41,12 +50,12 @@ Initialize() once — see ResearchSystemLoader.server.luau."><link data-rh="true
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;ResearchService&quot;,
-    &quot;desc&quot;: &quot;Authoritative owner of the shared, session-only Research Bench state. Handles\nReqResearchEnqueue / ReqResearchCancel / ReqResearchRefuel (one call per\nhold-to-refuel release, clamped to the room left) / ReqResearchSnapshot,\nruns a Heartbeat tick that advances the active job and burns fuel, auto-starts\nthe next queued job on completion (firing Signals.OnResearchLevelUp), refunds\ncancelled jobs into the global MaterialPool, and broadcasts ResearchStateUpdate. Boot is\nsplit from definition (like PerkManager): require() this ModuleScript, then call\nInitialize() once — see ResearchSystemLoader.server.luau.&quot;,
+    &quot;desc&quot;: &quot;Authoritative owner of the shared, session-only Research Bench state. Handles\nReqResearchEnqueue / ReqResearchCancel / ReqResearchRefuel (one call per\nhold-to-refuel release, clamped to the pool; bench fuel has no cap) /\nReqResearchSnapshot, and ReqResearchHold: while any player holds REFUEL the\nburn and the job timer freeze for everyone (`state.frozen`); a holder whose\nrelease never arrives expires after HOLD_TIMEOUT or on leave. It\nruns a Heartbeat tick that advances the active job and burns fuel, auto-starts\nthe next queued job on completion (firing Signals.OnResearchLevelUp), refunds\ncancelled jobs into the global MaterialPool, and broadcasts ResearchStateUpdate. Boot is\nsplit from definition (like PerkManager): require() this ModuleScript, then call\nInitialize() once — see ResearchSystemLoader.server.luau.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 15,
+        &quot;line&quot;: 18,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ResearchService.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>

@@ -5,15 +5,19 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">TechTreeGuiRules | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="TechTreeGuiRules | Endless Journey"><meta data-rh="true" name="description" content="Pure layout and text rules for `TechTreeGuiController`: where each card,
 connector segment and tier label goes, each node&#x27;s state, and every string
-the panel shows that depends on numbers. No Instances, so a Studio
-self-check can assert all of it. X values are offsets from the tree frame&#x27;s
-horizontal centre; Y values are offsets from its top."><meta data-rh="true" property="og:description" content="Pure layout and text rules for `TechTreeGuiController`: where each card,
+the panel shows that depends on numbers, plus which layout (full or
+compact) fits the screen. No Instances, so a Studio self-check can assert
+all of it. X values are offsets from the tree frame&#x27;s horizontal centre;
+Y values are offsets from its top. `gapY` (optional) is the space between
+rows: NODE_GAP in the full layout, COMPACT_ROW_GAP in the compact one."><meta data-rh="true" property="og:description" content="Pure layout and text rules for `TechTreeGuiController`: where each card,
 connector segment and tier label goes, each node&#x27;s state, and every string
-the panel shows that depends on numbers. No Instances, so a Studio
-self-check can assert all of it. X values are offsets from the tree frame&#x27;s
-horizontal centre; Y values are offsets from its top."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.36c644ce.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.4197229d.js" defer="defer"></script>
+the panel shows that depends on numbers, plus which layout (full or
+compact) fits the screen. No Instances, so a Studio self-check can assert
+all of it. X values are offsets from the tree frame&#x27;s horizontal centre;
+Y values are offsets from its top. `gapY` (optional) is the space between
+rows: NODE_GAP in the full layout, COMPACT_ROW_GAP in the compact one."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TechTreeGuiRules" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.3481430e.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.73b5b8ad.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -23,18 +27,20 @@ horizontal centre; Y values are offsets from its top."><link data-rh="true" rel=
 <p>
   Pure layout and text rules for <code>TechTreeGuiController</code>: where each card,
   connector segment and tier label goes, each node's state, and every string
-  the panel shows that depends on numbers. No Instances, so a Studio
-  self-check can assert all of it. X values are offsets from the tree frame's
-  horizontal centre; Y values are offsets from its top.
+  the panel shows that depends on numbers, plus which layout (full or
+  compact) fits the screen. No Instances, so a Studio self-check can assert
+  all of it. X values are offsets from the tree frame's horizontal centre;
+  Y values are offsets from its top. <code>gapY</code> (optional) is the space between
+  rows: NODE_GAP in the full layout, COMPACT_ROW_GAP in the compact one.
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;TechTreeGuiRules&quot;,
-    &quot;desc&quot;: &quot;Pure layout and text rules for `TechTreeGuiController`: where each card,\nconnector segment and tier label goes, each node&#x27;s state, and every string\nthe panel shows that depends on numbers. No Instances, so a Studio\nself-check can assert all of it. X values are offsets from the tree frame&#x27;s\nhorizontal centre; Y values are offsets from its top.&quot;,
+    &quot;desc&quot;: &quot;Pure layout and text rules for `TechTreeGuiController`: where each card,\nconnector segment and tier label goes, each node&#x27;s state, and every string\nthe panel shows that depends on numbers, plus which layout (full or\ncompact) fits the screen. No Instances, so a Studio self-check can assert\nall of it. X values are offsets from the tree frame&#x27;s horizontal centre;\nY values are offsets from its top. `gapY` (optional) is the space between\nrows: NODE_GAP in the full layout, COMPACT_ROW_GAP in the compact one.&quot;,
     &quot;source&quot;: {
-        &quot;line&quot;: 11,
+        &quot;line&quot;: 13,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/TechTreeGuiRules.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
