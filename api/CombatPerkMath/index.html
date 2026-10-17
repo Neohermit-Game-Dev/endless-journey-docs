@@ -8,8 +8,8 @@ no state: callers own the tables they pass in. Studio-only self-check at the
 bottom."><meta data-rh="true" property="og:description" content="Pure math for the Perk Rework part 5 combat perks (Batch A). No services and
 no state: callers own the tables they pass in. Studio-only self-check at the
 bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CombatPerkMath"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CombatPerkMath" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CombatPerkMath" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -34,11 +34,34 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
   healed. The bucket refills at <code>capPerSecond</code> and holds at most one second's
   worth, so healing never passes <code>capPerSecond</code> per second over time.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="markBonus"><code style="text-decoration:none">markBonus</code><a href="#markBonus" class="hash-link" aria-label="Direct link to markBonus" title="Direct link to markBonus" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L46"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">markBonus</code><code>(</code><div class="inset_uKQm"><div><code>mark<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CombatPerkMath#Mark">Mark?</a></code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dawnSave"><code style="text-decoration:none">dawnSave</code><a href="#dawnSave" class="hash-link" aria-label="Direct link to dawnSave" title="Direct link to dawnSave" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L48"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">dawnSave</code><code>(</code><div class="inset_uKQm"><div><code>health<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>damage<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>maxHealth<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>ready<!-- -->: </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>fraction<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number?</code></div><div>
+<p>
+  Second Dawn: the health left after a hit of <code>damage</code> (same scale as <code>health</code>)
+  when that hit would kill and the save is <code>ready</code>: <code>fraction</code> of <code>maxHealth</code>.
+  nil when the hit does not kill, the save is recharging, or the player is dead.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="accuracyPenalty"><code style="text-decoration:none">accuracyPenalty</code><a href="#accuracyPenalty" class="hash-link" aria-label="Direct link to accuracyPenalty" title="Direct link to accuracyPenalty" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L59"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">accuracyPenalty</code><code>(</code><div class="inset_uKQm"><div><code>party<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>personal<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>cap<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Pirate spread penalty on one target: Fuzzy Hologram (<code>party</code>) + Void Cloak
+  (<code>personal</code>, the target's own), at most <code>cap</code>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="streakBonus"><code style="text-decoration:none">streakBonus</code><a href="#streakBonus" class="hash-link" aria-label="Direct link to streakBonus" title="Direct link to streakBonus" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L67"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">streakBonus</code><code>(</code><div class="inset_uKQm"><div><code>kills<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>perKill<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>cap<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>lastKillAt<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>seconds<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Battle Rhythm: <code>kills</code> × <code>perKill</code>, at most <code>cap</code>, while <code>now</code> is within
+  <code>seconds</code> of <code>lastKillAt</code>; else 0.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="critMultiplier"><code style="text-decoration:none">critMultiplier</code><a href="#critMultiplier" class="hash-link" aria-label="Direct link to critMultiplier" title="Direct link to critMultiplier" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L78"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">critMultiplier</code><code>(</code><div class="inset_uKQm"><div><code>rTriple<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>tripleChance<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>rDouble<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>critChance<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  The crit multiplier of one hit from two rolls in [0, 1): Star Shot (×3 when
+  <code>rTriple</code> &#x3C; <code>tripleChance</code>) first, else Lucky Shot (×2 when <code>rDouble</code> &#x3C; <code>critChance</code>).
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refillMag"><code style="text-decoration:none">refillMag</code><a href="#refillMag" class="hash-link" aria-label="Direct link to refillMag" title="Direct link to refillMag" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L90"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">refillMag</code><code>(</code><div class="inset_uKQm"><div><code>mag<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>size<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fraction<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>Scavenger Rounds: <code>mag</code> plus <code>fraction</code> of <code>size</code> (rounded up), at most <code>size</code>.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="markBonus"><code style="text-decoration:none">markBonus</code><a href="#markBonus" class="hash-link" aria-label="Direct link to markBonus" title="Direct link to markBonus" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L100"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">markBonus</code><code>(</code><div class="inset_uKQm"><div><code>mark<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CombatPerkMath#Mark">Mark?</a></code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>The damage bonus <code>mark</code> gives at clock <code>now</code> (0 without a mark or after it ends).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="finisherExtra"><code style="text-decoration:none">finisherExtra</code><a href="#finisherExtra" class="hash-link" aria-label="Direct link to finisherExtra" title="Direct link to finisherExtra" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L53"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">finisherExtra</code><code>(</code><div class="inset_uKQm"><div><code>health<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>maxHealth<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>bonus<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fraction<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="finisherExtra"><code style="text-decoration:none">finisherExtra</code><a href="#finisherExtra" class="hash-link" aria-label="Direct link to finisherExtra" title="Direct link to finisherExtra" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L107"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">finisherExtra</code><code>(</code><div class="inset_uKQm"><div><code>health<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>maxHealth<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>bonus<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fraction<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>Finishing Touch: <code>bonus</code> when the target is below <code>fraction</code> of its max health, else 0.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lowArcDirection"><code style="text-decoration:none">lowArcDirection</code><a href="#lowArcDirection" class="hash-link" aria-label="Direct link to lowArcDirection" title="Direct link to lowArcDirection" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L62"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">lowArcDirection</code><code>(</code><div class="inset_uKQm"><div><code>from<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>to<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>speed<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>gravity<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lowArcDirection"><code style="text-decoration:none">lowArcDirection</code><a href="#lowArcDirection" class="hash-link" aria-label="Direct link to lowArcDirection" title="Direct link to lowArcDirection" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/CombatPerkMath.luau#L116"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CombatPerkMath<!-- -->.</code><code class="green_DgR4">lowArcDirection</code><code>(</code><div class="inset_uKQm"><div><code>from<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>to<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>speed<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>gravity<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3?<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div><div>
 <p>
   Smart Cannon aim: the unit launch direction of the low arc that carries a
   shell fired at <code>speed</code> from <code>from</code> to <code>to</code> under downward <code>gravity</code> (a
@@ -84,6 +107,196 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
             }
         },
         {
+            &quot;name&quot;: &quot;dawnSave&quot;,
+            &quot;desc&quot;: &quot;Second Dawn: the health left after a hit of `damage` (same scale as `health`)\nwhen that hit would kill and the save is `ready`: `fraction` of `maxHealth`.\nnil when the hit does not kill, the save is recharging, or the player is dead.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;health&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;damage&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;maxHealth&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;ready&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;fraction&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number?\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 48,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;accuracyPenalty&quot;,
+            &quot;desc&quot;: &quot;Pirate spread penalty on one target: Fuzzy Hologram (`party`) + Void Cloak\n(`personal`, the target&#x27;s own), at most `cap`.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;party&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;personal&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;cap&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 59,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;streakBonus&quot;,
+            &quot;desc&quot;: &quot;Battle Rhythm: `kills` × `perKill`, at most `cap`, while `now` is within\n`seconds` of `lastKillAt`; else 0.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;kills&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;perKill&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;cap&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;lastKillAt&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;now&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;seconds&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 67,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;critMultiplier&quot;,
+            &quot;desc&quot;: &quot;The crit multiplier of one hit from two rolls in [0, 1): Star Shot (×3 when\n`rTriple` &lt; `tripleChance`) first, else Lucky Shot (×2 when `rDouble` &lt; `critChance`).&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;rTriple&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;tripleChance&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;rDouble&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;critChance&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 78,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;refillMag&quot;,
+            &quot;desc&quot;: &quot;Scavenger Rounds: `mag` plus `fraction` of `size` (rounded up), at most `size`.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;mag&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;size&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;fraction&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 90,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;markBonus&quot;,
             &quot;desc&quot;: &quot;The damage bonus `mark` gives at clock `now` (0 without a mark or after it ends).&quot;,
             &quot;params&quot;: [
@@ -106,7 +319,7 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 46,
+                &quot;line&quot;: 100,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
             }
         },
@@ -143,7 +356,7 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 53,
+                &quot;line&quot;: 107,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
             }
         },
@@ -180,7 +393,7 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 62,
+                &quot;line&quot;: 116,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
             }
         }
@@ -215,6 +428,6 @@ bottom."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.g
         &quot;line&quot;: 10,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/CombatPerkMath.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#LifestealBucket" class="table-of-contents__link toc-highlight">LifestealBucket</a></li><li><a href="#Mark" class="table-of-contents__link toc-highlight">Mark</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#finisherExtra" class="table-of-contents__link toc-highlight">.finisherExtra</a></li><li><a href="#lifestealTake" class="table-of-contents__link toc-highlight">.lifestealTake</a></li><li><a href="#lowArcDirection" class="table-of-contents__link toc-highlight">.lowArcDirection</a></li><li><a href="#markBonus" class="table-of-contents__link toc-highlight">.markBonus</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#LifestealBucket" class="table-of-contents__link toc-highlight">LifestealBucket</a></li><li><a href="#Mark" class="table-of-contents__link toc-highlight">Mark</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#accuracyPenalty" class="table-of-contents__link toc-highlight">.accuracyPenalty</a></li><li><a href="#critMultiplier" class="table-of-contents__link toc-highlight">.critMultiplier</a></li><li><a href="#dawnSave" class="table-of-contents__link toc-highlight">.dawnSave</a></li><li><a href="#finisherExtra" class="table-of-contents__link toc-highlight">.finisherExtra</a></li><li><a href="#lifestealTake" class="table-of-contents__link toc-highlight">.lifestealTake</a></li><li><a href="#lowArcDirection" class="table-of-contents__link toc-highlight">.lowArcDirection</a></li><li><a href="#markBonus" class="table-of-contents__link toc-highlight">.markBonus</a></li><li><a href="#refillMag" class="table-of-contents__link toc-highlight">.refillMag</a></li><li><a href="#streakBonus" class="table-of-contents__link toc-highlight">.streakBonus</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>

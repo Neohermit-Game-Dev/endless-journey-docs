@@ -11,7 +11,8 @@ Assets come from two sources:
 - Instances of `PRELOAD_CLASSES` under the replicated services (MeshParts
   give only their TextureID, so their meshes still stream in during play).
 - Every `rbxassetid://` string inside the `Configs` modules (ids that only
-  exist in code, such as SoundConfig SFX or TrainConfig animations).
+  exist in code, such as SoundConfig SFX or TrainConfig animations), each
+  wrapped in a Sound, Animation, or ImageLabel carrier.
 
 The bar counts batches, not PreloadLib&#x27;s per-asset `completed`: one
 instance can resolve several assets or none. It never stands still: it
@@ -24,14 +25,15 @@ Assets come from two sources:
 - Instances of `PRELOAD_CLASSES` under the replicated services (MeshParts
   give only their TextureID, so their meshes still stream in during play).
 - Every `rbxassetid://` string inside the `Configs` modules (ids that only
-  exist in code, such as SoundConfig SFX or TrainConfig animations).
+  exist in code, such as SoundConfig SFX or TrainConfig animations), each
+  wrapped in a Sound, Animation, or ImageLabel carrier.
 
 The bar counts batches, not PreloadLib&#x27;s per-asset `completed`: one
 instance can resolve several assets or none. It never stands still: it
 creeps toward JOIN_END while the place downloads (Roblox gives no progress
 for that), and a highlight sweeps across the fill the whole time."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LoadingScreen"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LoadingScreen" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LoadingScreen" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -51,7 +53,8 @@ for that), and a highlight sweeps across the fill the whole time."><link data-rh
   </li>
   <li>
     Every <code>rbxassetid://</code> string inside the <code>Configs</code> modules (ids that only
-    exist in code, such as SoundConfig SFX or TrainConfig animations).
+    exist in code, such as SoundConfig SFX or TrainConfig animations), each
+    wrapped in a Sound, Animation, or ImageLabel carrier.
   </li>
 </ul>
 <p>
@@ -65,12 +68,12 @@ for that), and a highlight sweeps across the fill the whole time."><link data-rh
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;LoadingScreen&quot;,
-    &quot;desc&quot;: &quot;Replaces the default Roblox loading screen and covers the view until\n`PreloadLib` has loaded every sound, animation, and texture/material the\nclient can see.\n\nAssets come from two sources:\n- Instances of `PRELOAD_CLASSES` under the replicated services (MeshParts\n  give only their TextureID, so their meshes still stream in during play).\n- Every `rbxassetid://` string inside the `Configs` modules (ids that only\n  exist in code, such as SoundConfig SFX or TrainConfig animations).\n\nThe bar counts batches, not PreloadLib&#x27;s per-asset `completed`: one\ninstance can resolve several assets or none. It never stands still: it\ncreeps toward JOIN_END while the place downloads (Roblox gives no progress\nfor that), and a highlight sweeps across the fill the whole time.&quot;,
+    &quot;desc&quot;: &quot;Replaces the default Roblox loading screen and covers the view until\n`PreloadLib` has loaded every sound, animation, and texture/material the\nclient can see.\n\nAssets come from two sources:\n- Instances of `PRELOAD_CLASSES` under the replicated services (MeshParts\n  give only their TextureID, so their meshes still stream in during play).\n- Every `rbxassetid://` string inside the `Configs` modules (ids that only\n  exist in code, such as SoundConfig SFX or TrainConfig animations), each\n  wrapped in a Sound, Animation, or ImageLabel carrier.\n\nThe bar counts batches, not PreloadLib&#x27;s per-asset `completed`: one\ninstance can resolve several assets or none. It never stands still: it\ncreeps toward JOIN_END while the place downloads (Roblox gives no progress\nfor that), and a highlight sweeps across the fill the whole time.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 21,
+        &quot;line&quot;: 22,
         &quot;path&quot;: &quot;src/ReplicatedFirst/LoadingScreen.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>

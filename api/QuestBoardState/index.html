@@ -12,8 +12,8 @@ claim, mileage checkpoints, the reset sweep, the perk box roll and receipt
 idempotency. No instances, no services: every function takes the tables it
 changes, so Studio self-checks drive it with plain data. QuestManager (server)
 is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestBoardState"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestBoardState" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/QuestBoardState" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -27,69 +27,78 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
   changes, so Studio self-checks drive it with plain data. QuestManager (server)
   is the only writer; GUIs read the same shapes from QuestClient.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="eligible"><code style="text-decoration:none">eligible</code><a href="#eligible" class="hash-link" aria-label="Direct link to eligible" title="Direct link to eligible" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L59"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">eligible</code><code>(</code><div class="inset_uKQm"><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="eligible"><code style="text-decoration:none">eligible</code><a href="#eligible" class="hash-link" aria-label="Direct link to eligible" title="Direct link to eligible" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L60"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">eligible</code><code>(</code><div class="inset_uKQm"><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
 <p>
   Sorted ids of the pool quests of <code>scope</code> × <code>category</code> whose Metric is live
   (a key of QuestConfig.Metrics). A quest with a not-yet-wired metric is never offered.
   A Personal quest also needs a metric reported with an actor
   (QuestConfig.PersonalMetrics); party-only metrics never advance Personal quests.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fill"><code style="text-decoration:none">fill</code><a href="#fill" class="hash-link" aria-label="Direct link to fill" title="Direct link to fill" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L112"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">fill</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fill"><code style="text-decoration:none">fill</code><a href="#fill" class="hash-link" aria-label="Direct link to fill" title="Direct link to fill" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L113"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">fill</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Top the offered list up to OFFER_SIZE with random eligible quests (fewer when
   the pool is small). Used at a reset.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cancel"><code style="text-decoration:none">cancel</code><a href="#cancel" class="hash-link" aria-label="Direct link to cancel" title="Direct link to cancel" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L152"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">cancel</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cancel"><code style="text-decoration:none">cancel</code><a href="#cancel" class="hash-link" aria-label="Direct link to cancel" title="Direct link to cancel" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L153"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">cancel</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Move an accepted quest with no progress back to the end of the offered list,
   keeping its refresh count.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refreshCheck"><code style="text-decoration:none">refreshCheck</code><a href="#refreshCheck" class="hash-link" aria-label="Direct link to refreshCheck" title="Direct link to refreshCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L169"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">refreshCheck</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">boolean</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refreshCheck"><code style="text-decoration:none">refreshCheck</code><a href="#refreshCheck" class="hash-link" aria-label="Direct link to refreshCheck" title="Direct link to refreshCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L170"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">refreshCheck</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">boolean</code></div></div><code>)</code></div><div>
 <p>Whether offered <code>questId</code> can be refreshed now: (code, isFree).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refresh"><code style="text-decoration:none">refresh</code><a href="#refresh" class="hash-link" aria-label="Direct link to refresh" title="Direct link to refresh" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L184"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">refresh</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="refresh"><code style="text-decoration:none">refresh</code><a href="#refresh" class="hash-link" aria-label="Direct link to refresh" title="Direct link to refresh" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L185"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">refresh</code><code>(</code><div class="inset_uKQm"><div><code>box<!-- -->: </code><code class="blue_P4bS">Box</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Replace offered <code>questId</code> with a random other eligible quest; the slot's
   refresh count goes up by 1. The caller decides free vs paid (refreshCheck).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="advance"><code style="text-decoration:none">advance</code><a href="#advance" class="hash-link" aria-label="Direct link to advance" title="Direct link to advance" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L201"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">advance</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>metric<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>mult<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="advance"><code style="text-decoration:none">advance</code><a href="#advance" class="hash-link" aria-label="Direct link to advance" title="Direct link to advance" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L202"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">advance</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>metric<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>mult<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
   Add <code>amount</code> to every unfinished, unclaimed active quest of <code>category</code> with
   Metric <code>metric</code>. A quest that reaches its Target stores <code>mult</code> (the Contract
   Bonus, locked at completion). Returns (changed, completedNow).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="claim"><code style="text-decoration:none">claim</code><a href="#claim" class="hash-link" aria-label="Direct link to claim" title="Direct link to claim" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L221"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">claim</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="claim"><code style="text-decoration:none">claim</code><a href="#claim" class="hash-link" aria-label="Direct link to claim" title="Direct link to claim" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L222"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">claim</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code><code>,</code></div><div><code>category<!-- -->: </code><code class="blue_P4bS">Category</code><code>,</code></div><div><code>questId<!-- -->: </code><code class="blue_P4bS">string</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
   Claim a finished quest: marks it claimed, adds 1 mileage point (capped) and
   returns (code, coins, exp) with the stored multiplier applied.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sweep"><code style="text-decoration:none">sweep</code><a href="#sweep" class="hash-link" aria-label="Direct link to sweep" title="Direct link to sweep" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L258"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">sweep</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Payout</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sweep"><code style="text-decoration:none">sweep</code><a href="#sweep" class="hash-link" aria-label="Direct link to sweep" title="Direct link to sweep" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L259"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">sweep</code><code>(</code><div class="inset_uKQm"><div><code>sd<!-- -->: </code><code class="blue_P4bS">ScopeData</code><code>,</code></div><div><code>scope<!-- -->: </code><code class="blue_P4bS">Scope</code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">Payout</code><code class="purple_ieR2">}</code></div><div>
 <p>
   The reset sweep: claim every finished quest, then every reached checkpoint
   (the quests claimed here count toward mileage first). Returns what to pay.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="boxPool"><code style="text-decoration:none">boxPool</code><a href="#boxPool" class="hash-link" aria-label="Direct link to boxPool" title="Direct link to boxPool" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L281"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">boxPool</code><code>(</code><code>perks<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="superRareIds"><code style="text-decoration:none">superRareIds</code><a href="#superRareIds" class="hash-link" aria-label="Direct link to superRareIds" title="Direct link to superRareIds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L281"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">superRareIds</code><code>(</code><code>perks<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
+<p>Sorted ids of the super rare perks: every non-hidden <code>BoxOnly</code> perk.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="boxPool"><code style="text-decoration:none">boxPool</code><a href="#boxPool" class="hash-link" aria-label="Direct link to boxPool" title="Direct link to boxPool" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L296"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">boxPool</code><code>(</code><code>perks<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
 <p>
   Sorted ids of every non-hidden Consumable or Expiring shop perk (the box pool).
-  SuperRareIds are left out: they have their own roll.
+  Super rares are left out: they have their own roll.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rollBox"><code style="text-decoration:none">rollBox</code><a href="#rollBox" class="hash-link" aria-label="Direct link to rollBox" title="Direct link to rollBox" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L297"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">rollBox</code><code>(</code><div class="inset_uKQm"><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>pool<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">string</code><code>,</code></div><div><code class="blue_P4bS">boolean</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rollBox"><code style="text-decoration:none">rollBox</code><a href="#rollBox" class="hash-link" aria-label="Direct link to rollBox" title="Direct link to rollBox" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L311"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">rollBox</code><code>(</code><div class="inset_uKQm"><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>pool<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">string</code><code>,</code></div><div><code class="blue_P4bS">boolean</code></div></div><code>)</code></div><div>
 <p>
-  One perk box: (perkId, isSuperRare). The super rare roll only happens when
-  QuestBoardConfig.PerkBox.SuperRareIds is not empty.
+  One perk box: (perkId, isSuperRare). The super rare roll only happens while
+  a super rare exists. Uses the ShopPerkConfig perk table.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="boxOdds"><code style="text-decoration:none">boxOdds</code><a href="#boxOdds" class="hash-link" aria-label="Direct link to boxOdds" title="Direct link to boxOdds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L311"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">boxOdds</code><code>(</code><div class="inset_uKQm"><div><code>perks<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">BoxOdds</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lengthOdds"><code style="text-decoration:none">lengthOdds</code><a href="#lengthOdds" class="hash-link" aria-label="Direct link to lengthOdds" title="Direct link to lengthOdds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L323"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">lengthOdds</code><code>(</code><code>variants<!-- -->: </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><div class="inset_uKQm"><code>Seconds<!-- -->: </code><code class="blue_P4bS">number</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code>Price<!-- -->: </code><code class="blue_P4bS">number</code></div><code class="green_DgR4">}</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><div class="inset_uKQm"><code>Seconds<!-- -->: </code><code class="blue_P4bS">number</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code>Chance<!-- -->: </code><code class="blue_P4bS">number</code></div><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Each of an expiring perk's lengths with its box chance (shortest first in
+  <code>variants</code> order), from <code>QuestBoardConfig.PerkBox.LengthWeights</code>.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rollLength"><code style="text-decoration:none">rollLength</code><a href="#rollLength" class="hash-link" aria-label="Direct link to rollLength" title="Direct link to rollLength" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L339"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">rollLength</code><code>(</code><div class="inset_uKQm"><div><code>rng<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Random" target="_blank" rel="noopener noreferrer">Random<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>variants<!-- -->: </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><div class="inset_uKQm"><code>Seconds<!-- -->: </code><code class="blue_P4bS">number</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code>Price<!-- -->: </code><code class="blue_P4bS">number</code></div><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>The seconds a box banks for an expiring perk: one of its lengths, by <code>lengthOdds</code>.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="boxOdds"><code style="text-decoration:none">boxOdds</code><a href="#boxOdds" class="hash-link" aria-label="Direct link to boxOdds" title="Direct link to boxOdds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L384"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">boxOdds</code><code>(</code><div class="inset_uKQm"><div><code>perks<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>pool<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">BoxOdds</code></div><div>
 <p>
   The perk box odds the GUI must show, worked out from the pool the roll uses:
   each normal perk = (1 - rare) / #pool, where rare = SuperRareChance only
-  while SuperRareIds is not empty. Groups come in board order (Personal
+  while a super rare exists. Expiring names carry their length odds. Groups come in board order (Personal
   Consumable, Personal Expiring, Party Consumable, Party Expiring), names A–Z.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recordPurchase"><code style="text-decoration:none">recordPurchase</code><a href="#recordPurchase" class="hash-link" aria-label="Direct link to recordPurchase" title="Direct link to recordPurchase" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L355"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">recordPurchase</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>purchaseId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>cap<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recordPurchase"><code style="text-decoration:none">recordPurchase</code><a href="#recordPurchase" class="hash-link" aria-label="Direct link to recordPurchase" title="Direct link to recordPurchase" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L428"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">recordPurchase</code><code>(</code><div class="inset_uKQm"><div><code>list<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>purchaseId<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>cap<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
   Record a processed PurchaseId (newest last, at most <code>cap</code> kept). Returns false
   when it was already recorded (the receipt must not grant again).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nextPass"><code style="text-decoration:none">nextPass</code><a href="#nextPass" class="hash-link" aria-label="Direct link to nextPass" title="Direct link to nextPass" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L371"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">nextPass</code><code>(</code><div class="inset_uKQm"><div><code>ids<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>owned<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">number</code><code>]</code></span><code>: </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nextPass"><code style="text-decoration:none">nextPass</code><a href="#nextPass" class="hash-link" aria-label="Direct link to nextPass" title="Direct link to nextPass" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/QuestBoardState.luau#L444"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>QuestBoardState<!-- -->.</code><code class="green_DgR4">nextPass</code><code>(</code><div class="inset_uKQm"><div><code>ids<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>owned<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">number</code><code>]</code></span><code>: </code><code class="blue_P4bS">boolean</code><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   The slot pass to offer next: the first configured (non-zero) id in <code>ids</code> the
   player does not own, or 0 when every configured pass is owned. Passes can be
@@ -120,7 +129,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 59,
+                &quot;line&quot;: 60,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -152,7 +161,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 112,
+                &quot;line&quot;: 113,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -179,7 +188,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 152,
+                &quot;line&quot;: 153,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -220,7 +229,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 169,
+                &quot;line&quot;: 170,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -262,7 +271,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 184,
+                &quot;line&quot;: 185,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -308,7 +317,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 201,
+                &quot;line&quot;: 202,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -353,7 +362,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 221,
+                &quot;line&quot;: 222,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -380,13 +389,13 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 258,
+                &quot;line&quot;: 259,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
         {
-            &quot;name&quot;: &quot;boxPool&quot;,
-            &quot;desc&quot;: &quot;Sorted ids of every non-hidden Consumable or Expiring shop perk (the box pool).\nSuperRareIds are left out: they have their own roll.&quot;,
+            &quot;name&quot;: &quot;superRareIds&quot;,
+            &quot;desc&quot;: &quot;Sorted ids of the super rare perks: every non-hidden `BoxOnly` perk.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;perks&quot;,
@@ -407,8 +416,30 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             }
         },
         {
+            &quot;name&quot;: &quot;boxPool&quot;,
+            &quot;desc&quot;: &quot;Sorted ids of every non-hidden Consumable or Expiring shop perk (the box pool).\nSuper rares are left out: they have their own roll.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;perks&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ [string]: any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ string }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 296,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;rollBox&quot;,
-            &quot;desc&quot;: &quot;One perk box: (perkId, isSuperRare). The super rare roll only happens when\nQuestBoardConfig.PerkBox.SuperRareIds is not empty.&quot;,
+            &quot;desc&quot;: &quot;One perk box: (perkId, isSuperRare). The super rare roll only happens while\na super rare exists. Uses the ShopPerkConfig perk table.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;rng&quot;,
@@ -433,13 +464,62 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 297,
+                &quot;line&quot;: 311,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;lengthOdds&quot;,
+            &quot;desc&quot;: &quot;Each of an expiring perk&#x27;s lengths with its box chance (shortest first in\n`variants` order), from `QuestBoardConfig.PerkBox.LengthWeights`.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;variants&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ { Seconds: number, Price: number } }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ { Seconds: number, Chance: number } }\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 323,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;rollLength&quot;,
+            &quot;desc&quot;: &quot;The seconds a box banks for an expiring perk: one of its lengths, by `lengthOdds`.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;rng&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;Random&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;variants&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;{ { Seconds: number, Price: number } }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 339,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;boxOdds&quot;,
-            &quot;desc&quot;: &quot;The perk box odds the GUI must show, worked out from the pool the roll uses:\neach normal perk = (1 - rare) / #pool, where rare = SuperRareChance only\nwhile SuperRareIds is not empty. Groups come in board order (Personal\nConsumable, Personal Expiring, Party Consumable, Party Expiring), names A–Z.&quot;,
+            &quot;desc&quot;: &quot;The perk box odds the GUI must show, worked out from the pool the roll uses:\neach normal perk = (1 - rare) / #pool, where rare = SuperRareChance only\nwhile a super rare exists. Expiring names carry their length odds. Groups come in board order (Personal\nConsumable, Personal Expiring, Party Consumable, Party Expiring), names A–Z.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;perks&quot;,
@@ -460,7 +540,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 311,
+                &quot;line&quot;: 384,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -492,7 +572,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 355,
+                &quot;line&quot;: 428,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         },
@@ -519,7 +599,7 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 371,
+                &quot;line&quot;: 444,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
             }
         }
@@ -532,6 +612,6 @@ is the only writer; GUIs read the same shapes from QuestClient."><link data-rh="
         &quot;line&quot;: 11,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/QuestBoardState.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#advance" class="table-of-contents__link toc-highlight">.advance</a></li><li><a href="#boxOdds" class="table-of-contents__link toc-highlight">.boxOdds</a></li><li><a href="#boxPool" class="table-of-contents__link toc-highlight">.boxPool</a></li><li><a href="#cancel" class="table-of-contents__link toc-highlight">.cancel</a></li><li><a href="#claim" class="table-of-contents__link toc-highlight">.claim</a></li><li><a href="#eligible" class="table-of-contents__link toc-highlight">.eligible</a></li><li><a href="#fill" class="table-of-contents__link toc-highlight">.fill</a></li><li><a href="#nextPass" class="table-of-contents__link toc-highlight">.nextPass</a></li><li><a href="#recordPurchase" class="table-of-contents__link toc-highlight">.recordPurchase</a></li><li><a href="#refresh" class="table-of-contents__link toc-highlight">.refresh</a></li><li><a href="#refreshCheck" class="table-of-contents__link toc-highlight">.refreshCheck</a></li><li><a href="#rollBox" class="table-of-contents__link toc-highlight">.rollBox</a></li><li><a href="#sweep" class="table-of-contents__link toc-highlight">.sweep</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#advance" class="table-of-contents__link toc-highlight">.advance</a></li><li><a href="#boxOdds" class="table-of-contents__link toc-highlight">.boxOdds</a></li><li><a href="#boxPool" class="table-of-contents__link toc-highlight">.boxPool</a></li><li><a href="#cancel" class="table-of-contents__link toc-highlight">.cancel</a></li><li><a href="#claim" class="table-of-contents__link toc-highlight">.claim</a></li><li><a href="#eligible" class="table-of-contents__link toc-highlight">.eligible</a></li><li><a href="#fill" class="table-of-contents__link toc-highlight">.fill</a></li><li><a href="#lengthOdds" class="table-of-contents__link toc-highlight">.lengthOdds</a></li><li><a href="#nextPass" class="table-of-contents__link toc-highlight">.nextPass</a></li><li><a href="#recordPurchase" class="table-of-contents__link toc-highlight">.recordPurchase</a></li><li><a href="#refresh" class="table-of-contents__link toc-highlight">.refresh</a></li><li><a href="#refreshCheck" class="table-of-contents__link toc-highlight">.refreshCheck</a></li><li><a href="#rollBox" class="table-of-contents__link toc-highlight">.rollBox</a></li><li><a href="#rollLength" class="table-of-contents__link toc-highlight">.rollLength</a></li><li><a href="#superRareIds" class="table-of-contents__link toc-highlight">.superRareIds</a></li><li><a href="#sweep" class="table-of-contents__link toc-highlight">.sweep</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>

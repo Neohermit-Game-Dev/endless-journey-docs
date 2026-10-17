@@ -50,8 +50,8 @@ Max fuel is `TrainConfig.MAX_FUEL` plus the Spare Tank `MaxFuelBonus`.
 
 State transitions also fire `Signals.SetTrainState` so `JunkService` keeps
 junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -92,7 +92,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
   State transitions also fire <code>Signals.SetTrainState</code> so <code>JunkService</code> keeps
   junk speed and spawn rate in sync.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L449"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L468"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Initialises (or resets) all internal fuel state and wires up the server-side
   packet handlers for refuelling and brake toggling.
@@ -123,7 +123,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
     deterministic transition.
   </li>
 </ul>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetJumpFreeze"><code style="text-decoration:none">SetJumpFreeze</code><a href="#SetJumpFreeze" class="hash-link" aria-label="Direct link to SetJumpFreeze" title="Direct link to SetJumpFreeze" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L519"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">SetJumpFreeze</code><code>(</code><code>frozen<!-- -->: </code><code class="blue_P4bS">boolean</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetJumpFreeze"><code style="text-decoration:none">SetJumpFreeze</code><a href="#SetJumpFreeze" class="hash-link" aria-label="Direct link to SetJumpFreeze" title="Direct link to SetJumpFreeze" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L538"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">SetJumpFreeze</code><code>(</code><code>frozen<!-- -->: </code><code class="blue_P4bS">boolean</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Suspends fuel drain and fuel damage for the duration of a jump. Both edges
   call <code>commitEvent()</code> so the algebraic model re-snapshots under the old rate
@@ -144,7 +144,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
   always safe: <code>commitEvent()</code> just recomputes the rate, which <code>rateForState()</code>
   still pins to 0 via <code>isStalled</code>.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ApplyFuelDamage"><code style="text-decoration:none">ApplyFuelDamage</code><a href="#ApplyFuelDamage" class="hash-link" aria-label="Direct link to ApplyFuelDamage" title="Direct link to ApplyFuelDamage" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L539"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">ApplyFuelDamage</code><code>(</code><div class="inset_uKQm"><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>_source<!-- -->: </code><code class="blue_P4bS">any?</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ApplyFuelDamage"><code style="text-decoration:none">ApplyFuelDamage</code><a href="#ApplyFuelDamage" class="hash-link" aria-label="Direct link to ApplyFuelDamage" title="Direct link to ApplyFuelDamage" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L558"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">ApplyFuelDamage</code><code>(</code><div class="inset_uKQm"><div><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>_source<!-- -->: </code><code class="blue_P4bS">any?</code></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
 <p>
   Combat fuel-damage sink, called by <code>TrainShieldManager</code> once the shield is
   down. <code>amount</code> is fuel units already converted by <code>TrainConfig.FUEL_DAMAGE_FACTOR</code>.
@@ -153,7 +153,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
   that takes fuel to 0 stalls the train at once (no Emergency Generator coast); it does
   not end the round.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AddFuel"><code style="text-decoration:none">AddFuel</code><a href="#AddFuel" class="hash-link" aria-label="Direct link to AddFuel" title="Direct link to AddFuel" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L567"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">AddFuel</code><code>(</code><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AddFuel"><code style="text-decoration:none">AddFuel</code><a href="#AddFuel" class="hash-link" aria-label="Direct link to AddFuel" title="Direct link to AddFuel" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L586"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">AddFuel</code><code>(</code><code>amount<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Free fuel from a perk (Fuel Line), capped at max fuel. Like a refuel, any
   gain clears a stall or a coast. No-op after game over, for a bad amount, or
@@ -168,7 +168,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 449,
+                &quot;line&quot;: 468,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
             }
         },
@@ -185,7 +185,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 519,
+                &quot;line&quot;: 538,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
             }
         },
@@ -212,7 +212,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 539,
+                &quot;line&quot;: 558,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
             }
         },
@@ -229,7 +229,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 567,
+                &quot;line&quot;: 586,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
             }
         }
@@ -242,7 +242,7 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
         &quot;Server&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 67,
+        &quot;line&quot;: 68,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
     }
 }</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddFuel" class="table-of-contents__link toc-highlight">.AddFuel</a></li><li><a href="#ApplyFuelDamage" class="table-of-contents__link toc-highlight">.ApplyFuelDamage</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li><li><a href="#SetJumpFreeze" class="table-of-contents__link toc-highlight">.SetJumpFreeze</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>

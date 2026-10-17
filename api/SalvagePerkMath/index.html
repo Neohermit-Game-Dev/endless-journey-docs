@@ -10,8 +10,8 @@ Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
 Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
 (Salvage Drone, Salvage Beacon, Treasure Map, Survivor Pay), the tier-up roll
 (Salvage Instinct) and the health-step count (Wreck Salvage)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SalvagePerkMath"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SalvagePerkMath" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SalvagePerkMath" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -35,11 +35,17 @@ Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
 </p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tierUp"><code style="text-decoration:none">tierUp</code><a href="#tierUp" class="hash-link" aria-label="Direct link to tierUp" title="Direct link to tierUp" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SalvagePerkMath.luau#L54"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SalvagePerkMath<!-- -->.</code><code class="green_DgR4">tierUp</code><code>(</code><div class="inset_uKQm"><div><code>tier<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>chance<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>r<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>maxTier<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>Salvage Instinct: <code>tier + 1</code> when <code>r</code> &#x3C; <code>chance</code> and <code>tier</code> &#x3C; <code>maxTier</code>, else <code>tier</code>.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bucketsCrossed"><code style="text-decoration:none">bucketsCrossed</code><a href="#bucketsCrossed" class="hash-link" aria-label="Direct link to bucketsCrossed" title="Direct link to bucketsCrossed" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SalvagePerkMath.luau#L63"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SalvagePerkMath<!-- -->.</code><code class="green_DgR4">bucketsCrossed</code><code>(</code><div class="inset_uKQm"><div><code>oldHp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>newHp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>maxHp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>step<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sieveTier"><code style="text-decoration:none">sieveTier</code><a href="#sieveTier" class="hash-link" aria-label="Direct link to sieveTier" title="Direct link to sieveTier" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SalvagePerkMath.luau#L63"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SalvagePerkMath<!-- -->.</code><code class="green_DgR4">sieveTier</code><code>(</code><div class="inset_uKQm"><div><code>tier<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>r<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>tier3Chance<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>hasType<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">number</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Wreck Salvage: how many <code>step</code> shares of <code>maxHp</code> (0.10 = tenths) the health
   fell through from <code>oldHp</code> to <code>newHp</code>. Each line counts once: 100 -> 90 is 1,
   then 90 -> 89 is 0. A heal, no change or a missing <code>maxHp</code> gives 0.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sieveTier"><code style="text-decoration:none">sieveTier</code><a href="#sieveTier" class="hash-link" aria-label="Direct link to sieveTier" title="Direct link to sieveTier" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/SalvagePerkMath.luau#L68"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SalvagePerkMath<!-- -->.</code><code class="green_DgR4">sieveTier</code><code>(</code><div class="inset_uKQm"><div><code>tier<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>r<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>tier3Chance<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>hasType<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">number</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">boolean</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Star Sieve: a Tier 1 grab becomes Tier 3 when <code>r</code> &#x3C; <code>tier3Chance</code>, else
+  Tier 2, falling back to Tier 2 then Tier 1 when <code>hasType(tier)</code> is false
+  (the grabbed junk type must exist in that tier). Other tiers stay.
 </p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -171,28 +177,28 @@ Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
             }
         },
         {
-            &quot;name&quot;: &quot;bucketsCrossed&quot;,
+            &quot;name&quot;: &quot;sieveTier&quot;,
             &quot;desc&quot;: &quot;Wreck Salvage: how many `step` shares of `maxHp` (0.10 = tenths) the health\nfell through from `oldHp` to `newHp`. Each line counts once: 100 -&gt; 90 is 1,\nthen 90 -&gt; 89 is 0. A heal, no change or a missing `maxHp` gives 0.&quot;,
             &quot;params&quot;: [
                 {
-                    &quot;name&quot;: &quot;oldHp&quot;,
+                    &quot;name&quot;: &quot;tier&quot;,
                     &quot;desc&quot;: &quot;&quot;,
                     &quot;lua_type&quot;: &quot;number&quot;
                 },
                 {
-                    &quot;name&quot;: &quot;newHp&quot;,
+                    &quot;name&quot;: &quot;r&quot;,
                     &quot;desc&quot;: &quot;&quot;,
                     &quot;lua_type&quot;: &quot;number&quot;
                 },
                 {
-                    &quot;name&quot;: &quot;maxHp&quot;,
+                    &quot;name&quot;: &quot;tier3Chance&quot;,
                     &quot;desc&quot;: &quot;&quot;,
                     &quot;lua_type&quot;: &quot;number&quot;
                 },
                 {
-                    &quot;name&quot;: &quot;step&quot;,
+                    &quot;name&quot;: &quot;hasType&quot;,
                     &quot;desc&quot;: &quot;&quot;,
-                    &quot;lua_type&quot;: &quot;number&quot;
+                    &quot;lua_type&quot;: &quot;(number) -&gt; boolean&quot;
                 }
             ],
             &quot;returns&quot;: [
@@ -204,6 +210,43 @@ Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
                 &quot;line&quot;: 63,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SalvagePerkMath.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;sieveTier&quot;,
+            &quot;desc&quot;: &quot;Star Sieve: a Tier 1 grab becomes Tier 3 when `r` &lt; `tier3Chance`, else\nTier 2, falling back to Tier 2 then Tier 1 when `hasType(tier)` is false\n(the grabbed junk type must exist in that tier). Other tiers stay.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;tier&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;r&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;tier3Chance&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;hasType&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(number) -&gt; boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 68,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SalvagePerkMath.luau&quot;
             }
         }
@@ -219,6 +262,6 @@ Overclock Core), the weighted tier roll (Lucky Charm), the travel timer
         &quot;line&quot;: 11,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/SalvagePerkMath.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#bucketsCrossed" class="table-of-contents__link toc-highlight">.bucketsCrossed</a></li><li><a href="#everyNth" class="table-of-contents__link toc-highlight">.everyNth</a></li><li><a href="#rollTier" class="table-of-contents__link toc-highlight">.rollTier</a></li><li><a href="#tick" class="table-of-contents__link toc-highlight">.tick</a></li><li><a href="#tierUp" class="table-of-contents__link toc-highlight">.tierUp</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#everyNth" class="table-of-contents__link toc-highlight">.everyNth</a></li><li><a href="#rollTier" class="table-of-contents__link toc-highlight">.rollTier</a></li><li><a href="#sieveTier" class="table-of-contents__link toc-highlight">.sieveTier</a></li><li><a href="#sieveTier" class="table-of-contents__link toc-highlight">.sieveTier</a></li><li><a href="#tick" class="table-of-contents__link toc-highlight">.tick</a></li><li><a href="#tierUp" class="table-of-contents__link toc-highlight">.tierUp</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>

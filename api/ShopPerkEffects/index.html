@@ -12,8 +12,8 @@ perk is live when it is in this run&#x27;s `ActiveRun`, known, not hidden, in th
 right pool, and (expiring) its clock has not ended. Personal: the player&#x27;s
 live perks add. Party: each live perk adds once, however many players hold
 it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShopPerkEffects"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShopPerkEffects" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ShopPerkEffects" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.49018eb1.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.b9214b77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -27,32 +27,38 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
   live perks add. Party: each live perk adds once, however many players hold
   it ("party boosts don't stack"); perks of one family stack.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="KEYS"><code style="text-decoration:none">KEYS</code><a href="#KEYS" class="hash-link" aria-label="Direct link to KEYS" title="Direct link to KEYS" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L53"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.<!-- -->KEYS<!-- -->:<!-- --> </code> <code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="green_DgR4">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">true</code><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="KEYS"><code style="text-decoration:none">KEYS</code><a href="#KEYS" class="hash-link" aria-label="Direct link to KEYS" title="Direct link to KEYS" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L58"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.<!-- -->KEYS<!-- -->:<!-- --> </code> <code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="green_DgR4">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">true</code><code class="green_DgR4">}</code><code class="purple_ieR2">}</code></div><div>
 <p>
   Every buff key a shop perk of each pool writes. The dispatcher writes each of
   them every publish (0 when no perk is live), so an ended perk clears its key.
 </p>
-</div><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="live"><code style="text-decoration:none">live</code><a href="#live" class="hash-link" aria-label="Direct link to live" title="Direct link to live" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L63"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">live</code><code>(</code><div class="inset_uKQm"><div><code>activeRun<!-- -->: </code><code class="blue_P4bS">Pools</code><code>,</code></div><div><code>expires<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">Pools</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="MAX_KEYS"><code style="text-decoration:none">MAX_KEYS</code><a href="#MAX_KEYS" class="hash-link" aria-label="Direct link to MAX_KEYS" title="Direct link to MAX_KEYS" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L94"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.<!-- -->MAX_KEYS<!-- -->:<!-- --> </code> <code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">true</code><code class="purple_ieR2">}</code></div><div>
+<p>
+  Keys where a super rare replaces its shop twin: the shop layer keeps the
+  largest value instead of the sum (Orbital Sentinel vs Smart Cannon, Builder's
+  Grant vs Scrap Discount Card). Two players can hold one of each.
+</p>
+</div><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="live"><code style="text-decoration:none">live</code><a href="#live" class="hash-link" aria-label="Direct link to live" title="Direct link to live" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L68"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">live</code><code>(</code><div class="inset_uKQm"><div><code>activeRun<!-- -->: </code><code class="blue_P4bS">Pools</code><code>,</code></div><div><code>expires<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">Pools</code></div><div>
 <p>The shop perks of <code>activeRun</code> that count at <code>now</code>.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sum"><code style="text-decoration:none">sum</code><a href="#sum" class="hash-link" aria-label="Direct link to sum" title="Direct link to sum" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L85"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">sum</code><code>(</code><code>ids<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
-<p>The summed buff values of <code>ids</code>, by key.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="party"><code style="text-decoration:none">party</code><a href="#party" class="hash-link" aria-label="Direct link to party" title="Direct link to party" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L101"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">party</code><code>(</code><code>held<!-- -->: </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><div class="inset_uKQm"><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code>ids<!-- -->: </code><code class="yellow_QJap">{</code><code class="blue_P4bS">string</code><code class="yellow_QJap">}</code></div><code class="green_DgR4">}</code><code class="purple_ieR2">}</code><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sum"><code style="text-decoration:none">sum</code><a href="#sum" class="hash-link" aria-label="Direct link to sum" title="Direct link to sum" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L99"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">sum</code><code>(</code><code>ids<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
+<p>The buff values of <code>ids</code>, by key: summed, except <code>MAX_KEYS</code> (largest wins).</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="party"><code style="text-decoration:none">party</code><a href="#party" class="hash-link" aria-label="Direct link to party" title="Direct link to party" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L116"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">party</code><code>(</code><code>held<!-- -->: </code><code class="purple_ieR2">{</code><code class="green_DgR4">{</code><div class="inset_uKQm"><code>userId<!-- -->: </code><code class="blue_P4bS">number</code><code class="green_DgR4">,</code></div><div class="inset_uKQm"><code>ids<!-- -->: </code><code class="yellow_QJap">{</code><code class="blue_P4bS">string</code><code class="yellow_QJap">}</code></div><code class="green_DgR4">}</code><code class="purple_ieR2">}</code><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div></div><code>)</code></div><div>
 <p>
   The party shop layer. <code>held</code> lists each player's live Party ids, in player
   order. Each perk id adds once, however many players hold it; perks of one
   Family stack. Returns (values by key, holder UserId by perk id: the first
   player holding it).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nextExpiry"><code style="text-decoration:none">nextExpiry</code><a href="#nextExpiry" class="hash-link" aria-label="Direct link to nextExpiry" title="Direct link to nextExpiry" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L120"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">nextExpiry</code><code>(</code><div class="inset_uKQm"><div><code>live<!-- -->: </code><code class="blue_P4bS">Pools</code><code>,</code></div><div><code>expires<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number?</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nextExpiry"><code style="text-decoration:none">nextExpiry</code><a href="#nextExpiry" class="hash-link" aria-label="Direct link to nextExpiry" title="Direct link to nextExpiry" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L135"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">nextExpiry</code><code>(</code><div class="inset_uKQm"><div><code>live<!-- -->: </code><code class="blue_P4bS">Pools</code><code>,</code></div><div><code>expires<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>now<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number?</code></div><div>
 <p>The earliest clock end after <code>now</code> among the live expiring perks, or nil.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tierMultipliers"><code style="text-decoration:none">tierMultipliers</code><a href="#tierMultipliers" class="hash-link" aria-label="Direct link to tierMultipliers" title="Direct link to tierMultipliers" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L144"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">tierMultipliers</code><code>(</code><div class="inset_uKQm"><div><code>rarityBonus<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>tierOneShift<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">number</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tierMultipliers"><code style="text-decoration:none">tierMultipliers</code><a href="#tierMultipliers" class="hash-link" aria-label="Direct link to tierMultipliers" title="Direct link to tierMultipliers" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L159"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">tierMultipliers</code><code>(</code><div class="inset_uKQm"><div><code>rarityBonus<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>tierOneShift<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">number</code><code>]</code></span><code>: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
 <p>
   Junk tier weight multipliers for <code>JunkService</code> (which overwrites, so one
   combined value per tier). Scavenger's Eye / Lucky Streak raise tiers 3-5;
   Golden Lure moves <code>tierOneShift</code> of tier 1's weight onto tier 2, so tiers 1+2
   keep their total weight.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unknownKeys"><code style="text-decoration:none">unknownKeys</code><a href="#unknownKeys" class="hash-link" aria-label="Direct link to unknownKeys" title="Direct link to unknownKeys" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L159"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">unknownKeys</code><code>(</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unknownKeys"><code style="text-decoration:none">unknownKeys</code><a href="#unknownKeys" class="hash-link" aria-label="Direct link to unknownKeys" title="Direct link to unknownKeys" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ShopPerkEffects.luau#L174"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ShopPerkEffects<!-- -->.</code><code class="green_DgR4">unknownKeys</code><code>(</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code></div><div>
 <p>
   Shop buff keys that no reader knows: not a part 3 key and not a permanent
   perk key of the same pool. Returned as <code>"&#x3C;pool>.&#x3C;key>"</code>.
@@ -87,13 +93,13 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 63,
+                &quot;line&quot;: 68,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;sum&quot;,
-            &quot;desc&quot;: &quot;The summed buff values of `ids`, by key.&quot;,
+            &quot;desc&quot;: &quot;The buff values of `ids`, by key: summed, except `MAX_KEYS` (largest wins).&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;ids&quot;,
@@ -109,7 +115,7 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 85,
+                &quot;line&quot;: 99,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         },
@@ -135,7 +141,7 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 101,
+                &quot;line&quot;: 116,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         },
@@ -167,7 +173,7 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 120,
+                &quot;line&quot;: 135,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         },
@@ -194,7 +200,7 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 144,
+                &quot;line&quot;: 159,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         },
@@ -210,7 +216,7 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 159,
+                &quot;line&quot;: 174,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         }
@@ -221,7 +227,16 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
             &quot;desc&quot;: &quot;Every buff key a shop perk of each pool writes. The dispatcher writes each of\nthem every publish (0 when no perk is live), so an ended perk clears its key.&quot;,
             &quot;lua_type&quot;: &quot;{ [string]: { [string]: true } }&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 53,
+                &quot;line&quot;: 58,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;MAX_KEYS&quot;,
+            &quot;desc&quot;: &quot;Keys where a super rare replaces its shop twin: the shop layer keeps the\nlargest value instead of the sum (Orbital Sentinel vs Smart Cannon, Builder&#x27;s\nGrant vs Scrap Discount Card). Two players can hold one of each.&quot;,
+            &quot;lua_type&quot;: &quot;{ [string]: true }&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 94,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
             }
         }
@@ -236,6 +251,6 @@ it (&quot;party boosts don&#x27;t stack&quot;); perks of one family stack."><lin
         &quot;line&quot;: 12,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ShopPerkEffects.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#KEYS" class="table-of-contents__link toc-highlight">KEYS</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#live" class="table-of-contents__link toc-highlight">.live</a></li><li><a href="#nextExpiry" class="table-of-contents__link toc-highlight">.nextExpiry</a></li><li><a href="#party" class="table-of-contents__link toc-highlight">.party</a></li><li><a href="#sum" class="table-of-contents__link toc-highlight">.sum</a></li><li><a href="#tierMultipliers" class="table-of-contents__link toc-highlight">.tierMultipliers</a></li><li><a href="#unknownKeys" class="table-of-contents__link toc-highlight">.unknownKeys</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#KEYS" class="table-of-contents__link toc-highlight">KEYS</a></li><li><a href="#MAX_KEYS" class="table-of-contents__link toc-highlight">MAX_KEYS</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#live" class="table-of-contents__link toc-highlight">.live</a></li><li><a href="#nextExpiry" class="table-of-contents__link toc-highlight">.nextExpiry</a></li><li><a href="#party" class="table-of-contents__link toc-highlight">.party</a></li><li><a href="#sum" class="table-of-contents__link toc-highlight">.sum</a></li><li><a href="#tierMultipliers" class="table-of-contents__link toc-highlight">.tierMultipliers</a></li><li><a href="#unknownKeys" class="table-of-contents__link toc-highlight">.unknownKeys</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>
