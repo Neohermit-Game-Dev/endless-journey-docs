@@ -22,8 +22,8 @@ Built on the advanced audio API (`AudioPlayer` → `AudioFader` buses →
 automatically (`SoundConfig.Normalize`); config `Volume` values are a mix
 on top (default 1.0). Asset ids, pitch ranges, and playlist definitions
 live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SoundManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SoundManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/SoundManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.359c49a5.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.40265a58.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.ea5c8c54.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1ed4d7a2.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -92,25 +92,29 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
   and <code>:Destroy()</code>. Returns <code>nil</code> if the name is unknown or has no asset
   id. Pass <code>opts.FadeIn</code> to ramp the volume up from zero on start.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="PlayMusic"><code style="text-decoration:none">PlayMusic</code><a href="#PlayMusic" class="hash-link" aria-label="Direct link to PlayMusic" title="Direct link to PlayMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L154"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">PlayMusic</code><code>(</code><div class="inset_uKQm"><div><code>playlistName<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="PlayMusic"><code style="text-decoration:none">PlayMusic</code><a href="#PlayMusic" class="hash-link" aria-label="Direct link to PlayMusic" title="Direct link to PlayMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L157"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">PlayMusic</code><code>(</code><div class="inset_uKQm"><div><code>playlistName<!-- -->: </code><code class="blue_P4bS">string?</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Name of a playlist in <code>SoundConfig</code>; omit for the default.</p>
+</span></span></div><div><code>biome<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p><code>CurrentBiome</code> id; only per-biome playlists use it.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Starts the music system, optionally targeting a named playlist.</p>
 <p>
   If <code>playlistName</code> is omitted the default playlist defined in
   <code>SoundConfig</code> is used. Calling while music is already playing
-  performs a crossfade into the new playlist.
+  performs a crossfade into the new playlist. Track ids come from
+  <code>ReplicatedStorage.BGMs</code>: per-biome playlists read the folder for
+  <code>biome</code>, the others read the shared folder.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SkipMusic"><code style="text-decoration:none">SkipMusic</code><a href="#SkipMusic" class="hash-link" aria-label="Direct link to SkipMusic" title="Direct link to SkipMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L163"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SkipMusic</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SkipMusic"><code style="text-decoration:none">SkipMusic</code><a href="#SkipMusic" class="hash-link" aria-label="Direct link to SkipMusic" title="Direct link to SkipMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L166"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SkipMusic</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Skips the currently playing music track and advances to the next one
   in the active playlist.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="StopMusic"><code style="text-decoration:none">StopMusic</code><a href="#StopMusic" class="hash-link" aria-label="Direct link to StopMusic" title="Direct link to StopMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L172"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">StopMusic</code><code>(</code><div class="inset_uKQm"><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="StopMusic"><code style="text-decoration:none">StopMusic</code><a href="#StopMusic" class="hash-link" aria-label="Direct link to StopMusic" title="Direct link to StopMusic" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L175"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">StopMusic</code><code>(</code><div class="inset_uKQm"><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>Fade-out duration in seconds; stops immediately when omitted.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Stops the currently playing music track.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetAmbience"><code style="text-decoration:none">SetAmbience</code><a href="#SetAmbience" class="hash-link" aria-label="Direct link to SetAmbience" title="Direct link to SetAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L188"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SetAmbience</code><code>(</code><div class="inset_uKQm"><div><code>names<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetAmbience"><code style="text-decoration:none">SetAmbience</code><a href="#SetAmbience" class="hash-link" aria-label="Direct link to SetAmbience" title="Direct link to SetAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L191"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SetAmbience</code><code>(</code><div class="inset_uKQm"><div><code>names<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Array of ambience-bed config names to make active.</p>
 </span></span></div><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>Crossfade duration in seconds; snaps instantly when omitted.</p>
@@ -120,7 +124,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
   Beds currently playing that are absent from <code>names</code> are faded out;
   beds in <code>names</code> that are not yet playing are faded in.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AddAmbience"><code style="text-decoration:none">AddAmbience</code><a href="#AddAmbience" class="hash-link" aria-label="Direct link to AddAmbience" title="Direct link to AddAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L199"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">AddAmbience</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AddAmbience"><code style="text-decoration:none">AddAmbience</code><a href="#AddAmbience" class="hash-link" aria-label="Direct link to AddAmbience" title="Direct link to AddAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L202"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">AddAmbience</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Ambience-bed config name to add.</p>
 </span></span></div><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>Fade-in duration in seconds; starts at full volume when omitted.</p>
@@ -129,17 +133,17 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
   Fades in a single ambience bed without affecting others that are
   already playing.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RemoveAmbience"><code style="text-decoration:none">RemoveAmbience</code><a href="#RemoveAmbience" class="hash-link" aria-label="Direct link to RemoveAmbience" title="Direct link to RemoveAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L209"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">RemoveAmbience</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="RemoveAmbience"><code style="text-decoration:none">RemoveAmbience</code><a href="#RemoveAmbience" class="hash-link" aria-label="Direct link to RemoveAmbience" title="Direct link to RemoveAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L212"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">RemoveAmbience</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Ambience-bed config name to remove.</p>
 </span></span></div><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>Fade-out duration in seconds; stops immediately when omitted.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Fades out and stops a single ambience bed without affecting others.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="StopAmbience"><code style="text-decoration:none">StopAmbience</code><a href="#StopAmbience" class="hash-link" aria-label="Direct link to StopAmbience" title="Direct link to StopAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L218"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">StopAmbience</code><code>(</code><div class="inset_uKQm"><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="StopAmbience"><code style="text-decoration:none">StopAmbience</code><a href="#StopAmbience" class="hash-link" aria-label="Direct link to StopAmbience" title="Direct link to StopAmbience" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L221"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">StopAmbience</code><code>(</code><div class="inset_uKQm"><div><code>fade<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
 <p>Fade-out duration in seconds; stops all immediately when omitted.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Fades out and stops all currently playing ambience beds.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetVolume"><code style="text-decoration:none">SetVolume</code><a href="#SetVolume" class="hash-link" aria-label="Direct link to SetVolume" title="Direct link to SetVolume" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L235"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SetVolume</code><code>(</code><div class="inset_uKQm"><div><code>group<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SetVolume"><code style="text-decoration:none">SetVolume</code><a href="#SetVolume" class="hash-link" aria-label="Direct link to SetVolume" title="Direct link to SetVolume" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L238"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">SetVolume</code><code>(</code><div class="inset_uKQm"><div><code>group<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Bus name.</p>
 </span></span></div><div><code>volume<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>Target volume, <code>0..9</code> (higher values cap at 9).</p>
@@ -152,7 +156,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
   Valid group names match the keys defined in <code>SoundConfig.GroupVolumes</code>:
   <code>"Master"</code>, <code>"SFX"</code>, <code>"BGM"</code>, <code>"Ambience"</code>.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetVolume"><code style="text-decoration:none">GetVolume</code><a href="#GetVolume" class="hash-link" aria-label="Direct link to GetVolume" title="Direct link to GetVolume" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L247"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">GetVolume</code><code>(</code><div class="inset_uKQm"><div><code>group<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetVolume"><code style="text-decoration:none">GetVolume</code><a href="#GetVolume" class="hash-link" aria-label="Direct link to GetVolume" title="Direct link to GetVolume" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/SoundManager/init.luau#L250"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>SoundManager<!-- -->.</code><code class="green_DgR4">GetVolume</code><code>(</code><div class="inset_uKQm"><div><code>group<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>Bus name.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The player's volume value.</p>
@@ -249,18 +253,23 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
         },
         {
             &quot;name&quot;: &quot;PlayMusic&quot;,
-            &quot;desc&quot;: &quot;Starts the music system, optionally targeting a named playlist.\n\nIf `playlistName` is omitted the default playlist defined in\n`SoundConfig` is used.  Calling while music is already playing\nperforms a crossfade into the new playlist.&quot;,
+            &quot;desc&quot;: &quot;Starts the music system, optionally targeting a named playlist.\n\nIf `playlistName` is omitted the default playlist defined in\n`SoundConfig` is used.  Calling while music is already playing\nperforms a crossfade into the new playlist.  Track ids come from\n`ReplicatedStorage.BGMs`: per-biome playlists read the folder for\n`biome`, the others read the shared folder.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;playlistName&quot;,
                     &quot;desc&quot;: &quot;Name of a playlist in `SoundConfig`; omit for the default.&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;biome&quot;,
+                    &quot;desc&quot;: &quot;`CurrentBiome` id; only per-biome playlists use it.&quot;,
                     &quot;lua_type&quot;: &quot;string?&quot;
                 }
             ],
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 154,
+                &quot;line&quot;: 157,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -271,7 +280,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 163,
+                &quot;line&quot;: 166,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -288,7 +297,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 172,
+                &quot;line&quot;: 175,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -310,7 +319,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 188,
+                &quot;line&quot;: 191,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -332,7 +341,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 199,
+                &quot;line&quot;: 202,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -354,7 +363,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 209,
+                &quot;line&quot;: 212,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -371,7 +380,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 218,
+                &quot;line&quot;: 221,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -393,7 +402,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 235,
+                &quot;line&quot;: 238,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         },
@@ -415,7 +424,7 @@ live in `Configs/SoundConfig`."><link data-rh="true" rel="canonical" href="https
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 247,
+                &quot;line&quot;: 250,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/SoundManager/init.luau&quot;
             }
         }
