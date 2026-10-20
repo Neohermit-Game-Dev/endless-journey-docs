@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[8996],{18831:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"ResearchSystemLoader","desc":"Boots the Research Bench authority once per server (mirrors PerkSystemLoader).","realm":["Server"],"source":{"line":8,"path":"src/ServerScriptService/ResearchSystemLoader.server.luau"}}')}}]);
