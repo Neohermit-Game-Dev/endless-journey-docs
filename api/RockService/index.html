@@ -8,7 +8,7 @@
   chance every `ROLL_INTERVAL` from the `&quot;Rocks&quot;` spawn volume; a straight
   line to the front shield dome, or the train nose when the shield is 0.
 - **Eruption** rocks: in a biome with a `RockConfig.Eruptions` rule (Volcano
-  fire pillar, Ice fall), a source in a band around the train
+  fire pillar, Ice fall, Storm waterspout), a source in a band around the train
   (`EruptionStart`) throws rocks on gravity arcs at random deck points; they
   hit the shield capsule, or land on the deck and hurt nearby players when the
   shield is 0.
@@ -23,7 +23,7 @@ module never requires weapon or combat modules."><meta data-rh="true" property="
   chance every `ROLL_INTERVAL` from the `&quot;Rocks&quot;` spawn volume; a straight
   line to the front shield dome, or the train nose when the shield is 0.
 - **Eruption** rocks: in a biome with a `RockConfig.Eruptions` rule (Volcano
-  fire pillar, Ice fall), a source in a band around the train
+  fire pillar, Ice fall, Storm waterspout), a source in a band around the train
   (`EruptionStart`) throws rocks on gravity arcs at random deck points; they
   hit the shield capsule, or land on the deck and hurt nearby players when the
   shield is 0.
@@ -34,8 +34,8 @@ drop them on `RockRemoved`.
 
 Weapon code calls `RaycastHit` / `SegmentHit` / `Damage` / `ApplyAOE`. This
 module never requires weapon or combat modules."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/RockService"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/RockService" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/RockService" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.ba993f32.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.0f6dabe8.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.903dd046.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1f01dcf4.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -51,7 +51,7 @@ module never requires weapon or combat modules."><link data-rh="true" rel="canon
   </li>
   <li>
     <strong>Eruption</strong> rocks: in a biome with a <code>RockConfig.Eruptions</code> rule (Volcano
-    fire pillar, Ice fall), a source in a band around the train
+    fire pillar, Ice fall, Storm waterspout), a source in a band around the train
     (<code>EruptionStart</code>) throws rocks on gravity arcs at random deck points; they
     hit the shield capsule, or land on the deck and hurt nearby players when the
     shield is 0.
@@ -232,7 +232,7 @@ module never requires weapon or combat modules."><link data-rh="true" rel="canon
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;RockService&quot;,
-    &quot;desc&quot;: &quot;Rock Hazards authority, for two rock kinds (`RockConfig.Kind`):\n- **Front** rocks: in the biomes listed in `RockConfig.Biomes`, rolls a spawn\n  chance every `ROLL_INTERVAL` from the `\&quot;Rocks\&quot;` spawn volume; a straight\n  line to the front shield dome, or the train nose when the shield is 0.\n- **Eruption** rocks: in a biome with a `RockConfig.Eruptions` rule (Volcano\n  fire pillar, Ice fall), a source in a band around the train\n  (`EruptionStart`) throws rocks on gravity arcs at random deck points; they\n  hit the shield capsule, or land on the deck and hurt nearby players when the\n  shield is 0.\nKeeps only spawn data per rock (`RockMath.positionAt`), tests weapon hits\nwith sphere math, and damages the train through\n`TrainShieldManager.ApplyDamage`. Clients render rocks from `RockSpawn` and\ndrop them on `RockRemoved`.\n\nWeapon code calls `RaycastHit` / `SegmentHit` / `Damage` / `ApplyAOE`. This\nmodule never requires weapon or combat modules.&quot;,
+    &quot;desc&quot;: &quot;Rock Hazards authority, for two rock kinds (`RockConfig.Kind`):\n- **Front** rocks: in the biomes listed in `RockConfig.Biomes`, rolls a spawn\n  chance every `ROLL_INTERVAL` from the `\&quot;Rocks\&quot;` spawn volume; a straight\n  line to the front shield dome, or the train nose when the shield is 0.\n- **Eruption** rocks: in a biome with a `RockConfig.Eruptions` rule (Volcano\n  fire pillar, Ice fall, Storm waterspout), a source in a band around the train\n  (`EruptionStart`) throws rocks on gravity arcs at random deck points; they\n  hit the shield capsule, or land on the deck and hurt nearby players when the\n  shield is 0.\nKeeps only spawn data per rock (`RockMath.positionAt`), tests weapon hits\nwith sphere math, and damages the train through\n`TrainShieldManager.ApplyDamage`. Clients render rocks from `RockSpawn` and\ndrop them on `RockRemoved`.\n\nWeapon code calls `RaycastHit` / `SegmentHit` / `Damage` / `ApplyAOE`. This\nmodule never requires weapon or combat modules.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
