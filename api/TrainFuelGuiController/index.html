@@ -5,9 +5,25 @@
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">TrainFuelGuiController | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelGuiController"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="TrainFuelGuiController | Endless Journey"><meta data-rh="true" name="description" content="Drives the authored `TrainFuelGui` HUD without issuing any network packets.
 On every `RenderStepped` frame it asks `TrainStateCache` for the extrapolated
-fuel level and eases the displayed bar toward it with frame-rate-independent
-exponential smoothing, so refuel jumps animate smoothly. The bar colour
-reflects running, braked, or stalled state.
+fuel level and eases the displayed level toward it with frame-rate-independent
+exponential smoothing, so refuel jumps animate smoothly.
+
+The bar is 10 equal cells (same build as `HealthStaminaGui`); cell i shows
+`clamp(pct * 10 - (i - 1), 0, 1)` as the X scale of its `Fill`.
+
+```
+MainContainer (UICorner, UIStroke, UIScale)
+├── DecoLayer { Rail, Dot1, Dot2, Dot3, Tail, Tick }
+└── Content (UIPadding, UIListLayout horizontal)
+    ├── Tag { Icon, Label }
+    ├── Well (UIStroke) → Cells → Cell1..10 { Fill { Shade } }
+    └── Value
+```
+
+States: running (mint fill), braked (amber fill), coast (Emergency
+Generator: orange well stroke + deco, &quot;COAST 12s&quot;), stalled (well stroke +
+deco pulse red/rust, &quot;STALLED&quot;) and waiting (no snapshot yet: muted, &quot;—&quot;).
+Coast and stall both happen at 0 fuel, so the well stroke carries them.
 
 This controller holds no fallback snapshot. It previously seeded one from
 `TrainConfig` plus `workspace:GetServerTimeNow()` read at module load —
@@ -15,17 +31,33 @@ before the client&#x27;s clock estimate had converged — which extrapolated to 
 clamped 0% and disagreed with the diegetic monitor. While the server has not
 yet sent a snapshot the HUD shows a placeholder instead of a guess."><meta data-rh="true" property="og:description" content="Drives the authored `TrainFuelGui` HUD without issuing any network packets.
 On every `RenderStepped` frame it asks `TrainStateCache` for the extrapolated
-fuel level and eases the displayed bar toward it with frame-rate-independent
-exponential smoothing, so refuel jumps animate smoothly. The bar colour
-reflects running, braked, or stalled state.
+fuel level and eases the displayed level toward it with frame-rate-independent
+exponential smoothing, so refuel jumps animate smoothly.
+
+The bar is 10 equal cells (same build as `HealthStaminaGui`); cell i shows
+`clamp(pct * 10 - (i - 1), 0, 1)` as the X scale of its `Fill`.
+
+```
+MainContainer (UICorner, UIStroke, UIScale)
+├── DecoLayer { Rail, Dot1, Dot2, Dot3, Tail, Tick }
+└── Content (UIPadding, UIListLayout horizontal)
+    ├── Tag { Icon, Label }
+    ├── Well (UIStroke) → Cells → Cell1..10 { Fill { Shade } }
+    └── Value
+```
+
+States: running (mint fill), braked (amber fill), coast (Emergency
+Generator: orange well stroke + deco, &quot;COAST 12s&quot;), stalled (well stroke +
+deco pulse red/rust, &quot;STALLED&quot;) and waiting (no snapshot yet: muted, &quot;—&quot;).
+Coast and stall both happen at 0 fuel, so the well stroke carries them.
 
 This controller holds no fallback snapshot. It previously seeded one from
 `TrainConfig` plus `workspace:GetServerTimeNow()` read at module load —
 before the client&#x27;s clock estimate had converged — which extrapolated to a
 clamped 0% and disagreed with the diegetic monitor. While the server has not
 yet sent a snapshot the HUD shows a placeholder instead of a guess."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8810b356.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.88b37a32.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.f3ac7cc2.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.12fa279a.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -35,9 +67,25 @@ yet sent a snapshot the HUD shows a placeholder instead of a guess."><link data-
 <p>
   Drives the authored <code>TrainFuelGui</code> HUD without issuing any network packets.
   On every <code>RenderStepped</code> frame it asks <code>TrainStateCache</code> for the extrapolated
-  fuel level and eases the displayed bar toward it with frame-rate-independent
-  exponential smoothing, so refuel jumps animate smoothly. The bar colour
-  reflects running, braked, or stalled state.
+  fuel level and eases the displayed level toward it with frame-rate-independent
+  exponential smoothing, so refuel jumps animate smoothly.
+</p>
+<p>
+  The bar is 10 equal cells (same build as <code>HealthStaminaGui</code>); cell i shows
+  <code>clamp(pct * 10 - (i - 1), 0, 1)</code> as the X scale of its <code>Fill</code>.
+</p>
+<pre><code>MainContainer (UICorner, UIStroke, UIScale)
+├── DecoLayer { Rail, Dot1, Dot2, Dot3, Tail, Tick }
+└── Content (UIPadding, UIListLayout horizontal)
+    ├── Tag { Icon, Label }
+    ├── Well (UIStroke) → Cells → Cell1..10 { Fill { Shade } }
+    └── Value
+</code></pre>
+<p>
+  States: running (mint fill), braked (amber fill), coast (Emergency
+  Generator: orange well stroke + deco, "COAST 12s"), stalled (well stroke +
+  deco pulse red/rust, "STALLED") and waiting (no snapshot yet: muted, "—").
+  Coast and stall both happen at 0 fuel, so the well stroke carries them.
 </p>
 <p>
   This controller holds no fallback snapshot. It previously seeded one from
@@ -51,12 +99,12 @@ yet sent a snapshot the HUD shows a placeholder instead of a guess."><link data-
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;TrainFuelGuiController&quot;,
-    &quot;desc&quot;: &quot;Drives the authored `TrainFuelGui` HUD without issuing any network packets.\nOn every `RenderStepped` frame it asks `TrainStateCache` for the extrapolated\nfuel level and eases the displayed bar toward it with frame-rate-independent\nexponential smoothing, so refuel jumps animate smoothly. The bar colour\nreflects running, braked, or stalled state.\n\nThis controller holds no fallback snapshot. It previously seeded one from\n`TrainConfig` plus `workspace:GetServerTimeNow()` read at module load —\nbefore the client&#x27;s clock estimate had converged — which extrapolated to a\nclamped 0% and disagreed with the diegetic monitor. While the server has not\nyet sent a snapshot the HUD shows a placeholder instead of a guess.&quot;,
+    &quot;desc&quot;: &quot;Drives the authored `TrainFuelGui` HUD without issuing any network packets.\nOn every `RenderStepped` frame it asks `TrainStateCache` for the extrapolated\nfuel level and eases the displayed level toward it with frame-rate-independent\nexponential smoothing, so refuel jumps animate smoothly.\n\nThe bar is 10 equal cells (same build as `HealthStaminaGui`); cell i shows\n`clamp(pct * 10 - (i - 1), 0, 1)` as the X scale of its `Fill`.\n\n```\nMainContainer (UICorner, UIStroke, UIScale)\n├── DecoLayer { Rail, Dot1, Dot2, Dot3, Tail, Tick }\n└── Content (UIPadding, UIListLayout horizontal)\n    ├── Tag { Icon, Label }\n    ├── Well (UIStroke) → Cells → Cell1..10 { Fill { Shade } }\n    └── Value\n```\n\nStates: running (mint fill), braked (amber fill), coast (Emergency\nGenerator: orange well stroke + deco, \&quot;COAST 12s\&quot;), stalled (well stroke +\ndeco pulse red/rust, \&quot;STALLED\&quot;) and waiting (no snapshot yet: muted, \&quot;—\&quot;).\nCoast and stall both happen at 0 fuel, so the well stroke carries them.\n\nThis controller holds no fallback snapshot. It previously seeded one from\n`TrainConfig` plus `workspace:GetServerTimeNow()` read at module load —\nbefore the client&#x27;s clock estimate had converged — which extrapolated to a\nclamped 0% and disagreed with the diegetic monitor. While the server has not\nyet sent a snapshot the HUD shows a placeholder instead of a guess.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 19,
+        &quot;line&quot;: 35,
         &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/TrainFuelGuiController.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
