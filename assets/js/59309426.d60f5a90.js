@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[14491],{12287:e=>{e.exports=JSON.parse('{"functions":[],"properties":[],"types":[],"name":"RunResultsSystemLoader","desc":"Entry point for the end-of-run payout and results screen (RunEndService).","realm":["Server"],"source":{"line":8,"path":"src/ServerScriptService/RunResultsSystemLoader.server.luau"}}')}}]);
