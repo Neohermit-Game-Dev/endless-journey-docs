@@ -6,11 +6,14 @@
 <title data-rh="true">TrainShieldGuiController | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainShieldGuiController"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="TrainShieldGuiController | Endless Journey"><meta data-rh="true" name="description" content="Drives every copy of the train shield readout — the diegetic `TrainShieldGui`
 SurfaceGui cloned onto each tagged `TrainShieldMonitor` part, and the
 full-screen `TrainShieldGui` ScreenGui in `PlayerGui` that the monitor&#x27;s
-second ProximityPrompt zooms into. Both assets share one element layout under
-`MainContainer.SafeContainer`, so one resolver and one render path serve both.
+second ProximityPrompt zooms into. Both assets share one element tree under
+`MainContainer` (Header, Hero, Gauge, Stats, Warning), so one resolver and
+one render path serve both. The SurfaceGui canvas is a fixed 1554x1000; the
+zoom copy is the same 1554x1000 frame fitted to the screen by a `UIScale`.
 
 Two readouts are live today: the shield fraction (eased, banded
-HEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`) and shield capacity
+HEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`, drawn as a number plus
+a 10-cell bar whose last lit cell fills partially) and shield capacity
 (`TrainStateCache.ShieldMax()` over `TrainConfig.BASE_SHIELD`, which already
 carries Tech Tree and perk buffs). The other three — strength rating,
 efficiency, auto-regeneration — read `ReplicatedStorage.ResearchBuffs`
@@ -28,11 +31,14 @@ number needs `RenderStepped`. Each monitor owns a Janitor that destroys its
 clone when the tag is removed."><meta data-rh="true" property="og:description" content="Drives every copy of the train shield readout — the diegetic `TrainShieldGui`
 SurfaceGui cloned onto each tagged `TrainShieldMonitor` part, and the
 full-screen `TrainShieldGui` ScreenGui in `PlayerGui` that the monitor&#x27;s
-second ProximityPrompt zooms into. Both assets share one element layout under
-`MainContainer.SafeContainer`, so one resolver and one render path serve both.
+second ProximityPrompt zooms into. Both assets share one element tree under
+`MainContainer` (Header, Hero, Gauge, Stats, Warning), so one resolver and
+one render path serve both. The SurfaceGui canvas is a fixed 1554x1000; the
+zoom copy is the same 1554x1000 frame fitted to the screen by a `UIScale`.
 
 Two readouts are live today: the shield fraction (eased, banded
-HEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`) and shield capacity
+HEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`, drawn as a number plus
+a 10-cell bar whose last lit cell fills partially) and shield capacity
 (`TrainStateCache.ShieldMax()` over `TrainConfig.BASE_SHIELD`, which already
 carries Tech Tree and perk buffs). The other three — strength rating,
 efficiency, auto-regeneration — read `ReplicatedStorage.ResearchBuffs`
@@ -48,8 +54,8 @@ none, the shield readouts show a placeholder instead of a guess. Stats update
 on shield sync and buff change rather than per frame — only the eased shield
 number needs `RenderStepped`. Each monitor owns a Janitor that destroys its
 clone when the tag is removed."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainShieldGuiController"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainShieldGuiController" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainShieldGuiController" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.f3ac7cc2.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.12fa279a.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.a60a02e5.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.a64bc03b.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -60,12 +66,15 @@ clone when the tag is removed."><link data-rh="true" rel="canonical" href="https
   Drives every copy of the train shield readout — the diegetic <code>TrainShieldGui</code>
   SurfaceGui cloned onto each tagged <code>TrainShieldMonitor</code> part, and the
   full-screen <code>TrainShieldGui</code> ScreenGui in <code>PlayerGui</code> that the monitor's
-  second ProximityPrompt zooms into. Both assets share one element layout under
-  <code>MainContainer.SafeContainer</code>, so one resolver and one render path serve both.
+  second ProximityPrompt zooms into. Both assets share one element tree under
+  <code>MainContainer</code> (Header, Hero, Gauge, Stats, Warning), so one resolver and
+  one render path serve both. The SurfaceGui canvas is a fixed 1554x1000; the
+  zoom copy is the same 1554x1000 frame fitted to the screen by a <code>UIScale</code>.
 </p>
 <p>
   Two readouts are live today: the shield fraction (eased, banded
-  HEALTHY/WARNING/DANGER per <code>TrainConfig.ShieldBands</code>) and shield capacity
+  HEALTHY/WARNING/DANGER per <code>TrainConfig.ShieldBands</code>, drawn as a number plus
+  a 10-cell bar whose last lit cell fills partially) and shield capacity
   (<code>TrainStateCache.ShieldMax()</code> over <code>TrainConfig.BASE_SHIELD</code>, which already
   carries Tech Tree and perk buffs). The other three — strength rating,
   efficiency, auto-regeneration — read <code>ReplicatedStorage.ResearchBuffs</code>
@@ -89,12 +98,12 @@ clone when the tag is removed."><link data-rh="true" rel="canonical" href="https
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;TrainShieldGuiController&quot;,
-    &quot;desc&quot;: &quot;Drives every copy of the train shield readout — the diegetic `TrainShieldGui`\nSurfaceGui cloned onto each tagged `TrainShieldMonitor` part, and the\nfull-screen `TrainShieldGui` ScreenGui in `PlayerGui` that the monitor&#x27;s\nsecond ProximityPrompt zooms into. Both assets share one element layout under\n`MainContainer.SafeContainer`, so one resolver and one render path serve both.\n\nTwo readouts are live today: the shield fraction (eased, banded\nHEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`) and shield capacity\n(`TrainStateCache.ShieldMax()` over `TrainConfig.BASE_SHIELD`, which already\ncarries Tech Tree and perk buffs). The other three — strength rating,\nefficiency, auto-regeneration — read `ReplicatedStorage.ResearchBuffs`\nattributes and fall back to stock values until the Tech Tree writes them.\n\nThe zoom panel is modal: opening it reveals the cursor (via\n`Signals.RequestMouseIcon`, so `CameraController` stays the sole owner of\n`MouseBehavior`) and hides the rest of the HUD — Roblox&#x27;s topbar, Satchel&#x27;s\nhotbar, and the TopbarPlus icons, each needing its own switch.\n\nThis controller holds no fallback snapshot of its own; while the cache has\nnone, the shield readouts show a placeholder instead of a guess. Stats update\non shield sync and buff change rather than per frame — only the eased shield\nnumber needs `RenderStepped`. Each monitor owns a Janitor that destroys its\nclone when the tag is removed.&quot;,
+    &quot;desc&quot;: &quot;Drives every copy of the train shield readout — the diegetic `TrainShieldGui`\nSurfaceGui cloned onto each tagged `TrainShieldMonitor` part, and the\nfull-screen `TrainShieldGui` ScreenGui in `PlayerGui` that the monitor&#x27;s\nsecond ProximityPrompt zooms into. Both assets share one element tree under\n`MainContainer` (Header, Hero, Gauge, Stats, Warning), so one resolver and\none render path serve both. The SurfaceGui canvas is a fixed 1554x1000; the\nzoom copy is the same 1554x1000 frame fitted to the screen by a `UIScale`.\n\nTwo readouts are live today: the shield fraction (eased, banded\nHEALTHY/WARNING/DANGER per `TrainConfig.ShieldBands`, drawn as a number plus\na 10-cell bar whose last lit cell fills partially) and shield capacity\n(`TrainStateCache.ShieldMax()` over `TrainConfig.BASE_SHIELD`, which already\ncarries Tech Tree and perk buffs). The other three — strength rating,\nefficiency, auto-regeneration — read `ReplicatedStorage.ResearchBuffs`\nattributes and fall back to stock values until the Tech Tree writes them.\n\nThe zoom panel is modal: opening it reveals the cursor (via\n`Signals.RequestMouseIcon`, so `CameraController` stays the sole owner of\n`MouseBehavior`) and hides the rest of the HUD — Roblox&#x27;s topbar, Satchel&#x27;s\nhotbar, and the TopbarPlus icons, each needing its own switch.\n\nThis controller holds no fallback snapshot of its own; while the cache has\nnone, the shield readouts show a placeholder instead of a guess. Stats update\non shield sync and buff change rather than per frame — only the eased shield\nnumber needs `RenderStepped`. Each monitor owns a Janitor that destroys its\nclone when the tag is removed.&quot;,
     &quot;realm&quot;: [
         &quot;Client&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 31,
+        &quot;line&quot;: 34,
         &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/TrainShieldGuiController.client.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
