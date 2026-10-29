@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[80605],{17540:e=>{e.exports=JSON.parse('[{"value":"Functions","id":"functions","level":2},{"value":".afterBolt","id":"afterBolt","level":3},{"value":".autoAllowed","id":"autoAllowed","level":3},{"value":".bestPlayDPS","id":"bestPlayDPS","level":3},{"value":".stepCool","id":"stepCool","level":3}]')}}]);
