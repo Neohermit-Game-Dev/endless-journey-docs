@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">ResponsiveScale | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/responsive-scale"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="ResponsiveScale | Endless Journey"><meta data-rh="true" name="description" content="ReplicatedStorage/SharedModules/Gui/ResponsiveScale.luau — keeps text-size"><meta data-rh="true" property="og:description" content="ReplicatedStorage/SharedModules/Gui/ResponsiveScale.luau — keeps text-size"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/responsive-scale"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/responsive-scale" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/responsive-scale" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reference","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference"},{"@type":"ListItem","position":2,"name":"ResponsiveScale","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/reference/responsive-scale"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.fff08238.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.305e7db0.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.825d8ffa.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.5a936ce8.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -38,6 +38,10 @@ the forced size overflows on phones.</li>
 (<code>WorkbenchGui</code>, <code>ActivePerksGui</code>, <code>SettingsGui</code> — both places —
 <code>TrainFuelGui</code> and <code>TrainShieldGui</code> left the tag in their 2026-10-27
 rebuilds; they scale through <code>MainContainer.UIScale</code>.)</li>
+<li class="">Touch phones (<code>MobileHud.IsActive()</code>: touch screen, no keyboard) never see
+<code>HealthStaminaGui</code> or <code>TrainFuelGui</code>, not even their compact layouts: they
+get the <a class="" href="/endless-journey-docs/docs/systems/mobile-status-hud">Mobile Status HUD</a> strip instead.
+A small PC window still uses the compact layouts.</li>
 <li class="">Lobby: <code>RoomSizeSelectionGUI</code>.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="behaviour">Behaviour<a href="#behaviour" class="hash-link" aria-label="Direct link to Behaviour" title="Direct link to Behaviour" translate="no">​</a></h2>
