@@ -18,8 +18,8 @@ shows. Angles are degrees, as `WeaponValidation.applySpread` takes them.
 Bloom decays lazily: a `Bloom` stores its value and the `os.clock()` it was last
 written, and `current` subtracts `recovery * elapsed`. Nothing is stepped per
 frame, so the server and the gunner&#x27;s prediction agree from shot times alone."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CrosshairMath"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CrosshairMath" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/CrosshairMath" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8cd7cb14.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.f1a8ddfb.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.746ca34f.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.9080959a.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -62,18 +62,23 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
 <p>Frame-rate independent ease of <code>current</code> toward <code>target</code>.</p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="moveTarget"><code style="text-decoration:none">moveTarget</code><a href="#moveTarget" class="hash-link" aria-label="Direct link to moveTarget" title="Direct link to moveTarget" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L95"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">moveTarget</code><code>(</code><div class="inset_uKQm"><div><code>speed<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>airborne<!-- -->: </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>cfg<!-- -->: </code><code class="blue_P4bS">MoveCfg</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>Movement bloom target (degrees): idle &#x3C; walk &#x3C; sprint &#x3C; airborne.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="radiusPx"><code style="text-decoration:none">radiusPx</code><a href="#radiusPx" class="hash-link" aria-label="Direct link to radiusPx" title="Direct link to radiusPx" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L111"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">radiusPx</code><code>(</code><div class="inset_uKQm"><div><code>coneDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fovDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>viewportY<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pelletCone"><code style="text-decoration:none">pelletCone</code><a href="#pelletCone" class="hash-link" aria-label="Direct link to pelletCone" title="Direct link to pelletCone" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L111"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">pelletCone</code><code>(</code><div class="inset_uKQm"><div><code>baseSpread<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>speed<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>airborne<!-- -->: </code><code class="blue_P4bS">boolean</code><code>,</code></div><div><code>cfg<!-- -->: </code><code class="blue_P4bS">MoveCfg</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+<p>
+  Pellet-gun cone (degrees): base spread (after perks) + the settled movement
+  bloom. The server rolls pellets inside it; the client draws the same value.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="radiusPx"><code style="text-decoration:none">radiusPx</code><a href="#radiusPx" class="hash-link" aria-label="Direct link to radiusPx" title="Direct link to radiusPx" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L120"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">radiusPx</code><code>(</code><div class="inset_uKQm"><div><code>coneDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fovDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>viewportY<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   On-screen radius (px) of a cone of half-angle <code>coneDeg</code> for a camera with
   vertical <code>fovDeg</code> on a viewport <code>viewportY</code> px tall.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crossSizePx"><code style="text-decoration:none">crossSizePx</code><a href="#crossSizePx" class="hash-link" aria-label="Direct link to crossSizePx" title="Direct link to crossSizePx" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L121"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">crossSizePx</code><code>(</code><div class="inset_uKQm"><div><code>coneDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fovDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>viewportY<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>cfg<!-- -->: </code><code class="purple_ieR2">{</code><div class="inset_uKQm"><code>MinRadiusScale<!-- -->: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code>ConeEdgeRatio<!-- -->: </code><code class="blue_P4bS">number</code></div><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="crossSizePx"><code style="text-decoration:none">crossSizePx</code><a href="#crossSizePx" class="hash-link" aria-label="Direct link to crossSizePx" title="Direct link to crossSizePx" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L130"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">crossSizePx</code><code>(</code><div class="inset_uKQm"><div><code>coneDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>fovDeg<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>viewportY<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>cfg<!-- -->: </code><code class="purple_ieR2">{</code><div class="inset_uKQm"><code>MinRadiusScale<!-- -->: </code><code class="blue_P4bS">number</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code>ConeEdgeRatio<!-- -->: </code><code class="blue_P4bS">number</code></div><code class="purple_ieR2">}</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Side (px) of the square cross image for a cone of <code>coneDeg</code>: the cone edge sits
   at <code>cfg.ConeEdgeRatio</code> of the image half-width, and the radius never drops below
   <code>cfg.MinRadiusScale * viewportY</code>.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="applySource"><code style="text-decoration:none">applySource</code><a href="#applySource" class="hash-link" aria-label="Direct link to applySource" title="Direct link to applySource" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L138"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">applySource</code><code>(</code><div class="inset_uKQm"><div><code>current<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code><code>,</code></div><div><code>new<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code><code>,</code></div><div><code>owner<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="applySource"><code style="text-decoration:none">applySource</code><a href="#applySource" class="hash-link" aria-label="Direct link to applySource" title="Direct link to applySource" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/CrosshairMath.luau#L147"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>CrosshairMath<!-- -->.</code><code class="green_DgR4">applySource</code><code>(</code><div class="inset_uKQm"><div><code>current<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code><code>,</code></div><div><code>new<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code><code>,</code></div><div><code>owner<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/CrosshairMath#CrosshairSource">CrosshairSource?</a></code></div><div>
 <p>
   The source after a <code>Signals.SetCrosshairSource(new, owner)</code>. A clear (<code>new</code> nil)
   that names its <code>owner</code> only clears while that owner's source is current, so a
@@ -264,6 +269,43 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
             }
         },
         {
+            &quot;name&quot;: &quot;pelletCone&quot;,
+            &quot;desc&quot;: &quot;Pellet-gun cone (degrees): base spread (after perks) + the settled movement\nbloom. The server rolls pellets inside it; the client draws the same value.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;baseSpread&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;speed&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;airborne&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;cfg&quot;,
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;MoveCfg&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 111,
+                &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/CrosshairMath.luau&quot;
+            }
+        },
+        {
             &quot;name&quot;: &quot;radiusPx&quot;,
             &quot;desc&quot;: &quot;On-screen radius (px) of a cone of half-angle `coneDeg` for a camera with\nvertical `fovDeg` on a viewport `viewportY` px tall.&quot;,
             &quot;params&quot;: [
@@ -291,7 +333,7 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 111,
+                &quot;line&quot;: 120,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/CrosshairMath.luau&quot;
             }
         },
@@ -328,7 +370,7 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 121,
+                &quot;line&quot;: 130,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/CrosshairMath.luau&quot;
             }
         },
@@ -360,7 +402,7 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 138,
+                &quot;line&quot;: 147,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/CrosshairMath.luau&quot;
             }
         }
@@ -401,6 +443,6 @@ frame, so the server and the gunner&#x27;s prediction agree from shot times alon
         &quot;line&quot;: 13,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/CrosshairMath.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Bloom" class="table-of-contents__link toc-highlight">Bloom</a></li><li><a href="#CrosshairSource" class="table-of-contents__link toc-highlight">CrosshairSource</a></li><li><a href="#Spec" class="table-of-contents__link toc-highlight">Spec</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#applySource" class="table-of-contents__link toc-highlight">.applySource</a></li><li><a href="#crossSizePx" class="table-of-contents__link toc-highlight">.crossSizePx</a></li><li><a href="#current" class="table-of-contents__link toc-highlight">.current</a></li><li><a href="#decay" class="table-of-contents__link toc-highlight">.decay</a></li><li><a href="#ease" class="table-of-contents__link toc-highlight">.ease</a></li><li><a href="#moveTarget" class="table-of-contents__link toc-highlight">.moveTarget</a></li><li><a href="#newBloom" class="table-of-contents__link toc-highlight">.newBloom</a></li><li><a href="#radiusPx" class="table-of-contents__link toc-highlight">.radiusPx</a></li><li><a href="#shoot" class="table-of-contents__link toc-highlight">.shoot</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#Bloom" class="table-of-contents__link toc-highlight">Bloom</a></li><li><a href="#CrosshairSource" class="table-of-contents__link toc-highlight">CrosshairSource</a></li><li><a href="#Spec" class="table-of-contents__link toc-highlight">Spec</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#applySource" class="table-of-contents__link toc-highlight">.applySource</a></li><li><a href="#crossSizePx" class="table-of-contents__link toc-highlight">.crossSizePx</a></li><li><a href="#current" class="table-of-contents__link toc-highlight">.current</a></li><li><a href="#decay" class="table-of-contents__link toc-highlight">.decay</a></li><li><a href="#ease" class="table-of-contents__link toc-highlight">.ease</a></li><li><a href="#moveTarget" class="table-of-contents__link toc-highlight">.moveTarget</a></li><li><a href="#newBloom" class="table-of-contents__link toc-highlight">.newBloom</a></li><li><a href="#pelletCone" class="table-of-contents__link toc-highlight">.pelletCone</a></li><li><a href="#radiusPx" class="table-of-contents__link toc-highlight">.radiusPx</a></li><li><a href="#shoot" class="table-of-contents__link toc-highlight">.shoot</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>
