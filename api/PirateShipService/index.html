@@ -7,7 +7,7 @@
 (`ServerStorage.EnemyAssets.PirateShip`) in `workspace.ActiveEnemies`, moves
 only its anchored root along `PirateShipPath` paths, and runs the fight:
 approach, the two cannons that face the train, leaping boarders, the side
-switch at each HP threshold (veer out, U-turn, barrage laps, settle on the
+switch at each HP threshold (loop out, barrage laps, settle on the
 other side), death and sinking. The look is client-side
 (`PirateShipController`); the boss bar reads the body&#x27;s attributes. Every hit
 on the train goes through `VoidEnemyService.Impact` (the shield rule).
@@ -15,13 +15,13 @@ See docs/systems/pirate-ship.md."><meta data-rh="true" property="og:description"
 (`ServerStorage.EnemyAssets.PirateShip`) in `workspace.ActiveEnemies`, moves
 only its anchored root along `PirateShipPath` paths, and runs the fight:
 approach, the two cannons that face the train, leaping boarders, the side
-switch at each HP threshold (veer out, U-turn, barrage laps, settle on the
+switch at each HP threshold (loop out, barrage laps, settle on the
 other side), death and sinking. The look is client-side
 (`PirateShipController`); the boss bar reads the body&#x27;s attributes. Every hit
 on the train goes through `VoidEnemyService.Impact` (the shield rule).
 See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PirateShipService"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PirateShipService" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/PirateShipService" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.bc79c7bb.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5bd14144.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.f1d62832.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.afc99b7b.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -33,29 +33,29 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
   (<code>ServerStorage.EnemyAssets.PirateShip</code>) in <code>workspace.ActiveEnemies</code>, moves
   only its anchored root along <code>PirateShipPath</code> paths, and runs the fight:
   approach, the two cannons that face the train, leaping boarders, the side
-  switch at each HP threshold (veer out, U-turn, barrage laps, settle on the
+  switch at each HP threshold (loop out, barrage laps, settle on the
   other side), death and sinking. The look is client-side
   (<code>PirateShipController</code>); the boss bar reads the body's attributes. Every hit
   on the train goes through <code>VoidEnemyService.Impact</code> (the shield rule).
   See docs/systems/pirate-ship.md.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shrink"><code style="text-decoration:none">shrink</code><a href="#shrink" class="hash-link" aria-label="Direct link to shrink" title="Direct link to shrink" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L110"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">shrink</code><code>(</code><div class="inset_uKQm"><div><code>maxHp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>hp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>before<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>after<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shrink"><code style="text-decoration:none">shrink</code><a href="#shrink" class="hash-link" aria-label="Direct link to shrink" title="Direct link to shrink" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L111"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">shrink</code><code>(</code><div class="inset_uKQm"><div><code>maxHp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>hp<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>before<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>after<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>
   Ship health after the player count drops from <code>before</code> to <code>after</code>: max health
   re-scales and current health keeps its share (never below 1 while alive).
   Joiners (<code>after >= before</code>) change nothing.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="consumeThresholds"><code style="text-decoration:none">consumeThresholds</code><a href="#consumeThresholds" class="hash-link" aria-label="Direct link to consumeThresholds" title="Direct link to consumeThresholds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L124"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">consumeThresholds</code><code>(</code><div class="inset_uKQm"><div><code>thresholds<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>nextIndex<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>ratio<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="consumeThresholds"><code style="text-decoration:none">consumeThresholds</code><a href="#consumeThresholds" class="hash-link" aria-label="Direct link to consumeThresholds" title="Direct link to consumeThresholds" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L125"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">consumeThresholds</code><code>(</code><div class="inset_uKQm"><div><code>thresholds<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code><code>,</code></div><div><code>nextIndex<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>ratio<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code class="blue_P4bS">number</code></div><div>
 <p>
   Next unused threshold index after the HP <code>ratio</code>: skips every threshold at or
   above it, so one burst across two thresholds uses both up (one switch).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="facingCannons"><code style="text-decoration:none">facingCannons</code><a href="#facingCannons" class="hash-link" aria-label="Direct link to facingCannons" title="Direct link to facingCannons" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L136"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">facingCannons</code><code>(</code><div class="inset_uKQm"><div><code>cf<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>center<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="facingCannons"><code style="text-decoration:none">facingCannons</code><a href="#facingCannons" class="hash-link" aria-label="Direct link to facingCannons" title="Direct link to facingCannons" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L137"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">facingCannons</code><code>(</code><div class="inset_uKQm"><div><code>cf<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/CFrame" target="_blank" rel="noopener noreferrer">CFrame<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code></div><div><code>center<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">number</code><code class="purple_ieR2">}</code></div><div>
 <p>
   The cannon pair on the side of <code>cf</code> that faces <code>center</code> (XZ only):
   left side in → <code>{ 4, 2 }</code>, right side in → <code>{ 3, 1 }</code>.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Spawn"><code style="text-decoration:none">Spawn</code><a href="#Spawn" class="hash-link" aria-label="Direct link to Spawn" title="Direct link to Spawn" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L195"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">Spawn</code><code>(</code><div class="inset_uKQm"><div><code>onKilled<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Side</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code></div><div><code>onSunk<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code></div><div><code>onSide<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Side</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code></div></div><code>) → </code><code class="blue_P4bS">any</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Spawn"><code style="text-decoration:none">Spawn</code><a href="#Spawn" class="hash-link" aria-label="Direct link to Spawn" title="Direct link to Spawn" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L196"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->.</code><code class="green_DgR4">Spawn</code><code>(</code><div class="inset_uKQm"><div><code>onKilled<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Side</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code></div><div><code>onSunk<!-- -->: </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code><code>,</code></div><div><code>onSide<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">Side</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code></div></div><code>) → </code><code class="blue_P4bS">any</code></div><div>
 <p>
   Spawns the ship far back-right and starts its approach. <code>onKilled(side)</code> runs
   once when its health reaches 0, with the side it is on at that moment;
@@ -63,7 +63,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
   <code>onSide(side)</code> runs each time a side switch settles. Nil when the body
   template is missing.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L398"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->:</code><code class="green_DgR4">Step</code><code>(</code><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/PirateShipService.luau#L416"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>PirateShipService<!-- -->:</code><code class="green_DgR4">Step</code><code>(</code><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>One server step at clock <code>now</code> (Heartbeat calls it; selfCheck calls it by hand).</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -104,7 +104,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 110,
+                &quot;line&quot;: 111,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PirateShipService.luau&quot;
             }
         },
@@ -136,7 +136,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 124,
+                &quot;line&quot;: 125,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PirateShipService.luau&quot;
             }
         },
@@ -163,7 +163,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 136,
+                &quot;line&quot;: 137,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PirateShipService.luau&quot;
             }
         },
@@ -195,7 +195,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 195,
+                &quot;line&quot;: 196,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PirateShipService.luau&quot;
             }
         },
@@ -212,7 +212,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;method&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 398,
+                &quot;line&quot;: 416,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/PirateShipService.luau&quot;
             }
         }
@@ -220,7 +220,7 @@ See docs/systems/pirate-ship.md."><link data-rh="true" rel="canonical" href="htt
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;PirateShipService&quot;,
-    &quot;desc&quot;: &quot;The pirate ship boss. Spawns the invisible Humanoid body\n(`ServerStorage.EnemyAssets.PirateShip`) in `workspace.ActiveEnemies`, moves\nonly its anchored root along `PirateShipPath` paths, and runs the fight:\napproach, the two cannons that face the train, leaping boarders, the side\nswitch at each HP threshold (veer out, U-turn, barrage laps, settle on the\nother side), death and sinking. The look is client-side\n(`PirateShipController`); the boss bar reads the body&#x27;s attributes. Every hit\non the train goes through `VoidEnemyService.Impact` (the shield rule).\nSee docs/systems/pirate-ship.md.&quot;,
+    &quot;desc&quot;: &quot;The pirate ship boss. Spawns the invisible Humanoid body\n(`ServerStorage.EnemyAssets.PirateShip`) in `workspace.ActiveEnemies`, moves\nonly its anchored root along `PirateShipPath` paths, and runs the fight:\napproach, the two cannons that face the train, leaping boarders, the side\nswitch at each HP threshold (loop out, barrage laps, settle on the\nother side), death and sinking. The look is client-side\n(`PirateShipController`); the boss bar reads the body&#x27;s attributes. Every hit\non the train goes through `VoidEnemyService.Impact` (the shield rule).\nSee docs/systems/pirate-ship.md.&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
