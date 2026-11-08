@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Jump Drive | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Jump Drive | Endless Journey"><meta data-rh="true" name="description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><meta data-rh="true" property="og:description" content="A server-authoritative, player-initiated biome transition: a charge gauge fed by"><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Systems","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems"},{"@type":"ListItem","position":2,"name":"Jump Drive","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/systems/jump-drive"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.1cce4e82.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.c66e4c6d.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.bc79c7bb.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.5bd14144.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -126,8 +126,7 @@ pacing. <code>OnJumpPhaseChanged</code> is a dedicated signal precisely so the j
 doesn&#x27;t carry that invisible side effect.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-jumping-despawns-an-active-encounter-wave">Why jumping despawns an active encounter wave<a href="#why-jumping-despawns-an-active-encounter-wave" class="hash-link" aria-label="Direct link to Why jumping despawns an active encounter wave" title="Direct link to Why jumping despawns an active encounter wave" translate="no">​</a></h4>
 <p><code>EventOrchestrator.SetJumpPaused(true)</code> calls each channel&#x27;s existing
-<code>activeFinish()</code> — the same path the <code>MaxActiveDistance</code> watchdog and <code>Reset()</code>
-already use. <code>PirateAttackEvent</code> registers its spawned wave as
+<code>activeFinish()</code> — the same path <code>Reset()</code> already uses. <code>PirateAttackEvent</code> registers its spawned wave as
 <code>ctx.janitor:Add(wave, &quot;Destroy&quot;)</code>, so force-finishing it <strong>despawns any
 surviving pirates</strong>. This is deliberate, not a side effect: it&#x27;s what makes
 &quot;players are safe inside the wormhole&quot; actually true — without it, a live wave
