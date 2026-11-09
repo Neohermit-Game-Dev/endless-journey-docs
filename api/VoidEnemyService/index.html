@@ -12,8 +12,8 @@ See docs/systems/void-enemies.md."><meta data-rh="true" property="og:description
 behavior director, and routes every enemy hit through `Impact` (the shield
 rule). Looks and visuals are client-side (`VoidEnemyController`).
 See docs/systems/void-enemies.md."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/VoidEnemyService"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/VoidEnemyService" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/VoidEnemyService" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.2be94729.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.50f5dabe.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.0f790879.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.c01c0603.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -67,8 +67,11 @@ See docs/systems/void-enemies.md."><link data-rh="true" rel="canonical" href="ht
   Spawns archetype <code>id</code> at <code>cf</code>, registered with <code>wave</code> when given. Nil when the
   body asset is missing.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SpawnPack"><code style="text-decoration:none">SpawnPack</code><a href="#SpawnPack" class="hash-link" aria-label="Direct link to SpawnPack" title="Direct link to SpawnPack" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/VoidEnemyService.luau#L344"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>VoidEnemyService<!-- -->.</code><code class="green_DgR4">SpawnPack</code><code>(</code><div class="inset_uKQm"><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>wave<!-- -->: </code><code class="blue_P4bS">WaveHandle</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Spawns one pack of <code>id</code> (and its escort) into <code>wave</code>, then marks it complete.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SpawnPack"><code style="text-decoration:none">SpawnPack</code><a href="#SpawnPack" class="hash-link" aria-label="Direct link to SpawnPack" title="Direct link to SpawnPack" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/VoidEnemyService.luau#L345"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>VoidEnemyService<!-- -->.</code><code class="green_DgR4">SpawnPack</code><code>(</code><div class="inset_uKQm"><div><code>id<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code></div><div><code>wave<!-- -->: </code><code class="blue_P4bS">WaveHandle</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Spawns one pack of <code>id</code> and its <code>Packs[id].Escort</code> into <code>wave</code>, then marks it
+  complete. An escort count is a number or a rolled <code>{ min, max }</code>.
+</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
@@ -355,7 +358,7 @@ See docs/systems/void-enemies.md."><link data-rh="true" rel="canonical" href="ht
         },
         {
             &quot;name&quot;: &quot;SpawnPack&quot;,
-            &quot;desc&quot;: &quot;Spawns one pack of `id` (and its escort) into `wave`, then marks it complete.&quot;,
+            &quot;desc&quot;: &quot;Spawns one pack of `id` and its `Packs[id].Escort` into `wave`, then marks it\ncomplete. An escort count is a number or a rolled `{ min, max }`.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;id&quot;,
@@ -371,7 +374,7 @@ See docs/systems/void-enemies.md."><link data-rh="true" rel="canonical" href="ht
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 344,
+                &quot;line&quot;: 345,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/VoidEnemyService.luau&quot;
             }
         }
