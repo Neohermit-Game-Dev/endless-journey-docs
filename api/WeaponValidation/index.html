@@ -6,12 +6,14 @@
 <title data-rh="true">WeaponValidation | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="WeaponValidation | Endless Journey"><meta data-rh="true" name="description" content="Pure-ish shared helpers run on BOTH client (prediction) and server
 (authority) so the two agree. Holds the fire-rate gate, spread, ammo math,
 AOE falloff/query. Hit-part → damageable model resolution is `NpcHealth.resolve`. No networking; the
-only world access is `queryAOEModels`."><meta data-rh="true" property="og:description" content="Pure-ish shared helpers run on BOTH client (prediction) and server
+only world access is `queryAOEModels` and `bulletRaycast` (passes through
+invisible non-solid helper parts and all player characters)."><meta data-rh="true" property="og:description" content="Pure-ish shared helpers run on BOTH client (prediction) and server
 (authority) so the two agree. Holds the fire-rate gate, spread, ammo math,
 AOE falloff/query. Hit-part → damageable model resolution is `NpcHealth.resolve`. No networking; the
-only world access is `queryAOEModels`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.b0123a2b.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.47c3ca6e.js" defer="defer"></script>
+only world access is `queryAOEModels` and `bulletRaycast` (passes through
+invisible non-solid helper parts and all player characters)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponValidation" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.1cab0e77.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.ba5b2598.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -22,16 +24,17 @@ only world access is `queryAOEModels`."><link data-rh="true" rel="canonical" hre
   Pure-ish shared helpers run on BOTH client (prediction) and server
   (authority) so the two agree. Holds the fire-rate gate, spread, ammo math,
   AOE falloff/query. Hit-part → damageable model resolution is <code>NpcHealth.resolve</code>. No networking; the
-  only world access is <code>queryAOEModels</code>.
+  only world access is <code>queryAOEModels</code> and <code>bulletRaycast</code> (passes through
+  invisible non-solid helper parts and all player characters).
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;WeaponValidation&quot;,
-    &quot;desc&quot;: &quot;Pure-ish shared helpers run on BOTH client (prediction) and server\n(authority) so the two agree. Holds the fire-rate gate, spread, ammo math,\nAOE falloff/query. Hit-part → damageable model resolution is `NpcHealth.resolve`. No networking; the\nonly world access is `queryAOEModels`.&quot;,
+    &quot;desc&quot;: &quot;Pure-ish shared helpers run on BOTH client (prediction) and server\n(authority) so the two agree. Holds the fire-rate gate, spread, ammo math,\nAOE falloff/query. Hit-part → damageable model resolution is `NpcHealth.resolve`. No networking; the\nonly world access is `queryAOEModels` and `bulletRaycast` (passes through\ninvisible non-solid helper parts and all player characters).&quot;,
     &quot;source&quot;: {
-        &quot;line&quot;: 11,
+        &quot;line&quot;: 12,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/WeaponValidation.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
