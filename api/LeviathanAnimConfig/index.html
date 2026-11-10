@@ -28,7 +28,12 @@ Each move:
   end, -0.5 = front end), at height `Y` and side offset `Z`.
 - `Events` (optional): `{ time, name }` sent to the animator&#x27;s OnEvent.
 - `FromCurrent` (optional): start from the current pose instead of `Path[1]`,
-  with optional `Lead` points first (see `Slam`)."><meta data-rh="true" property="og:description" content="Moves for LeviathanAnimator. The spine and the Head bone are posed by code
+  with optional `Lead` points first (see `Slam`).
+- `Pitch`, `Shake` (optional): `{ time, degrees }` the neck and head bend on
+  top of the path (client only): `Pitch` up, `Shake` side to side at
+  `ShakeHz`. Neck1..Neck3 take 1/4, 2/4, 3/4 of it, the Head all of it.
+- `Glow` (optional): `{ time, factor }` the SurfaceAppearances&#x27;
+  `EmissiveStrength` x factor (later moves keep the last value)."><meta data-rh="true" property="og:description" content="Moves for LeviathanAnimator. The spine and the Head bone are posed by code
 (they follow a path); the jaw, wings, fins and the bones under the head
 (horns, frills, barbels) play Blender clips (`Clips`) on top. Edit motion here.
 
@@ -53,9 +58,14 @@ Each move:
   end, -0.5 = front end), at height `Y` and side offset `Z`.
 - `Events` (optional): `{ time, name }` sent to the animator&#x27;s OnEvent.
 - `FromCurrent` (optional): start from the current pose instead of `Path[1]`,
-  with optional `Lead` points first (see `Slam`)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8ab994b5.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.7f25f614.js" defer="defer"></script>
+  with optional `Lead` points first (see `Slam`).
+- `Pitch`, `Shake` (optional): `{ time, degrees }` the neck and head bend on
+  top of the path (client only): `Pitch` up, `Shake` side to side at
+  `ShakeHz`. Neck1..Neck3 take 1/4, 2/4, 3/4 of it, the Head all of it.
+- `Glow` (optional): `{ time, factor }` the SurfaceAppearances&#x27;
+  `EmissiveStrength` x factor (later moves keep the last value)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanAnimConfig" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.d1872f0a.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.73f1375d.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -105,15 +115,24 @@ Each move:
     <code>FromCurrent</code> (optional): start from the current pose instead of <code>Path[1]</code>,
     with optional <code>Lead</code> points first (see <code>Slam</code>).
   </li>
+  <li>
+    <code>Pitch</code>, <code>Shake</code> (optional): <code>{ time, degrees }</code> the neck and head bend on
+    top of the path (client only): <code>Pitch</code> up, <code>Shake</code> side to side at
+    <code>ShakeHz</code>. Neck1..Neck3 take 1/4, 2/4, 3/4 of it, the Head all of it.
+  </li>
+  <li>
+    <code>Glow</code> (optional): <code>{ time, factor }</code> the SurfaceAppearances'
+    <code>EmissiveStrength</code> x factor (later moves keep the last value).
+  </li>
 </ul>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;LeviathanAnimConfig&quot;,
-    &quot;desc&quot;: &quot;Moves for LeviathanAnimator. The spine and the Head bone are posed by code\n(they follow a path); the jaw, wings, fins and the bones under the head\n(horns, frills, barbels) play Blender clips (`Clips`) on top. Edit motion here.\n\nSpace: every Vector3 is in train space. Origin = train centre, +X = train rear\n(the train heads -X), +Y = up, +Z = the train&#x27;s left, -Z = its right.\n\nEach move:\n- `Path`: head path control points (Catmull-Rom). The body trails behind the\n  head along the same path; before point 1 it extends straight back.\n- `Keys`: `{ time, point }` where the head is on the path. `point` is a\n  control point index, fractions allowed (2.5 = halfway from 2 to 3). Smooth\n  monotone interpolation, so two equal points hold the head still.\n- `Wave`: swim undulation, studs (`Side`, `Up`), `Length` (studs per wave),\n  `Speed` (waves per second). Grows from 0 at the head to full at the tail.\n- `Wings`: `{ clip, speed }` the looped wing/fin clip (`Clips[\&quot;Wings\&quot; .. clip]`),\n  cross-faded in when the move starts.\n- `Jaw` (optional): `{ time, clip }` one-shots (`Clips[\&quot;Jaw\&quot; .. clip]`): the jaw\n  and frills play that clip from that time. They do not set the move length.\n- `Aim` (optional): `{ time, 0..1 }` how much the head turns to the laser target.\n- `Laser` (optional): `Charge`/`Fire` time windows. The target sweeps from\n  `From` to `To` along the train: fractions of the train length (0.5 = rear\n  end, -0.5 = front end), at height `Y` and side offset `Z`.\n- `Events` (optional): `{ time, name }` sent to the animator&#x27;s OnEvent.\n- `FromCurrent` (optional): start from the current pose instead of `Path[1]`,\n  with optional `Lead` points first (see `Slam`).&quot;,
+    &quot;desc&quot;: &quot;Moves for LeviathanAnimator. The spine and the Head bone are posed by code\n(they follow a path); the jaw, wings, fins and the bones under the head\n(horns, frills, barbels) play Blender clips (`Clips`) on top. Edit motion here.\n\nSpace: every Vector3 is in train space. Origin = train centre, +X = train rear\n(the train heads -X), +Y = up, +Z = the train&#x27;s left, -Z = its right.\n\nEach move:\n- `Path`: head path control points (Catmull-Rom). The body trails behind the\n  head along the same path; before point 1 it extends straight back.\n- `Keys`: `{ time, point }` where the head is on the path. `point` is a\n  control point index, fractions allowed (2.5 = halfway from 2 to 3). Smooth\n  monotone interpolation, so two equal points hold the head still.\n- `Wave`: swim undulation, studs (`Side`, `Up`), `Length` (studs per wave),\n  `Speed` (waves per second). Grows from 0 at the head to full at the tail.\n- `Wings`: `{ clip, speed }` the looped wing/fin clip (`Clips[\&quot;Wings\&quot; .. clip]`),\n  cross-faded in when the move starts.\n- `Jaw` (optional): `{ time, clip }` one-shots (`Clips[\&quot;Jaw\&quot; .. clip]`): the jaw\n  and frills play that clip from that time. They do not set the move length.\n- `Aim` (optional): `{ time, 0..1 }` how much the head turns to the laser target.\n- `Laser` (optional): `Charge`/`Fire` time windows. The target sweeps from\n  `From` to `To` along the train: fractions of the train length (0.5 = rear\n  end, -0.5 = front end), at height `Y` and side offset `Z`.\n- `Events` (optional): `{ time, name }` sent to the animator&#x27;s OnEvent.\n- `FromCurrent` (optional): start from the current pose instead of `Path[1]`,\n  with optional `Lead` points first (see `Slam`).\n- `Pitch`, `Shake` (optional): `{ time, degrees }` the neck and head bend on\n  top of the path (client only): `Pitch` up, `Shake` side to side at\n  `ShakeHz`. Neck1..Neck3 take 1/4, 2/4, 3/4 of it, the Head all of it.\n- `Glow` (optional): `{ time, factor }` the SurfaceAppearances&#x27;\n  `EmissiveStrength` x factor (later moves keep the last value).&quot;,
     &quot;source&quot;: {
-        &quot;line&quot;: 33,
+        &quot;line&quot;: 38,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/Configs/LeviathanAnimConfig.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>

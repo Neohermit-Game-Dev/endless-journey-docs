@@ -22,8 +22,8 @@ maths and deals the hits at the move&#x27;s event times.
 It cannot die: at 0 HP it screams and leaves, everyone gets the drive-off
 reward and the threat timer restarts. A jump makes it leave with no reward.
 Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanService"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanService" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/LeviathanService" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.8ab994b5.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.7f25f614.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.d1872f0a.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.73f1375d.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -43,30 +43,36 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
   reward and the threat timer restarts. A jump makes it leave with no reward.
   Each visit in a run is stronger. See docs/systems/leviathan.md.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L275"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Step</code><code>(</code><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L287"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Step</code><code>(</code><code>now<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   The whole server loop for one tick at server time <code>now</code> (Heartbeat calls it;
   selfCheck drives it with a fake clock).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Arrive"><code style="text-decoration:none">Arrive</code><a href="#Arrive" class="hash-link" aria-label="Direct link to Arrive" title="Direct link to Arrive" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L352"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Arrive</code><code>(</code><code>forceVisit<!-- -->: </code><code class="blue_P4bS">number?</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Arrive"><code style="text-decoration:none">Arrive</code><a href="#Arrive" class="hash-link" aria-label="Direct link to Arrive" title="Direct link to Arrive" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L364"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Arrive</code><code>(</code><code>forceVisit<!-- -->: </code><code class="blue_P4bS">number?</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Starts a visit (no-op while one is running). <code>forceVisit</code> (dev) sets the
   visit number.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="PlayerLeft"><code style="text-decoration:none">PlayerLeft</code><a href="#PlayerLeft" class="hash-link" aria-label="Direct link to PlayerLeft" title="Direct link to PlayerLeft" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L392"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">PlayerLeft</code><code>(</code><code>remaining<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="PlayerLeft"><code style="text-decoration:none">PlayerLeft</code><a href="#PlayerLeft" class="hash-link" aria-label="Direct link to PlayerLeft" title="Direct link to PlayerLeft" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L404"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">PlayerLeft</code><code>(</code><code>remaining<!-- -->: </code><code class="blue_P4bS">number</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>A player left: max and current HP drop by the same share (joiners change nothing).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="JumpStarted"><code style="text-decoration:none">JumpStarted</code><a href="#JumpStarted" class="hash-link" aria-label="Direct link to JumpStarted" title="Direct link to JumpStarted" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L411"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">JumpStarted</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="JumpStarted"><code style="text-decoration:none">JumpStarted</code><a href="#JumpStarted" class="hash-link" aria-label="Direct link to JumpStarted" title="Direct link to JumpStarted" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L423"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">JumpStarted</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>A jump started: it leaves (no reward); called swarms are removed.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="CurrentSegment"><code style="text-decoration:none">CurrentSegment</code><a href="#CurrentSegment" class="hash-link" aria-label="Direct link to CurrentSegment" title="Direct link to CurrentSegment" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L433"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">CurrentSegment</code><code>(</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/LeviathanPath#Segment">Segment?</a></code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="CurrentSegment"><code style="text-decoration:none">CurrentSegment</code><a href="#CurrentSegment" class="hash-link" aria-label="Direct link to CurrentSegment" title="Direct link to CurrentSegment" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L445"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">CurrentSegment</code><code>(</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/endless-journey-docs/api/LeviathanPath#Segment">Segment?</a></code></div><div>
 <p>The segment playing now (late joiners), or nil.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L441"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Initialize"><code style="text-decoration:none">Initialize</code><a href="#Initialize" class="hash-link" aria-label="Direct link to Initialize" title="Direct link to Initialize" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L453"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Initialize</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Wires the arrival, jump, game-over and leaver signals and the join sync.
   Call once from ThreatTimerSystemLoader.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Force"><code style="text-decoration:none">Force</code><a href="#Force" class="hash-link" aria-label="Direct link to Force" title="Direct link to Force" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L473"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Force</code><code>(</code><code>forceVisit<!-- -->: </code><code class="blue_P4bS">number?</code><code>) → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Force"><code style="text-decoration:none">Force</code><a href="#Force" class="hash-link" aria-label="Direct link to Force" title="Direct link to Force" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L485"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">Force</code><code>(</code><code>forceVisit<!-- -->: </code><code class="blue_P4bS">number?</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Dev: starts a visit now (<code>visit</code> 0 or nil = the next one).</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="selfCheck"><code style="text-decoration:none">selfCheck</code><a href="#selfCheck" class="hash-link" aria-label="Direct link to selfCheck" title="Direct link to selfCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L481"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">selfCheck</code><code>(</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="DevDefeat"><code style="text-decoration:none">DevDefeat</code><a href="#DevDefeat" class="hash-link" aria-label="Direct link to DevDefeat" title="Direct link to DevDefeat" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L494"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">DevDefeat</code><code>(</code><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>
+  Dev (<code>/leviathandefeat</code>): sets its HP to 0, so the next Step runs the real
+  drive-off (Defeat, RiftOut, payout). Only while it can be hurt (Prowl, Slam,
+  Frenzy, Laser, Hold); returns false otherwise.
+</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="selfCheck"><code style="text-decoration:none">selfCheck</code><a href="#selfCheck" class="hash-link" aria-label="Direct link to selfCheck" title="Direct link to selfCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/LeviathanService.luau#L507"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>LeviathanService<!-- -->.</code><code class="green_DgR4">selfCheck</code><code>(</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
 <p>Edit-mode check with stubbed collaborators and a fake clock. Errors on failure.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
@@ -83,7 +89,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 275,
+                &quot;line&quot;: 287,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -100,7 +106,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 352,
+                &quot;line&quot;: 364,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -117,7 +123,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 392,
+                &quot;line&quot;: 404,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -128,7 +134,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 411,
+                &quot;line&quot;: 423,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -144,7 +150,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 433,
+                &quot;line&quot;: 445,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -155,7 +161,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 441,
+                &quot;line&quot;: 453,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -172,7 +178,23 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 473,
+                &quot;line&quot;: 485,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;DevDefeat&quot;,
+            &quot;desc&quot;: &quot;Dev (`/leviathandefeat`): sets its HP to 0, so the next Step runs the real\ndrive-off (Defeat, RiftOut, payout). Only while it can be hurt (Prowl, Slam,\nFrenzy, Laser, Hold); returns false otherwise.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 494,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         },
@@ -188,7 +210,7 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 481,
+                &quot;line&quot;: 507,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
             }
         }
@@ -204,6 +226,6 @@ Each visit in a run is stronger. See docs/systems/leviathan.md."><link data-rh="
         &quot;line&quot;: 17,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/LeviathanService.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Arrive" class="table-of-contents__link toc-highlight">.Arrive</a></li><li><a href="#CurrentSegment" class="table-of-contents__link toc-highlight">.CurrentSegment</a></li><li><a href="#Force" class="table-of-contents__link toc-highlight">.Force</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li><li><a href="#JumpStarted" class="table-of-contents__link toc-highlight">.JumpStarted</a></li><li><a href="#PlayerLeft" class="table-of-contents__link toc-highlight">.PlayerLeft</a></li><li><a href="#selfCheck" class="table-of-contents__link toc-highlight">.selfCheck</a></li><li><a href="#Step" class="table-of-contents__link toc-highlight">.Step</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Arrive" class="table-of-contents__link toc-highlight">.Arrive</a></li><li><a href="#CurrentSegment" class="table-of-contents__link toc-highlight">.CurrentSegment</a></li><li><a href="#DevDefeat" class="table-of-contents__link toc-highlight">.DevDefeat</a></li><li><a href="#Force" class="table-of-contents__link toc-highlight">.Force</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li><li><a href="#JumpStarted" class="table-of-contents__link toc-highlight">.JumpStarted</a></li><li><a href="#PlayerLeft" class="table-of-contents__link toc-highlight">.PlayerLeft</a></li><li><a href="#selfCheck" class="table-of-contents__link toc-highlight">.selfCheck</a></li><li><a href="#Step" class="table-of-contents__link toc-highlight">.Step</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>
