@@ -16,8 +16,8 @@ parts have `CanQuery = false`, so GrabHook and weapon rays pass through.
 Not pooled with `GenericPoolInstance`: that moves only a model&#x27;s root part,
 which tears these multi-part anchored models apart. A plain free list per
 model is used instead, and all live parts move in one `BulkMoveTo` per frame."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/DebrisField"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/DebrisField" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/DebrisField" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.ad8e51db.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.9dc3edd4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.fac58f46.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.a914378d.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -33,35 +33,29 @@ model is used instead, and all live parts move in one `BulkMoveTo` per frame."><
   which tears these multi-part anchored models apart. A plain free list per
   model is used instead, and all live parts move in one <code>BulkMoveTo</code> per frame.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="TrySpawn"><code style="text-decoration:none">TrySpawn</code><a href="#TrySpawn" class="hash-link" aria-label="Direct link to TrySpawn" title="Direct link to TrySpawn" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L158"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">TrySpawn</code><code>(</code><code>junkPos<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Vector3" target="_blank" rel="noopener noreferrer">Vector3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>) → </code><code>(</code><code>)</code></div><div>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="TrySpawn"><code style="text-decoration:none">TrySpawn</code><a href="#TrySpawn" class="hash-link" aria-label="Direct link to TrySpawn" title="Direct link to TrySpawn" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L156"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">TrySpawn</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
-  Rolls the current biome's chance to spawn one debris near a junk that just
-  spawned at <code>junkPos</code>. Skips when at the cap, when the train is not streamed
-  in, or when no clear point is found.
+  Called once per junk spawn: rolls the current biome's chance to spawn one
+  debris at a random point in the <code>DebrisConfig.VOLUME_MODEL</code> ring. Skips when
+  at the cap or when the ring has not streamed in.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L194"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">Step</code><code>(</code><div class="inset_uKQm"><div><code>moveAmount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>dt<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>)   → </code><code>(</code><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="Step"><code style="text-decoration:none">Step</code><a href="#Step" class="hash-link" aria-label="Direct link to Step" title="Direct link to Step" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L195"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">Step</code><code>(</code><div class="inset_uKQm"><div><code>moveAmount<!-- -->: </code><code class="blue_P4bS">number</code><code>,</code></div><div><code>dt<!-- -->: </code><code class="blue_P4bS">number</code></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>
   Moves every live debris by <code>moveAmount</code> studs along the junk direction and
   spins it; debris past <code>JunkConfig.DESPAWN_DISTANCE</code> returns to its free list.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetCounts"><code style="text-decoration:none">GetCounts</code><a href="#GetCounts" class="hash-link" aria-label="Direct link to GetCounts" title="Direct link to GetCounts" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L217"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">GetCounts</code><code>(</code><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetCounts"><code style="text-decoration:none">GetCounts</code><a href="#GetCounts" class="hash-link" aria-label="Direct link to GetCounts" title="Direct link to GetCounts" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/StarterPlayer/StarterPlayerScripts/DebrisField.luau#L218"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>DebrisField<!-- -->.</code><code class="green_DgR4">GetCounts</code><code>(</code><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code></div></div><code>)</code></div><div>
 <p>Live debris count and total records (live + idle), for checks.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
             &quot;name&quot;: &quot;TrySpawn&quot;,
-            &quot;desc&quot;: &quot;Rolls the current biome&#x27;s chance to spawn one debris near a junk that just\nspawned at `junkPos`. Skips when at the cap, when the train is not streamed\nin, or when no clear point is found.&quot;,
-            &quot;params&quot;: [
-                {
-                    &quot;name&quot;: &quot;junkPos&quot;,
-                    &quot;desc&quot;: &quot;&quot;,
-                    &quot;lua_type&quot;: &quot;Vector3&quot;
-                }
-            ],
+            &quot;desc&quot;: &quot;Called once per junk spawn: rolls the current biome&#x27;s chance to spawn one\ndebris at a random point in the `DebrisConfig.VOLUME_MODEL` ring. Skips when\nat the cap or when the ring has not streamed in.&quot;,
+            &quot;params&quot;: [],
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 158,
+                &quot;line&quot;: 156,
                 &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/DebrisField.luau&quot;
             }
         },
@@ -83,7 +77,7 @@ model is used instead, and all live parts move in one `BulkMoveTo` per frame."><
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 194,
+                &quot;line&quot;: 195,
                 &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/DebrisField.luau&quot;
             }
         },
@@ -103,7 +97,7 @@ model is used instead, and all live parts move in one `BulkMoveTo` per frame."><
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 217,
+                &quot;line&quot;: 218,
                 &quot;path&quot;: &quot;src/StarterPlayer/StarterPlayerScripts/DebrisField.luau&quot;
             }
         }
