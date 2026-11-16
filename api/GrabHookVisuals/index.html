@@ -7,7 +7,9 @@
 `ReplicatedStorage.GrabHookVFX`:
 
 - `HookHead` — gunmetal + neon head (pivot at the rear, LookVector = flight
-  direction) with a `TetherEnd` attachment and a short `Trail`.
+  direction) with a `TetherEnd` attachment and a short `Trail`. A copy is
+  welded on the Grabhook tool (`Tool.HookHead`, pivot on the muzzle); it is
+  hidden while a rig from that tool is live, so the head leaves the gun.
 - `Tether` — a thin Neon cylinder core (refit every frame so the tether looks
   round from every angle) carrying the `Glow` and `Energy` beams.
 - `HitFX` — attachment with the latch `LatchRing` + `Burst` emitters, hold
@@ -23,7 +25,9 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
 `ReplicatedStorage.GrabHookVFX`:
 
 - `HookHead` — gunmetal + neon head (pivot at the rear, LookVector = flight
-  direction) with a `TetherEnd` attachment and a short `Trail`.
+  direction) with a `TetherEnd` attachment and a short `Trail`. A copy is
+  welded on the Grabhook tool (`Tool.HookHead`, pivot on the muzzle); it is
+  hidden while a rig from that tool is live, so the head leaves the gun.
 - `Tether` — a thin Neon cylinder core (refit every frame so the tether looks
   round from every angle) carrying the `Glow` and `Energy` beams.
 - `HitFX` — attachment with the latch `LatchRing` + `Burst` emitters, hold
@@ -36,8 +40,8 @@ fade over `ReleaseFadeTime`, everything is destroyed).
 
 One `RenderStepped` connection drives every active rig. Each rig owns one
 `Janitor`. Tuning: `GrabHookConfig.Effects` and `GrabHookConfig.Physics`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/GrabHookVisuals"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/GrabHookVisuals" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/GrabHookVisuals" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.602f6570.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.2bcd2c7d.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.3f67cb96.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.c22f888e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -51,7 +55,9 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
 <ul>
   <li>
     <code>HookHead</code> — gunmetal + neon head (pivot at the rear, LookVector = flight
-    direction) with a <code>TetherEnd</code> attachment and a short <code>Trail</code>.
+    direction) with a <code>TetherEnd</code> attachment and a short <code>Trail</code>. A copy is
+    welded on the Grabhook tool (<code>Tool.HookHead</code>, pivot on the muzzle); it is
+    hidden while a rig from that tool is live, so the head leaves the gun.
   </li>
   <li>
     <code>Tether</code> — a thin Neon cylinder core (refit every frame so the tether looks
@@ -72,7 +78,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
   One <code>RenderStepped</code> connection drives every active rig. Each rig owns one
   <code>Janitor</code>. Tuning: <code>GrabHookConfig.Effects</code> and <code>GrabHookConfig.Physics</code>.
 </p>
-</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AnimateProjectile"><code style="text-decoration:none">AnimateProjectile</code><a href="#AnimateProjectile" class="hash-link" aria-label="Direct link to AnimateProjectile" title="Direct link to AnimateProjectile" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L304"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">AnimateProjectile</code><code>(</code><div class="inset_uKQm"><div><code>startAtt<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Attachment" target="_blank" rel="noopener noreferrer">Attachment<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions" translate="no">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AnimateProjectile"><code style="text-decoration:none">AnimateProjectile</code><a href="#AnimateProjectile" class="hash-link" aria-label="Direct link to AnimateProjectile" title="Direct link to AnimateProjectile" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L337"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">AnimateProjectile</code><code>(</code><div class="inset_uKQm"><div><code>startAtt<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Attachment" target="_blank" rel="noopener noreferrer">Attachment<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Muzzle attachment on the tool handle (tether start).</p>
 </span></span></div><div><code>targetPart<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The junk part being reeled in.</p>
@@ -91,7 +97,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
   <code>onCleanup</code> runs once when the reel-in completes, or early if <code>targetPart</code>
   or <code>startAtt</code> leaves <code>workspace</code> (pool reclaim, unequip, death).
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AnimateObserver"><code style="text-decoration:none">AnimateObserver</code><a href="#AnimateObserver" class="hash-link" aria-label="Direct link to AnimateObserver" title="Direct link to AnimateObserver" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L330"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">AnimateObserver</code><code>(</code><div class="inset_uKQm"><div><code>startAtt<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Attachment" target="_blank" rel="noopener noreferrer">Attachment<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="AnimateObserver"><code style="text-decoration:none">AnimateObserver</code><a href="#AnimateObserver" class="hash-link" aria-label="Direct link to AnimateObserver" title="Direct link to AnimateObserver" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L363"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">AnimateObserver</code><code>(</code><div class="inset_uKQm"><div><code>startAtt<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/Attachment" target="_blank" rel="noopener noreferrer">Attachment<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The collector's grabhook muzzle (or a root fallback).</p>
 </span></span></div><div><code>targetPart<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/BasePart" target="_blank" rel="noopener noreferrer">BasePart<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The junk part being reeled in.</p>
@@ -105,7 +111,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
   after the claim, so the hook starts embedded: latch hit at once, then the
   junk reels to <code>startAtt</code> over <code>retractTime</code> and the rig fades out.
 </p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SelfCheck"><code style="text-decoration:none">SelfCheck</code><a href="#SelfCheck" class="hash-link" aria-label="Direct link to SelfCheck" title="Direct link to SelfCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L352"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">SelfCheck</code><code>(</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="SelfCheck"><code style="text-decoration:none">SelfCheck</code><a href="#SelfCheck" class="hash-link" aria-label="Direct link to SelfCheck" title="Direct link to SelfCheck" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau#L385"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>GrabHookVisuals<!-- -->.</code><code class="green_DgR4">SelfCheck</code><code>(</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
 <p>
   Edit-mode check: fires the owner effect at a test part, steps the loop by
   hand through every phase and asserts the hook depth and full cleanup.
@@ -147,7 +153,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 304,
+                &quot;line&quot;: 337,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau&quot;
             }
         },
@@ -179,7 +185,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 330,
+                &quot;line&quot;: 363,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau&quot;
             }
         },
@@ -195,7 +201,7 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 352,
+                &quot;line&quot;: 385,
                 &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau&quot;
             }
         }
@@ -203,9 +209,9 @@ One `RenderStepped` connection drives every active rig. Each rig owns one
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;GrabHookVisuals&quot;,
-    &quot;desc&quot;: &quot;Client-side VFX for the grabhook tool. Every pull is one rig cloned from\n`ReplicatedStorage.GrabHookVFX`:\n\n- `HookHead` — gunmetal + neon head (pivot at the rear, LookVector = flight\n  direction) with a `TetherEnd` attachment and a short `Trail`.\n- `Tether` — a thin Neon cylinder core (refit every frame so the tether looks\n  round from every angle) carrying the `Glow` and `Energy` beams.\n- `HitFX` — attachment with the latch `LatchRing` + `Burst` emitters, hold\n  `Sparks` and a `PointLight`.\n\nPhases: **flight** (head travels from the handle, trail on, slack rope),\n**hold** (head embedded `TipDepth` inside the item, latch hit, rope pulls\ntight, item reels to the handle), **release** (sparks stop, tether and light\nfade over `ReleaseFadeTime`, everything is destroyed).\n\nOne `RenderStepped` connection drives every active rig. Each rig owns one\n`Janitor`. Tuning: `GrabHookConfig.Effects` and `GrabHookConfig.Physics`.&quot;,
+    &quot;desc&quot;: &quot;Client-side VFX for the grabhook tool. Every pull is one rig cloned from\n`ReplicatedStorage.GrabHookVFX`:\n\n- `HookHead` — gunmetal + neon head (pivot at the rear, LookVector = flight\n  direction) with a `TetherEnd` attachment and a short `Trail`. A copy is\n  welded on the Grabhook tool (`Tool.HookHead`, pivot on the muzzle); it is\n  hidden while a rig from that tool is live, so the head leaves the gun.\n- `Tether` — a thin Neon cylinder core (refit every frame so the tether looks\n  round from every angle) carrying the `Glow` and `Energy` beams.\n- `HitFX` — attachment with the latch `LatchRing` + `Burst` emitters, hold\n  `Sparks` and a `PointLight`.\n\nPhases: **flight** (head travels from the handle, trail on, slack rope),\n**hold** (head embedded `TipDepth` inside the item, latch hit, rope pulls\ntight, item reels to the handle), **release** (sparks stop, tether and light\nfade over `ReleaseFadeTime`, everything is destroyed).\n\nOne `RenderStepped` connection drives every active rig. Each rig owns one\n`Janitor`. Tuning: `GrabHookConfig.Effects` and `GrabHookConfig.Physics`.&quot;,
     &quot;source&quot;: {
-        &quot;line&quot;: 26,
+        &quot;line&quot;: 28,
         &quot;path&quot;: &quot;src/ReplicatedStorage/SharedModules/GrabHookVisuals.luau&quot;
     }
 }</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AnimateObserver" class="table-of-contents__link toc-highlight">.AnimateObserver</a></li><li><a href="#AnimateProjectile" class="table-of-contents__link toc-highlight">.AnimateProjectile</a></li><li><a href="#SelfCheck" class="table-of-contents__link toc-highlight">.SelfCheck</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
