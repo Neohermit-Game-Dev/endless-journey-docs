@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Change Sprint Behavior | Endless Journey</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks/change-sprint"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Change Sprint Behavior | Endless Journey"><meta data-rh="true" name="description" content="Goal: Adjust sprint speed, FOV curve, keybinds, or sprint state-machine logic."><meta data-rh="true" property="og:description" content="Goal: Adjust sprint speed, FOV curve, keybinds, or sprint state-machine logic."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks/change-sprint"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks/change-sprint" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks/change-sprint" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"How-To Playbooks","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks"},{"@type":"ListItem","position":2,"name":"Change Sprint Behavior","item":"https://neohermit-game-dev.github.io/endless-journey-docs/docs/playbooks/change-sprint"}]}</script><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.2df9ab44.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.1803e5ee.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.1f501364.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.5f9818b4.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -38,10 +38,21 @@ Sprint constants share the file <code>src/ReplicatedStorage/SharedModules/Config
 <p><strong>If state machine behavior changes, mirror both sides.</strong>
 If you add a new sprint-blocking condition (e.g. a new &quot;dash&quot; state):</p>
 <ul>
-<li class="">Edit <code>src/StarterPlayer/StarterPlayerScripts/SprintController.client.luau</code> for client-side prediction and visual feedback.</li>
-<li class="">Edit <code>src/ServerStorage/SharedModules/StaminaManager.luau</code> for server-side authority and packet emission.</li>
-<li class="">Update <code>src/ReplicatedStorage/SharedModules/SprintValidation.luau</code> if the validation predicates need to change (e.g. <code>MinMoveDirection</code>, <code>MaxBackwardComponent</code>, <code>MinHorizontalSpeed</code>) — this module is the single gate called identically by both sides.</li>
-<li class="">Register any new packet in <code>src/ReplicatedStorage/SharedModules/Packets/init.luau</code> and document it in the <a class="" href="/endless-journey-docs/docs/reference/networking-map">networking map</a>.</li>
+<li class="">
+<p>Edit <code>src/StarterPlayer/StarterPlayerScripts/SprintController.client.luau</code> for client-side prediction and visual feedback.</p>
+</li>
+<li class="">
+<p>Edit <code>src/ServerStorage/SharedModules/StaminaManager.luau</code> for server-side authority and packet emission.</p>
+</li>
+<li class="">
+<p>Update <code>src/ReplicatedStorage/SharedModules/SprintValidation.luau</code> if the validation predicates need to change (e.g. <code>MinMoveDirection</code>, <code>MaxBackwardComponent</code>, <code>MinHorizontalSpeed</code>) — this module is the single gate called identically by both sides.</p>
+</li>
+<li class="">
+<p>Register any new packet in <code>src/ReplicatedStorage/SharedModules/Packets/init.luau</code> and document it in the <a class="" href="/endless-journey-docs/docs/reference/networking-map">networking map</a>.</p>
+</li>
+<li class="">
+<p>Guns do not fire while sprinting: <code>GunHandler</code> gates the shot (also until the gun is back up from the sprint lower, <code>WeaponFeelConfig.SprintFireReady</code>), and <code>WeaponServer</code> drops <code>ReqFireWeapon</code> while <code>StaminaManager.IsSprinting(player)</code> (sprint key held and the server&#x27;s sprint state agrees). A new sprint state must keep these two in step. See <a class="" href="/endless-journey-docs/docs/systems/weapons#weapon-feel">Weapons: Weapon feel</a>.</p>
+</li>
 </ul>
 </li>
 <li class="">
