@@ -30,8 +30,8 @@ left over from a previous jump can never advance a later one.
 
 Jump Spark (party perk) adds charge per minute of travel: a 1 Hz clock that
 counts only while the train moves and the drive is Idle."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/JumpDriveManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.1f501364.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5f9818b4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.6985a6be.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1dbca87f.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -69,7 +69,7 @@ counts only while the train moves and the drive is Idle."><link data-rh="true" r
   JumpDriveSystemLoader before any client request can arrive.
 </p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetState"><code style="text-decoration:none">GetState</code><a href="#GetState" class="hash-link" aria-label="Direct link to GetState" title="Direct link to GetState" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/JumpDriveManager.luau#L605"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>JumpDriveManager<!-- -->.</code><code class="green_DgR4">GetState</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Debug snapshot for the Studio command bar. Not used by gameplay code.</p>
+<p>State snapshot. MusicService reads <code>phase</code>; the Studio command bar reads the rest.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
@@ -121,7 +121,7 @@ counts only while the train moves and the drive is Idle."><link data-rh="true" r
         },
         {
             &quot;name&quot;: &quot;GetState&quot;,
-            &quot;desc&quot;: &quot;Debug snapshot for the Studio command bar. Not used by gameplay code.&quot;,
+            &quot;desc&quot;: &quot;State snapshot. MusicService reads `phase`; the Studio command bar reads the rest.&quot;,
             &quot;params&quot;: [],
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,

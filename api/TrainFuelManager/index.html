@@ -50,8 +50,8 @@ Max fuel is `TrainConfig.MAX_FUEL` plus the Spare Tank `MaxFuelBonus`.
 
 State transitions also fire `Signals.SetTrainState` so `JunkService` keeps
 junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/TrainFuelManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.1f501364.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5f9818b4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.6985a6be.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1dbca87f.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -159,6 +159,8 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
   gain clears a stall or a coast. No-op after game over, for a bad amount, or
   on a full tank.
 </p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetFuelState"><code style="text-decoration:none">GetFuelState</code><a href="#GetFuelState" class="hash-link" aria-label="Direct link to GetFuelState" title="Direct link to GetFuelState" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/TrainFuelManager.luau#L543"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>TrainFuelManager<!-- -->.</code><code class="green_DgR4">GetFuelState</code><code>(</code><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">number</code><code>,</code></div><div><code class="blue_P4bS">boolean</code></div></div><code>)</code></div><div>
+<p>Current fuel, the fuel cap, and whether the train is stalled. Read by MusicService.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
@@ -232,6 +234,30 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
                 &quot;line&quot;: 524,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
             }
+        },
+        {
+            &quot;name&quot;: &quot;GetFuelState&quot;,
+            &quot;desc&quot;: &quot;Current fuel, the fuel cap, and whether the train is stalled. Read by MusicService.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 543,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
+            }
         }
     ],
     &quot;properties&quot;: [],
@@ -245,6 +271,6 @@ junk speed and spawn rate in sync."><link data-rh="true" rel="canonical" href="h
         &quot;line&quot;: 68,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/TrainFuelManager.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddFuel" class="table-of-contents__link toc-highlight">.AddFuel</a></li><li><a href="#ApplyFuelDamage" class="table-of-contents__link toc-highlight">.ApplyFuelDamage</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li><li><a href="#SetJumpFreeze" class="table-of-contents__link toc-highlight">.SetJumpFreeze</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#AddFuel" class="table-of-contents__link toc-highlight">.AddFuel</a></li><li><a href="#ApplyFuelDamage" class="table-of-contents__link toc-highlight">.ApplyFuelDamage</a></li><li><a href="#GetFuelState" class="table-of-contents__link toc-highlight">.GetFuelState</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li><li><a href="#SetJumpFreeze" class="table-of-contents__link toc-highlight">.SetJumpFreeze</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>

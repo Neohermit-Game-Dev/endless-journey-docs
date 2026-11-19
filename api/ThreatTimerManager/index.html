@@ -24,8 +24,8 @@ train is stalled; Bait Buoy slows both) → `Imminent` (`SPAWN_DELAY` real secon
 (`Signals.OnThreatArrived` fires once). Paused before the first un-brake,
 during a jump, and after game over. Every jump arrival resets to a full
 `Counting`."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ThreatTimerManager"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ThreatTimerManager" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/ThreatTimerManager" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.1f501364.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.5f9818b4.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/runtime~main.6985a6be.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.1dbca87f.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -52,6 +52,8 @@ during a jump, and after game over. Every jump arrival resets to a full
   the train-start, fuel-state, jump and game-over signals. Call exactly once
   from the owning server script.
 </p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="GetPhase"><code style="text-decoration:none">GetPhase</code><a href="#GetPhase" class="hash-link" aria-label="Direct link to GetPhase" title="Direct link to GetPhase" translate="no">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/Neohermit-Game-Dev/Endless-Journey/blob/main/src/ServerStorage/SharedModules/ThreatTimerManager.luau#L207"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>ThreatTimerManager<!-- -->.</code><code class="green_DgR4">GetPhase</code><code>(</code><code>) → </code><code class="blue_P4bS">string</code></div><div>
+<p>The current threat phase (a <code>ThreatConfig.Phase</code> value). Read by MusicService.</p>
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
@@ -62,6 +64,22 @@ during a jump, and after game over. Every jump arrival resets to a full
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
                 &quot;line&quot;: 122,
+                &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ThreatTimerManager.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;GetPhase&quot;,
+            &quot;desc&quot;: &quot;The current threat phase (a `ThreatConfig.Phase` value). Read by MusicService.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;string\n&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 207,
                 &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ThreatTimerManager.luau&quot;
             }
         }
@@ -77,6 +95,6 @@ during a jump, and after game over. Every jump arrival resets to a full
         &quot;line&quot;: 19,
         &quot;path&quot;: &quot;src/ServerStorage/SharedModules/ThreatTimerManager.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#GetPhase" class="table-of-contents__link toc-highlight">.GetPhase</a></li><li><a href="#Initialize" class="table-of-contents__link toc-highlight">.Initialize</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
 </body>
 </html>
