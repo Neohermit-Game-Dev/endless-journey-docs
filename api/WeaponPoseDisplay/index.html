@@ -10,18 +10,20 @@ The copy is named `WeaponPoseConfig.DisplayName` with the attribute `PoseOf` = w
 name: the hold code reads it through `HoldAnimConfig.holdName`, and every weapon system
 that looks up `WeaponConfig[tool.Name]` ignores it (no fire, no ammo, no aim).
 It goes straight into the character and is destroyed when it leaves it (hotbar swap,
-death), so it never lands in the Backpack. Source: `ServerStorage.PoseDisplayWeapons`
-(Lobby), else `StarterPack` (Game Instance)."><meta data-rh="true" property="og:description" content="Display weapons for the weapon pose editor. On `EquipPoseDisplay(name)` the player
+death), so it never lands in the Backpack. Every request first unequips the player&#x27;s own
+weapon. Source: `ServerStorage.PoseDisplayWeapons` (Lobby), else
+`ServerStorage.WeaponTemplates` (Game Instance guns), else `StarterPack` (Grabhook)."><meta data-rh="true" property="og:description" content="Display weapons for the weapon pose editor. On `EquipPoseDisplay(name)` the player
 holds a script-free copy of that weapon (`WeaponPoseSchema.IsWeapon`), so the editor can
 show the hold of any pose weapon, owned or not. `&quot;&quot;` (or any other name) removes it.
 The copy is named `WeaponPoseConfig.DisplayName` with the attribute `PoseOf` = weapon
 name: the hold code reads it through `HoldAnimConfig.holdName`, and every weapon system
 that looks up `WeaponConfig[tool.Name]` ignores it (no fire, no ammo, no aim).
 It goes straight into the character and is destroyed when it leaves it (hotbar swap,
-death), so it never lands in the Backpack. Source: `ServerStorage.PoseDisplayWeapons`
-(Lobby), else `StarterPack` (Game Instance)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
-<script src="/endless-journey-docs/assets/js/runtime~main.6584685a.js" defer="defer"></script>
-<script src="/endless-journey-docs/assets/js/main.8ae4c845.js" defer="defer"></script>
+death), so it never lands in the Backpack. Every request first unequips the player&#x27;s own
+weapon. Source: `ServerStorage.PoseDisplayWeapons` (Lobby), else
+`ServerStorage.WeaponTemplates` (Game Instance guns), else `StarterPack` (Grabhook)."><link data-rh="true" rel="canonical" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay" hreflang="en"><link data-rh="true" rel="alternate" href="https://neohermit-game-dev.github.io/endless-journey-docs/api/WeaponPoseDisplay" hreflang="x-default"><link rel="stylesheet" href="/endless-journey-docs/assets/css/styles.f19ac96f.css">
+<script src="/endless-journey-docs/assets/js/runtime~main.5dae6637.js" defer="defer"></script>
+<script src="/endless-journey-docs/assets/js/main.172ce19e.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -36,20 +38,21 @@ death), so it never lands in the Backpack. Source: `ServerStorage.PoseDisplayWea
   name: the hold code reads it through <code>HoldAnimConfig.holdName</code>, and every weapon system
   that looks up <code>WeaponConfig[tool.Name]</code> ignores it (no fire, no ammo, no aim).
   It goes straight into the character and is destroyed when it leaves it (hotbar swap,
-  death), so it never lands in the Backpack. Source: <code>ServerStorage.PoseDisplayWeapons</code>
-  (Lobby), else <code>StarterPack</code> (Game Instance).
+  death), so it never lands in the Backpack. Every request first unequips the player's own
+  weapon. Source: <code>ServerStorage.PoseDisplayWeapons</code> (Lobby), else
+  <code>ServerStorage.WeaponTemplates</code> (Game Instance guns), else <code>StarterPack</code> (Grabhook).
 </p>
 </div></header></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [],
     &quot;properties&quot;: [],
     &quot;types&quot;: [],
     &quot;name&quot;: &quot;WeaponPoseDisplay&quot;,
-    &quot;desc&quot;: &quot;Display weapons for the weapon pose editor. On `EquipPoseDisplay(name)` the player\nholds a script-free copy of that weapon (`WeaponPoseSchema.IsWeapon`), so the editor can\nshow the hold of any pose weapon, owned or not. `\&quot;\&quot;` (or any other name) removes it.\nThe copy is named `WeaponPoseConfig.DisplayName` with the attribute `PoseOf` = weapon\nname: the hold code reads it through `HoldAnimConfig.holdName`, and every weapon system\nthat looks up `WeaponConfig[tool.Name]` ignores it (no fire, no ammo, no aim).\nIt goes straight into the character and is destroyed when it leaves it (hotbar swap,\ndeath), so it never lands in the Backpack. Source: `ServerStorage.PoseDisplayWeapons`\n(Lobby), else `StarterPack` (Game Instance).&quot;,
+    &quot;desc&quot;: &quot;Display weapons for the weapon pose editor. On `EquipPoseDisplay(name)` the player\nholds a script-free copy of that weapon (`WeaponPoseSchema.IsWeapon`), so the editor can\nshow the hold of any pose weapon, owned or not. `\&quot;\&quot;` (or any other name) removes it.\nThe copy is named `WeaponPoseConfig.DisplayName` with the attribute `PoseOf` = weapon\nname: the hold code reads it through `HoldAnimConfig.holdName`, and every weapon system\nthat looks up `WeaponConfig[tool.Name]` ignores it (no fire, no ammo, no aim).\nIt goes straight into the character and is destroyed when it leaves it (hotbar swap,\ndeath), so it never lands in the Backpack. Every request first unequips the player&#x27;s own\nweapon. Source: `ServerStorage.PoseDisplayWeapons` (Lobby), else\n`ServerStorage.WeaponTemplates` (Game Instance guns), else `StarterPack` (Grabhook).&quot;,
     &quot;realm&quot;: [
         &quot;Server&quot;
     ],
     &quot;source&quot;: {
-        &quot;line&quot;: 16,
+        &quot;line&quot;: 17,
         &quot;path&quot;: &quot;src/ServerScriptService/WeaponPoseDisplay.server.luau&quot;
     }
 }</pre></details></div></div></div></main></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with Moonwave.</div></div></div></footer></div>
